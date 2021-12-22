@@ -1,0 +1,214 @@
+<!-- Inheriting from parent -->
+{% extends 'layout.html' %}
+{% load static%}
+{%load bootstrap%}
+
+
+
+{% block title %}
+
+    <title> Login | Gharelu</title>
+
+{% endblock title%}
+
+
+<!-- Body content goes here -->
+{% block content %}
+
+<style>
+  
+  body{
+    height: 100vh;
+    background-image: linear-gradient(to right, #0093E9 , #80D0C7) !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: Poppins,'serif';
+  }
+  
+  .card{
+    overflow: hidden;
+    border: 0 !important;
+    border-radius: 20px !important;
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+  }
+  
+  .img-left{
+    width: 45%;
+    background:url('{% static 'images/signin.gif' %}')center no-repeat;
+  }
+  
+  .card-body{
+    padding: 1.5rem;
+  }
+  
+  .title{
+    margin-bottom: 3.5rem;
+    font-weight: 600;
+    font-size: 2.5rem;
+  }
+  
+  .form-input{
+    position: relative;
+    padding-left: 20px;
+  }
+  
+  .form-input input{
+    width: 100%;
+    height: 45px;
+    padding-left: 40px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    box-shadow: none;
+    border: 1px solid #00000020;
+    border-radius: 3px;
+    outline: none;
+    background: transparent;
+  }
+  
+  .form-input span{
+    position: absolute;
+    top: 10px;
+    padding-left: 15px;
+    color: #007bff;
+  }
+  
+  
+  .form-input input::placeholder{
+    color: black;
+    padding-left: 10px;
+    opacity: 0.5;
+
+  }
+  
+  .form-input input:focus, .form-input input:valid{
+    border: 2px solid #007bff;
+  }
+  
+  .form-input input:focus::placeholder{
+    color: #454b69;
+  }
+  
+  .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before{
+    background-color: #007bff !important;
+    border: 0px;
+  }
+  
+  .form-box button[type="submit"]{
+    margin-top: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+    background: #007bff;
+    color: #fff;
+    font-size: 90%;
+    font-weight: bold;
+    letter-spacing: .1rem;
+    transition: 0.5s;
+    padding: 12px;
+  }
+  
+  .form-box button[type="submit"]:hover{
+    background: #0069d9;
+  }
+  
+  .forget-link, .register-link{
+    color: #007bff;
+    font-weight: semibold;
+  }
+  
+  .forget-link:hover, .register-link:hover{
+    color: #0069d9;
+    text-decoration: none;
+  }
+  
+  .form-box .btn-social{
+    color: white !important;
+    border: 0;
+    font-weight: bold;
+  }
+  
+  
+  .form-box .btn-google{
+    background: #da3f34;
+  }
+  
+  
+  .form-box .btn-google:hover{
+    background: #bf3b31;
+  }
+  
+</style>
+
+
+<div class="container">
+  <div class="row px-3">
+    <div class="col-lg-10 col-xl-9 card flex-row mx-auto px-0">
+      <div class="img-left d-none d-md-flex mr-1">
+
+      </div>
+
+      <div class="card-body">
+
+        <h4 class="title text-left px-4 mt-4">
+          LOGIN
+        </h4>
+
+        <form class="form-box px-3">
+
+          <div class="form-input">
+            <span><i class="fa fa-user fa-lg aria-hidden="true""></i></span>
+            <input type="username" name="username" placeholder="johndoe" tabindex="10" required>
+          </div>
+
+          <div class="form-input">
+            <span><i class="fa fa-lock fa-lg aria-hidden="true" "></i></span>
+            <input type="password" name="password" placeholder="********" required>
+          </div>
+
+          <div class="d-flex justify-content-around  mb-4">
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="cb1" name="">
+              <label class="custom-control-label" for="cb1">Remember me</label>
+            </div>
+            <a href="#" class="forget-link">
+              Forget Password?
+            </a>
+          </div>
+
+        
+
+          <div class="mb-3">
+            <button type="submit" class="btn btn-block text-uppercase">
+              Login
+            </button>
+          </div>
+
+         
+
+          <div class="text-center mb-3">
+            or login with
+          </div>
+
+          
+            <div class=" container d-flex justify-content-center"  id="google-icon">
+                <a href="#" style="color: #da3f34;">
+              <span><i class="fa fa-google fa-2x"></i></span>
+                </a>
+          </div>
+          
+
+          <hr class="my-4">
+
+          <div class="text-center mb-2">
+            Don't have an account?
+            <a href="{% url 'signup'%}" class="register-link">
+              Register
+          </div>
+        </form>
+      </div>
+    </div>
+</div>
+{% endblock content %}
+

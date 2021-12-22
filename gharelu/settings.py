@@ -45,6 +45,10 @@ INSTALLED_APPS = [
     'customers.apps.CustomersConfig',
     'professionals.apps.ProfessionalsConfig',
     'homepage.apps.HomepageConfig',
+
+    # BootstrapFORM install
+    'bootstrapform',
+    'passlib'
 ]
 
 MIDDLEWARE = [

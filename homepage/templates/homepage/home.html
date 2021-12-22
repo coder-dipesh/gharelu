@@ -1,0 +1,158 @@
+<!-- Inheriting from parent -->
+{% extends 'layout.html' %}
+{%load bootstrap%}
+{%load static%}
+
+
+<!-- Site title goes here -->
+{% block title %}
+
+    <title> Home | Gharelu</title>
+
+{% endblock title%}
+
+
+
+<!-- Body content goes here -->
+{% block content %}
+
+{% include 'navbar.html' %}
+
+
+
+
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        /* background-color: black; */
+
+    }
+    body{
+        background-image: linear-gradient(to right, #0093E9 , #80D0C7) !important;
+
+    }
+    .whoAreyou{
+        width: auto;
+        height: auto;
+        /* background-color: black; */
+    }
+    .logo_section{
+        width: 95vw;
+        margin: auto;
+        height: 5rem;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+    }
+    .logo_section a img{
+        margin-top: 2rem;
+        width: 10rem;
+        height: 10rem;
+        cursor: pointer;
+    }
+    .main_div{
+        padding-top: 30rem;
+        padding-right: 10rem;
+        width: 100vw;
+        height: 80vh;
+        background-image: linear-gradient(to right, #0093E9 , #80D0C7) !important;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: white;
+
+    }
+    .main_div h1{
+        font-size: 3rem;
+        font-family: 'Poppins';
+    }
+    .acc_div{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+
+    }
+    .acc_div .btn{
+        background-color: white;
+        height: 10vw;
+        min-height: 8rem;
+        max-height: 20rem;
+        width: 10vw;
+        min-width: 8rem;
+        max-width: 20rem;
+        border-radius: 3px;
+        border: none;
+        outline: none;
+        margin-top: 3rem;
+        margin-right: 2.5rem;
+        position: relative;
+        cursor: pointer;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+
+    }
+    .acc_div .btn:nth-child(1){
+        background-image: url('{% static 'images/admins.png' %}');
+
+    }
+    .acc_div .btn:nth-child(2){
+        background-image: url('{% static 'images/customers.png' %}');
+
+    }
+    .acc_div .btn:nth-child(3){
+        background-image: url('{% static 'images/professionals.png' %}');
+
+    }
+    .acc_div .btn :hover{
+        box-shadow: inset 0 0 0 5px rgba(241, 240, 240, 0.9);
+
+    }
+    .acc_div .btn span{
+        width: inherit;
+        position: absolute;
+        bottom: -2rem;
+        left: 0;
+        text-transform: capitalize;
+        letter-spacing: .1rem;
+        color: wheat;
+
+    }
+
+
+</style>
+
+
+<div class = "whoAreyou">
+    <div class = "logo_section">
+        <a href = "#"><img src ="{% static 'images/gharelu.png'%}"></a>
+    
+        <div class = "main_div">
+            <h1>Who are you?</h1>
+            <div class = "acc_div">
+                <button class = "btn" type="submit"> 
+                    <a href="../../../authentications/templates/authentications/login.html">
+                         <span>ADMIN</span>
+                    </a>
+                </button>
+                <button class = "btn" type="submit"> 
+                    <a href="/authentications/templates/authentications/signup.html">
+                        <span>CUSTOMER</span>
+                    </a>
+                </button>
+                <button class = "btn" type="submit"> 
+                    <a href="/authentications/templates/authentications/signup.html">
+                        <span>PROFRESSIONAL</span>
+                    </a>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
