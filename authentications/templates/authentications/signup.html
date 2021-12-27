@@ -11,26 +11,6 @@
 <!-- Body content goes here -->
 {% block content %}
 
-<!-- <form action="" method="POST">
-{%csrf_token%}
-
-{{form.username.label}}
-{{form.username}}
-
-{{form.email.label}}
-{{form.email}}
-
-{{form.password1.label}}
-{{form.password1}}
-
-{{form.password1.label}}
-{{form.password1}}
-
-<input type="submit" name="Create user">
-
-</form> -->
-
-
 
 <style>
     body {
@@ -47,7 +27,6 @@
         overflow: hidden;
         border: 0 !important;
         border-radius: 20px !important;
-        box-shadow:;
     }
 
     .img-left {
@@ -99,7 +78,6 @@
         position: absolute;
         top: 10px;
         padding-left: 15px;
-        /* color: #4e0fe0ee; */
         color: #007bff;
     }
 
@@ -109,12 +87,8 @@
         padding-left: 10px;
         opacity: 0.5;
     }
-/* 
-    .form-input input:focus{
-        /* color: #454b69; */
 
-
-    } */
+    
     .form-input input:valid {
          border: 2px solid #067bf0; 
     }
@@ -161,16 +135,16 @@
         font-weight: bold;
     }
 
-
     .form-box .btn-google {
         background: #a72c1f;
     }
-
 
     .form-box .btn-google:hover {
         background: #bf3b31;
     }
 </style>
+
+  {% include 'message.html' %}
 
 <div class="container">
     <div class="row px-3">
@@ -183,38 +157,34 @@
                     SIGN UP
                 </h4>
 
-                <form action="" method="POST" class="form-box px-3">
+                <form action="" method="POST" class="form form-box px-3" id="signup-form">
                     {% csrf_token %}
 
+                    
                     <div class="form-input">
                         <span><i class="fa fa-user"  aria-hidden="true"></i></span>
-                        <!-- <input type="text" name="username" placeholder="johndoe" tabindex="10" required> -->
-                {{form.username}}
-
+                        {{form.username}}
                     </div>
 
                     <div class="form-input">
                         <span><i class="fa fa-envelope fa-sm" aria-hidden="true"></i></span>
-                <!-- <input type=" email" name="email" placeholder="you@example.com" required> -->
                 {{form.email}}
                     </div>
-
 
                     <div class=" d-flex  justify-content-start ">
                         <div class=" pass-input mb-1  form-input px-3.5">
                             <span><i class="fa fa-lock" aria-hidden="true"></i></i></span>
-                            <!-- <input type="password" name="password" class="form-control pass-password" id="Password" placeholder="Password"> -->
+                            
                             {{form.password1}}
                         </div>
                         <div class=" pass-input mb-1 form-input">
                             <span><i class="fa fa-lock" aria-hidden="true"></i></i></span>
-                            <!-- <input type="password" name="confirm_password" class="form-control " id="Password" placeholder="Confirm Password"> -->
-                            {{form.password1}}
+                           
+                            {{form.password2}}
                         </div>
                     </div>
-
                     <div class="mb-sm-3">
-                        <button type="submit" class="btn btn-block text-uppercase">
+                        <button type="submit" value="" class="btn btn-block text-uppercase">
                             Sign up
                         </button>
                     </div>
@@ -229,10 +199,7 @@
                             <span><i class="fa fa-google fa-2x"></i></span>
                         </a>
                     </div>
-
-
                     <hr class="my-4">
-
                     <div class="text-center mb-2">
                         Already have an account?
                         <a href="{% url 'login'%}" class="register-link">
@@ -242,26 +209,6 @@
             </div>
         </div>
 </div>
-<script>
-
-var form_fields = document.getElementsByTagName('input')
-		form_fields[1].placeholder='username';
-		form_fields[2].placeholder='you@example.com';
-		form_fields[3].placeholder='********';
-		form_fields[4].placeholder='********';
-
-
-		for (var field in form_fields){	
-			form_fields[field].className += ' form-control'
-		}
-
-</script>
-
-
-
-
-
-
 
 {% endblock content %}
 

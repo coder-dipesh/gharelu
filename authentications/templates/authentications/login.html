@@ -138,8 +138,19 @@
   .form-box .btn-google:hover{
     background: #bf3b31;
   }
+  #messages{
+    background-color: #da3f34;
+    border-radius: 3px;
+    color: #f7f7f7;
+    padding: .1rem;
+    display: flex;
+    justify-content: center;
+    margin-left: 1rem;
+  }
   
 </style>
+
+{% include 'message.html' %}
 
 
 <div class="container">
@@ -151,19 +162,21 @@
 
       <div class="card-body">
 
+       
         <h4 class="title text-left px-4 mt-4">
           LOGIN
         </h4>
 
-        <form class="form-box px-3">
+        <form method="POST" action="" class="form-box px-3">
+          {%csrf_token%}
 
           <div class="form-input">
-            <span><i class="fa fa-user fa-lg aria-hidden="true""></i></span>
-            <input type="username" name="username" placeholder="johndoe" tabindex="10" required>
+            <span><i class="fa fa-user fa-lg" aria-hidden="true"></i></span>
+            <input type="text" name="username" placeholder="johndoe" tabindex="10" required>
           </div>
 
           <div class="form-input">
-            <span><i class="fa fa-lock fa-lg aria-hidden="true" "></i></span>
+            <span><i class="fa fa-lock fa-lg" aria-hidden="true" ></i></span>
             <input type="password" name="password" placeholder="********" required>
           </div>
 
@@ -176,22 +189,14 @@
               Forget Password?
             </a>
           </div>
-
-        
-
           <div class="mb-3">
             <button type="submit" class="btn btn-block text-uppercase">
               Login
             </button>
           </div>
-
-         
-
           <div class="text-center mb-3">
             or login with
           </div>
-
-          
             <div class=" container d-flex justify-content-center"  id="google-icon">
                 <a href="#" style="color: #da3f34;">
               <span><i class="fa fa-google fa-2x"></i></span>

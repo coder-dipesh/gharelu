@@ -1,29 +1,48 @@
+from django.contrib import auth
 from django.shortcuts import redirect, render
-from django.contrib.auth.hashers import make_password
-from django.contrib.auth.forms import UserCreationForm, UsernameField
 from django.contrib.auth.models import User
 from django.contrib import messages
-from django.contrib.auth import authenticate,login
-from authentications.models import UserSignUp
+from django.contrib.auth import authenticate, login, logout
 from .forms import CreateUserForm
-from passlib.hash import pbkdf2_sha256
+
 
 # Methodes goes here
-def login(request):
+def loginPage(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        
+        user = authenticate(request, username=username, password=password)
+        
+        if user is not None:
+            auth.login(request, user)
+            return redirect('home')
+        else:
+            messages.error(request, "Username or Password is incorrect.")
+            return redirect('login')
     context={}
     return render(request, 'authentications/login.html',context)
 
 
 def signup(request):
-    form = CreateUserForm()
-    if request.method == 'POST':
-        form = CreateUserForm(request.POST)
-        if form.is_valid():
-            form.save()
-            user = form.cleaned_data.get('username')
-            messages.success(request, user + 'your account created successfully.')
 
-            return redirect('login')
+    if request.method=='POST':
+        userdata = CreateUserForm(request.POST)
+        if userdata.is_valid():
+            userdata.save()
+            messages.add_message(request, messages.SUCCESS, 'User registered successfully!' )
+            return redirect('/auth/login')
+        else:
+            context = {'form' : userdata}
+            messages.add_message(request, messages.ERROR, 'Unable to register user' )
+            return render(request, 'authentications/signup.html',context)
 
-    context = {'form':CreateUserForm}
-    return render(request, 'authentications/signup.html',context)
+
+    context ={'form' : CreateUserForm}
+    return render(request, 'authentications/signup.html', context)
+
+
+
+
+def home(request):
+    return render(request, 'authentications/home.html')
