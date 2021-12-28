@@ -16,7 +16,6 @@
 <!-- Body content goes here -->
 {% block content %}
 
-{% include 'navbar_flash.html' %}
 
 
 
@@ -83,12 +82,8 @@
         background-image: url('{% static 'images/professionals.png' %}');
 
     }
-    /* .acc_div .btn :hover{
-        box-shadow: inset 0 0 0 5px rgba(241, 240, 240, 0.9);
 
-    } */
     .acc_div .btn span{
-      
         width: inherit;
         position: absolute;
         bottom: -2rem;
@@ -101,25 +96,22 @@
 
 
 </style>
-
-
-    
         <div class = "main_div">
             <h1>Who are you?</h1>
 
             <div class = "acc_div">
                 <button class = "btn" type="submit"> 
-                    <a href="../../../authentications/templates/authentications/login.html">
+                    <a href="{% url 'signin' %}">
                          <span>ADMIN</span>
                     </a>
                 </button>
                 <button class = "btn" type="submit"> 
-                    <a href="/authentications/templates/authentications/signup.html">
+                    <a href="{% url 'signin' %}">
                         <span>CUSTOMER</span>
                     </a>
                 </button>
                 <button class = "btn" type="submit"> 
-                    <a href="/authentications/templates/authentications/signup.html">
+                    <a href="{% url 'signin' %}">
                         <span>PROFESSIONAL</span>
                     </a>
                 </button>

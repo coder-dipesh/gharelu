@@ -1,0 +1,25 @@
+<!-- Inheriting from parent -->
+{% extends 'layout.html' %}
+{%load bootstrap%}
+{%load static%}
+
+
+<!-- Site title goes here -->
+{% block title %}
+
+    <title> Admin Dashboard | Gharelu</title>
+
+{% endblock title%}
+
+
+
+<!-- Body content goes here -->
+{% block content %}
+
+{% include 'navbar.html' %}
+
+
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In, modi! Earum ducimus quod doloribus possimus, ut suscipit harum dicta deleniti doloremque, veniam ullam. Dolorem quaerat deserunt veniam, delectus commodi ab.</p>
+
+
+{%endblock content%}

@@ -27,8 +27,8 @@
       font-family: 'Poppins', 'Times New Roman', serif;
       font-weight: 500;
   }
-  .navbar-brand{
-    
+  .d-flex a{
+    text-decoration: none;
   }
 
  
@@ -42,33 +42,10 @@
       <a class="navbar-brand" href="#">
         <img src="{% static 'images/site-iconG.png' %}" alt="Gharelu" width="64" height="64" >
       </a>
-  
-  <!-- Toggle button for responsiveness -->
-      <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#toggleMobileMenu" aria-controls="toggleMobileMenu" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-      </button> -->
-  
-      <!-- <div class="collapse navbar-collapse" id="toggleMobileMenu" > -->
-  
-        <!-- <ul class="nav navbar-nav ms-auto  mb-2 mb-lg-0 links" id="sub-links">
 
-          <li class="nav-item">
-            <a aria-current="page" href="#">HOME</a>
-          </li>
-          <li class="nav-item">
-            <a  aria-current="page" href="#">SERVICES</a>
-          </li>
-          <li class="nav-item">
-            <a  aria-current="page" href="#">ABOUT US</a>
-          </li>
-          <li class="nav-item">
-            <a  aria-current="page" href="#">SUPPORT</a>
-          </li>
-        </ul> -->
-<!-- Sign In Button -->
 
 <form class="d-flex">
-          <button class="btn btn-outline-success l-btn" type="submit" >Sign in</button>
+          <button class="btn btn-outline-success l-btn"> <a href="{% url 'signin'  %}">Sign in</a> </button>
 </form>
 
     </div>
