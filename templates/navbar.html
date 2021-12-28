@@ -43,6 +43,10 @@
       text-decoration: none;
       color: rgb(59, 214, 119);
   }
+
+  .d-flex a{
+    text-decoration: none;
+  }
   </style>
 
 
@@ -78,7 +82,7 @@
         </ul>
 <!-- Sign In Button -->
 <form class="d-flex">
-          <button class="btn btn-outline-success l-btn" type="submit">Sign in</button>
+          <button class="btn btn-outline-success l-btn" type="submit"> <a href="{% url 'signout'  %}">Sign out</a> </button>
 </form>
 
     </div>
