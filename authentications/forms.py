@@ -2,16 +2,6 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
-# User = get_user_model()
-
-# class UserRegistrationForm(forms.ModelForm):
-#     confirm_password = forms.CharField(max_length=50,required=True)
-#     class Meta:
-#         model = User
-#         fields=["username","email","password","confirm_password"]
-
-        # fields = '__all__'
-        
 
 class CreateUserForm(UserCreationForm):
 
