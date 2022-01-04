@@ -197,16 +197,23 @@
           <div class="text-center mb-3">
             or login with
           </div>
+        </form>
+
+
+
+          <form method="post" action="/accounts/google/login/?process=login">
+            {% csrf_token %}
             <div class=" container d-flex justify-content-center"  id="google-icon">
+              <button type="submit">
                 <a href="#" style="color: #da3f34;">
               <span><i class="fa fa-google fa-2x"></i></span>
                 </a>
+              </button>
           </div>
-          <form method="post">
-            {% csrf_token %}
-            <button type="submit">Continue</button>
+          <!-- <button type="submit">Continue</button> -->
           </form>
-
+          
+        
           <hr class="my-4">
 
           <div class="text-center mb-2">
@@ -214,7 +221,7 @@
             <a href="{% url 'signup'%}" class="register-link">
               Register
           </div>
-        </form>
+            
       </div>
     </div>
 </div>
