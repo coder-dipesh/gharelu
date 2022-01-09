@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-y^1xq_w$#rson=+3ug0=rd8977!ya3a#kk)erm(w(jg2057!^k
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost']
 
 
 # Application definition
@@ -37,8 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     
     #FIRST STEP TO SETUP
+
     #App Registration
     'admins.apps.AdminsConfig',
     'authentications.apps.AuthenticationsConfig',
@@ -48,8 +50,17 @@ INSTALLED_APPS = [
 
     # BootstrapFORM install
     'bootstrapform',
-    
+
+
+    #Google Oauth_app
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+
 ]
+
+# SITE_ID= 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -97,6 +108,11 @@ DATABASES = {
     }
 }
 
+ACCOUNT_FORMS = {
+    'login': 'authentications.forms.MyCustomLoginForm',
+    'signup': 'authentications.forms.MyCustomSignupForm'
+    }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -141,9 +157,40 @@ STATICFILES_DIRS=[
 
 # Login Required url setting
 
-LOGIN_URL = "/auth/login"
+LOGIN_URL = "/auth/signin"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# Manually Added by Developer
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+    # 'account.authentication.EmailAuthBackend',
+    # 'social_core.backends.google.GoogleOAuth2',
+]
+
+
+# The SCOPE specifies what is requested from Google APIs.
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'offline', #To refresh authentication in the background, we set 'access_type' to offline from 'online'.
+        }
+    }
+}
+
+# After google oauth login reirect url
+
+LOGIN_REDIRECT_URL = '/'
+
+
