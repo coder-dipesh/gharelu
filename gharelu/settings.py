@@ -108,6 +108,11 @@ DATABASES = {
     }
 }
 
+ACCOUNT_FORMS = {
+    'login': 'authentications.forms.MyCustomLoginForm',
+    'signup': 'authentications.forms.MyCustomSignupForm'
+    }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -187,3 +192,5 @@ SOCIALACCOUNT_PROVIDERS = {
 # After google oauth login reirect url
 
 LOGIN_REDIRECT_URL = '/'
+
+

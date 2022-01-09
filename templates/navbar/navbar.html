@@ -12,6 +12,7 @@
       transition: all 0.2s ease-in-out;
   }
 
+   
   .l-btn:hover{
     opacity: .9;
     box-shadow: 0 5px 15px rgba(24, 219, 73, 0.4);
@@ -47,6 +48,11 @@
   .d-flex a{
     text-decoration: none;
   }
+  .d-flex a:hover{
+    color: #fff;
+
+  }
+
   </style>
 
 
@@ -68,7 +74,7 @@
         <ul class="nav navbar-nav ms-auto  mb-2 mb-lg-0 links" id="sub-links">
 
           <li class="nav-item">
-            <a aria-current="page" href="#">HOME</a>
+            <a aria-current="page" href="{% url 'home' %}">HOME</a>
           </li>
           <li class="nav-item">
             <a  aria-current="page" href="#">SERVICES</a>
