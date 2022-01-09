@@ -1,12 +1,11 @@
+from allauth.account.forms import LoginForm, SignupForm
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
-
 class CreateUserForm(UserCreationForm):
 
     # Overriding usercreatiion form to design signup page
-
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['username'].widget.attrs.update({
@@ -48,7 +47,23 @@ class CreateUserForm(UserCreationForm):
             'maxlength':'22',
             'minlength':'8',
         })
-
     class Meta:
         model = User
         fields = ['username','email','password1','password2']
+
+
+
+
+class MyCustomSignupForm(SignupForm):
+
+    def save(self, request):
+        print('hehee')
+        user = super(MyCustomSignupForm, self).save(request)
+        print(user)
+        return user
+
+class MyCustomLoginForm(LoginForm):
+
+    def login(self, *args, **kwargs):
+        print("Lo")
+        return super(MyCustomLoginForm, self).login(*args, **kwargs)

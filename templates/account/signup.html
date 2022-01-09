@@ -3,17 +3,20 @@
 {%load bootstrap%}
 {% load static %}
 
+
+
 {% block title %}
-    <title> Professional Signup | Gharelu</title>
+    <title> Signup | Gharelu</title>
 {% endblock title%}
 
 
 <!-- Body content goes here -->
 {% block content %}
 
-
 <style>
-    body {
+
+
+body {
         height: 95vh;
         background-image: linear-gradient(to right, #0093E9, #80D0C7) !important;
         display: flex;
@@ -31,7 +34,9 @@
 
     .img-left {
         width: 50%;
-        background: url('{% static 'images/signup.gif' %}')center no-repeat;
+        /* background: url('{% static "images/signup.gif" %}')center no-repeat; */
+        background: url("/static/images/signup.gif" )center no-repeat;
+
     }
 
     .card-body {
@@ -74,6 +79,12 @@
 
     }
 
+    .form-input input:valid{
+        border: 1px solid #00000020 !important;
+
+    }
+
+
     .form-input span {
         position: absolute;
         top: 10px;
@@ -90,7 +101,7 @@
 
     
     .form-input input:valid {
-         border: 2px solid #067bf0; 
+        border: 2px solid #067bf0; 
     }
 
     .form-input input:focus::placeholder {
@@ -142,9 +153,27 @@
     .form-box .btn-google:hover {
         background: #bf3b31;
     }
+
+    .social-auth button{
+        background-color: #fff;
+        border: none;
+    }
+
+    .social-auth button a{
+        color:#dd4b39; 
+    }
+
+    .social-auth button a i:hover{
+        transition: all 0.5s ease-in-out;
+        transform: scale(1.2);
+        text-shadow: 1px 1px 5px #dd4b39;
+    }
+
+
+
 </style>
 
-  {% include 'message.html' %}
+{% include 'message.html' %}
 
 <div class="container">
     <div class="row px-3">
@@ -174,15 +203,14 @@
                     <div class=" d-flex  justify-content-start ">
                         <div class=" pass-input mb-1  form-input px-3.5">
                             <span><i class="fa fa-lock" aria-hidden="true"></i></i></span>
-                            
                             {{form.password1}}
                         </div>
                         <div class=" pass-input mb-1 form-input">
                             <span><i class="fa fa-lock" aria-hidden="true"></i></i></span>
-                           
-                            {{form.password2}}
+                           {{form.password2}}
                         </div>
                     </div>
+
                     <div class="mb-sm-3">
                         <button type="submit" value="" class="btn btn-block text-uppercase">
                             Sign up
@@ -192,23 +220,48 @@
                     <div class="text-center mb-3">
                         or continue with
                     </div>
+                    </form>
 
 
-                    <div class=" container d-flex justify-content-center" id="google-icon">
-                        <a href="#" style="color: #da3f34;">
-                            <span><i class="fa fa-google fa-2x"></i></span>
-                        </a>
+                    <form method="post" action="/accounts/google/login/?process=login">
+                        {% csrf_token %}
+                        <div class="social-auth container d-flex justify-content-center">
+                            <button type="submit">
+                                <a href="">
+                                    <i class="fa fa-google fa-2x"></i>
+                                </a>
+                            </button>
                     </div>
+                    </form>
+
                     <hr class="my-4">
                     <div class="text-center mb-2">
                         Already have an account?
                         <a href="{% url 'signin'%}" class="register-link">
                             Login
+                        </a>
                     </div>
-                </form>
             </div>
         </div>
 </div>
+
+<script>
+
+    var form_fields = document.getElementsByTagName('input')
+
+    form_fields[1].placeholder = 'johndoe';
+
+    form_fields[2].placeholder = 'you@example.com';
+
+    form_fields[3].placeholder = '********';
+
+    form_fields[4].placeholder = '********';
+
+
+
+    
+
+</script>
 
 {% endblock content %}
 
