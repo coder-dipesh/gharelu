@@ -12,20 +12,11 @@
 <!-- Body content goes here -->
 {% block content %}
 
-{% include 'navbar/navbar.html' %}
+{% include 'navbar/dashboard-navbar.html' %}
 
 <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. In, modi! Earum ducimus quod doloribus possimus, ut suscipit harum dicta deleniti doloremque, veniam ullam. Dolorem quaerat deserunt veniam, delectus commodi ab.</h1>
 
-<!-- <button type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="Bottom popover">
-    Popover on bottom
-  </button> -->
 
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.2/dist/cjs/popper.min.js"></script>
-<script>
-    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
-var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-  return new bootstrap.Popover(popoverTriggerEl)
-})
-</script>
+
 
 {%endblock content%}
