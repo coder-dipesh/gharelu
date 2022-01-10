@@ -4,15 +4,22 @@ from django.contrib.auth.decorators import login_required
 from authentications.auth import customer_only
 from authentications.forms import ProfileForm
 from django.contrib import messages
-import os
-
+from homepage.models import Order
+from professionals.models import Service
+from homepage.filters import ServiceFilter
 
 # Create your views here.
 
 @login_required
 @customer_only
 def customerDashboard(request):
-    return render(request, 'customers/customerDashboard.html')
+    services = Service.objects.all().order_by('-id')
+    service_filter = ServiceFilter(request.GET, queryset=services)
+
+    services_final = service_filter.qs 
+
+    context = {'services':services_final , 'service_filter':service_filter}
+    return render(request, 'customers/customerDashboard.html',context)
 
 
 @login_required
@@ -40,8 +47,6 @@ def customerProfile(request):
 def customerUpdateProfile(request):
     profile= request.user.profile # Getting currently logged in user data
     print(profile)
-
-
     if request.method == 'POST':
         print('hello')
         # Delete image from uploads static after changing new image
@@ -60,3 +65,19 @@ def customerUpdateProfile(request):
 
     context = {'profileUpdateForm':ProfileForm(instance=profile)}
     return render(request, 'customers/customerUpdateProfile.html', context)
+
+@login_required
+@customer_only
+def myBookings(request):
+    user = request.user
+    servicePending = Order.objects.filter(user=user, status="Pending").order_by('-id')
+    serviceApproved = Order.objects.filter(user=user, status="Approved").order_by('-id')
+    serviceDeclined = Order.objects.filter(user=user, status="Declined").order_by('-id')
+    context = {
+        'servicePending': servicePending,
+        'serviceApproved': serviceApproved,
+        'serviceDeclined': serviceDeclined,
+        'activate_mybookings': 'active'
+    }
+    return render(request, 'customers/myBookings.html',context)
+

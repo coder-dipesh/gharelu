@@ -1,6 +1,5 @@
-from os import name
 from django.urls import path
-from . import views
+from admins import views
 
 urlpatterns = [
     path('',views.adminDashboard, name='admins'),

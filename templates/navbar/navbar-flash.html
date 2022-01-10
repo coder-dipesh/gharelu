@@ -44,13 +44,18 @@
     color: #fff;
     text-decoration: none;
   }
-
+header{
+  margin-bottom: 4.6rem;
+}
  
+#usr_name{
+  color: #00EEB6;
+}
   </style>
 
 
 <header>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark nav-bar justify-content-between" >
+  <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark nav-bar justify-content-between" >
     <div class="container-fluid d-flex">
   
       <a class="navbar-brand" href="/">
@@ -58,7 +63,12 @@
       </a>
 
       {% if user.is_authenticated %}
-      <a href="#">{{user.username}}</a>
+
+      {% if user.is_staff %}
+      <a id="usr_name" href="/professionals">@{{user.username}}</a>
+      {% elif user.is_active %}
+      <a id="usr_name" href="/customers">@{{user.username}}</a>
+      {% endif %}
 
       {% else %}
       <a class="btn btn-outline-success l-btn" href="{% url 'signin'  %}">Sign in</a>

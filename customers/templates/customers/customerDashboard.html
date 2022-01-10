@@ -10,29 +10,196 @@
 
 <!-- Body content goes here -->
 {% block content %} {% include 'navbar/customer-navbar.html' %}
-<div class="container-fluid" style="margin-top: 5.6rem">
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. In, modi! Earum ducimus quod doloribus possimus, ut
-    suscipit harum dicta deleniti doloremque, veniam ullam. Dolorem quaerat deserunt veniam, delectus commodi ab.
-  </p>
+<style>
+ body{
+        font-family: Poppins;
+    }
+    .image{
+    display: flex;
+    width: 100%;
+    height: 700px;
+    background:url("/static/images/servicepage.png") no-repeat center;
+    background-size: cover;
+    background-attachment: fixed;
+    }
 
-  <h1>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. In, modi! Earum ducimus quod doloribus possimus, ut
-      suscipit harum dicta deleniti doloremque, veniam ullam. Dolorem quaerat deserunt veniam, delectus commodi ab.
-    </p>
-      <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. In, modi! Earum ducimus quod doloribus possimus, ut
-    suscipit harum dicta deleniti doloremque, veniam ullam. Dolorem quaerat deserunt veniam, delectus commodi ab.
-  </p>
+    .row{
+        display: flex;
+        flex-wrap: wrap;
+    }
 
-  <h1>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. In, modi! Earum ducimus quod doloribus possimus, ut
-      suscipit harum dicta deleniti doloremque, veniam ullam. Dolorem quaerat deserunt veniam, delectus commodi ab.
-    </p>
-  </h1>
+.image-content{
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+  color: white;
+  font-weight: bold;
+  border: 3px solid #f1f1f1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 80%;
+  padding: 20px;
+  text-align: center;
+}
+
+    .image .image-content .words {
+        background-color: rgba(255, 255, 255, 0.60);
+        background-size: 300px 100px;
+        font-size: 30px;
+        font-weight: 700;
+        color: rgb(0, 0, 0);
+        text-align: center;
+        padding: 50px 0;
+        margin-top: 18rem;
+}
+
+.image .image-content .sub-info{
+         background-color: rgba(255, 255, 255, 0.60);
+        color: rgb(0, 0, 0);
+        font-weight: 450;
+        font-size: 25px;
+        text-align: center;
+        padding-top: 1rem;
+        padding-left: 3rem;
+    }
+
+.content .container{
+    font-size: 40px;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+
+}
+
+label{
+  display:none;
+}
+
+#id_service_contains_location{
+  height: 45px;
+  width:30%;
+
+  box-sizing: border-box;
+    box-shadow: none;
+    border: 1px solid #00000020;
+    border-radius: 3px;
+    outline: none;
+    background: transparent;
+}
+
+#id_service_contains_name{
+  width:30%;
+  height: 45px;
+  margin-top: 1rem;
+  box-sizing: border-box;
+    box-shadow: none;
+    border: 1px solid #00000020;
+    border-radius: 3px;
+    outline: none;
+    background: transparent;
+}
+#btn_search, #btn_clear{
+  height: 45px;
+
+}
+
+#btn_clear{
+  text-decoration: none;
+  text-align: initial;
+}
+
+@media (max-width: 426px) {
+  #id_service_contains_location{
+    width:100%;
+  }
+  #id_service_contains_name{
+    width:100%;
+  }
+  #btns{
+    display:flex;
+    flex-direction: column;
+  }
+  #btn_clear{
+    margin-top: 1rem;
+  }
+}
+  
+
+
+</style>
+
+
+<section>
+  <div class="image"></div>
+    <div class="container"><div class="row">
+        <div class="image-content">
+            <div class="words">Gharelu is Your Home Repair & Service Expert.
+              </div>
+             <p class="sub-info">For all kinds of Renovation, Installation, Repair & Maintenance services for Offices, Homes, Hospitals, Schools, etc.</p>
+             </div></div>
+</section>
+
+<div class="content" id="services">
+        <div class="container">
+            <h2 style="color: rgb(0, 253, 21);    font-size: 40px;    text-align: center;" class="m-4">
+              Select Your Service</h2>
+        </div>
 </div>
+
+  <div class="card card-body text-center py-4 mb-4">
+    <form method="GET">
+
+      {{ service_filter.form }}
+      <span class="mt-2" id="btns">
+      <button type="submit" class="btn btn-primary btn-md" id="btn_search" >Search</button>
+      <a href="/service" class="btn btn-outline-danger btn-md"  id="btn_clear">Clear</a>
+</span>
+    </form>
+  </div>
+
+<div class="container py-4">
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for i in services %}
+
+  <div class="col">
+    <div class="card bg-dark h-100">
+      <img src="/{{i.service_photo}}" class="card-img-top" alt="Hollywood Sign on The Hill"/>
+      <div class="card-body"> 
+        <h5 class="card-title text-white mb-4 text-uppercase">{{ i.service_name }}</h5>
+
+        <p class="card-text">
+          {{i.service_description}}
+        </p>
+        <p class="card-text">
+        {{i.service_category.category_name}}
+
+        </p>
+        <p class="card-text">
+          {{i.service_location}}
+        </p>
+        <p class="card-text">
+          RS.{{i.service_price}}
+        </p>
+        <div class="card-body">
+        <a href="/book-service/{{i.id}}" class="btn btn-primary">Book Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+</div>
+
+<script>
+
+    var form_fields = document.getElementsByTagName('input')
+
+    form_fields[0].placeholder = 'Enter a location';
+
+    form_fields[1].placeholder = 'Enter a service';
+
+</script>
 {%endblock content%}
 
 

@@ -4,7 +4,6 @@
   .nav-bar {
     top: 0;
     width: 100%;
-    /* position: fixed; */
     box-shadow: 0 0.2rem 0.5rem 0 rgba(0, 0, 0, 0.3);
     font-family: "Poppins", "Times New Roman", serif;
     font-weight: 500;
@@ -81,7 +80,9 @@
           <a class="nav-link" aria-current="page" href="{% url 'customers' %}">HOME</a>
         </li>
         <li class="nav-item topnav">
-          <a class="nav-link" aria-current="page" href="{% url 'service' %}">SERVICES</a>
+              <a class="nav-link" href="/customers/my_bookings">
+                BOOKINGS
+              </a>
         </li>
         <li class="nav-item topnav">
           <a class="nav-link" aria-current="page" href="{% url 'about' %}">ABOUT US</a>
@@ -143,7 +144,7 @@
             </li>
 
             <li>
-              <a class="dropdown-item" href=""> <i class="fas fa-calendar-check pe-3 fa-sm"></i> My Bookings</a>
+              <a class="dropdown-item" href="/customers/my_bookings"> <i class="fas fa-calendar-check pe-3 fa-sm"></i> My Bookings</a>
             </li>
 
             <li>

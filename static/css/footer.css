@@ -1,5 +1,3 @@
-/* Codingwithnick */
-
 html,
 body {
   height: 100%;
@@ -65,7 +63,6 @@ a:focus {
 }
 .footer-widget ul li span {
   padding: 10px;
-  /* color: #bdb2b2; */
   color: #fff;
   font-size: 14px;
 }
