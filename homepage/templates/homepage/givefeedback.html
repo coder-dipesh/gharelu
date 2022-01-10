@@ -7,7 +7,7 @@
 <!-- Site title goes here -->
 {% block title %}
 
-    <title> Review | Gharelu</title>
+    <title> Home | Gharelu</title>
 
 {% endblock title%}
 
@@ -18,31 +18,27 @@
 
 <style>
     *{
-box-sizing: border-box;
+margin: 0;
+padding: 0;
+/* box-sizing: border-box; */
 font-family: "poppins", sans-serif;
 }
 
-html,body{
-/* display: grid; */
-height:100%;
-place-items:center;
-text-align: center;
-background-color: 000;
 
-}
-
-.container{
-width: 400px;
-background: rgb(255, 255, 255);
-padding:20px 30px;
+.ratings{
+/* width: 400px; */
+margin-top: 10%;
 display: flex;
 align-items: center;
 justify-content: center;
 flex-direction: column;
 }
 
-.container .star-widget input{
-display: none;
+.ratings .star-widget input{
+display:none;
+/* justify-content: left; 
+align-items: left;  */
+
 }
 
 .star-widget label{
@@ -67,20 +63,17 @@ color: #fe7;
 text-shadow:0 0 20px rgb(231, 10, 39);
 }
 
-#rate-1:checked~.star:before{
-content: red;
-
-}
-
 
 </style>
 
 
+
 {% include 'navbar/customer-navbar.html' %}
 
-<div class="container">
-    <h1>Give your ratings</h1>
-    <div class=star-widget>
+ <div class="ratings">
+
+    <h3>Rate Us</h3>
+    <div class="star-widget">      
         <input type="radio" name="rate" id="rate-5">
         <label for="rate-5" class="fas fa-star star"></label>
 
@@ -96,55 +89,38 @@ content: red;
         <input type="radio" name="rate" id="rate-1">
         <label for="rate-1" class="fas fa-star"></label>
 
+        
     </div>
 </div>
 
-<div class="card mt-5">
+<!-- <div class="card"> -->
   <div class="row">
-      <div class="col-md-6 offset-md-3">
-          <h1 class="text-center text-dark">Give Feedback</h1>
-          <hr>
-          <div class="card-body">
-                  <form class="form myForm " action="" method="POST">
-                      <input type="hidden" name="csrfmiddlewaretoken" value="7FYLtfeq9Ge2rghft3HKzb70xgnVDovy8X9LKFY9kp0iAEq7TTWCCVzeEWYML5Xu">
-                      
-
-
-
-
-  
-
-<div class="form-group">
-      <div class=" col-sm-10 col-lg-10 ">
-          <input type="text" name="name" maxlength="100" class=" form-control" required="" id="id_name" placeholder="Enter name">
-      </div>
-  
-</div>
-
-
-  
-
-<div class="form-group" >
-
-      <div class=" col-sm-10 col-lg-10 ">
-          <textarea name="product_feedback" cols="40" rows="10" class=" form-control" required="" id="id_product_feedback" placeholder="Give your thoughts......."></textarea>
-
+      <div class="col-md-6 offset-md-4">
+          <h3>Give Feedback</h3>
+          
           
 
-          
-      </div>
-  
-</div>
+            <div class="col-lg-8">
+                <div class="form-group">
+                    <input type="text" class="form-control input-field" name="subject" id="subject"
+                        placeholder="Enter your name" />
+                </div>
+            </div>
 
 
+            <div class="col-lg-8">
+                <div class="form-group">
+                    <textarea class="form-control message-field" name="message" rows="5"
+                        placeholder="Give your feedback"></textarea>
+                </div>
+            </div>
 
-                      <div class="text-center fw-normal">
-                          <button type="submit" class="btn btn-primary mt-4" >Send</button>
-                          <br>
-                      </div>
 
-                  </form>
-          </div>
+            <!-- Send message buttom -->
+
+            <div class="col-lg-8 mb-5">
+                <input type="submit" class="btn button" value="Send Message" />
+            </div>
 
       </div>
   </div>
@@ -153,7 +129,11 @@ content: red;
 <script>
   var form_fields = document.getElementsByTagName('input')
   form_fields[1].placeholder = "Enter name";
+  form_fields[2].placeholder = "Enter email";
+  form_fields[3].placeholder = "Enter subject";
   form_fields[4].placeholder = "Enter message";
+
+
 
   for (var field in form_fields){
   form_fields[field].className = 'form-control my-2'
@@ -161,7 +141,5 @@ content: red;
 
 
 </script>    
-
-<!-- {% include 'footer.html' %} -->
 
 {%endblock content%}
