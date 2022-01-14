@@ -4,10 +4,10 @@ from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
-from .forms import CreateUserForm, MyCustomSignupForm
+from .forms import CreateUserForm, MyCustomSignupForm, ProfileForm
 from .auth import unauthenticated_user
 from allauth.account.views import SignupView
-
+from .models import Profile
 
 # Methodes goes here
 @unauthenticated_user
@@ -39,8 +39,11 @@ def userSignup(request):
     if request.method=='POST':
         userdata = CreateUserForm(request.POST)
         if userdata.is_valid():
-            userdata.save()
+            user=userdata.save()
             
+            ProfileForm.objects.create(user=user, username=user.username, email= user.email) 
+
+
             messages.add_message(request, messages.SUCCESS, 'User registered successfully!' )
             return redirect('/auth/signin')
         else:
@@ -60,9 +63,9 @@ def proSignup(request):
         userdata = CreateUserForm(request.POST)
         if userdata.is_valid():
             user=userdata.save()
-
             user.is_staff = True  # This is for professional user registration
             user.save()
+            Profile.objects.create(user=user, username=user.username, email= user.email) 
 
             messages.add_message(request, messages.SUCCESS, 'Professional registered successfully.' )
             return redirect('/auth/signin')
@@ -79,7 +82,7 @@ def proSignup(request):
 
 def signout(request):
     logout(request)
-    return redirect('/auth/signin')
+    return redirect('/')
 
 class AllauthSignUpView(SignupView):
     template_name = 'account/signup.html'

@@ -1,3 +1,4 @@
+
 $('.slider').slick({
 	dots: true,
 	infinite: true,
@@ -38,3 +39,11 @@ $('.slider').slick({
 	  }
 	]
   });
+
+// $(".hover").mouseleave(
+// 	function () {
+// 	  $(this).removeClass("hover");
+// 	}
+//   );
+  
+
