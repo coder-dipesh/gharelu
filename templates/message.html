@@ -4,7 +4,8 @@
         align-items: center;
     }
     .alert-dismissible .close{
-        padding: 1rem 1.25rem;
+      float: right;
+        /* padding: 1rem 1.25rem; */
     }
 </style>
 
@@ -17,6 +18,7 @@
               </div>
             {% endif %}
 
+            
             {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR%}
             <div class="alert alert-danger alert-dismissible fade-in"  >
                 <i class="fa fa-exclamation-triangle "></i>
