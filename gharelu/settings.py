@@ -188,11 +188,13 @@ SOCIALACCOUNT_PROVIDERS = {
 
 LOGIN_REDIRECT_URL = '/'
 
-ACCOUNT_FORMS = {
-    'login': 'authentications.forms.MyCustomLoginForm',
-    'signup': 'authentications.forms.MyCustomSignupForm'
-    }
 
-
+# TO send mail to  users
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'helpdesk.gharelu@gmail.com'
+EMAIL_HOST_PASSWORD = 'joqqavnhnusaifhf'
+EMAIL_USE_TLS = True
 
 
