@@ -17,3 +17,7 @@ class Profile(models.Model):
         return self.username
 
 
+class UserOTP(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    time_st = models.DateTimeField(auto_now=True)
+    otp = models.IntegerField()
