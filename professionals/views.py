@@ -31,12 +31,19 @@ def professionalProfile(request):
     context = {'profileForm':ProfileForm(instance=profile)}
     return render(request, 'professionals/professionalProfile.html', context)
 
+import os
 
 @login_required
 @professional_only
 def professionalUpdateProfile(request):
     profile= request.user.profile # Getting currently logged in user data
+
+
+
     if request.method == 'POST':
+        # Delete image from uploads static after changing new image
+        os.remove(profile.profile_pic.path)
+
         userdata = ProfileForm(request.POST,request.FILES,instance=profile) 
         if userdata.is_valid():
             userdata.save()
