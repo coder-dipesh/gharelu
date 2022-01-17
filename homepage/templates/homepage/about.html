@@ -1,0 +1,25 @@
+<!-- Inheriting from parent -->
+{% extends 'layout.html' %}
+{%load bootstrap%}
+{%load static%}
+
+
+<!-- Site title goes here -->
+{% block title %}
+
+    <title> Home | Gharelu</title>
+
+{% endblock title%}
+
+
+
+<!-- Body content goes here -->
+{% block content %}
+
+{% include 'navbar/navbar.html' %}
+
+    <section class="image" id="" style="background: url('{% static 'images/about.png' %}'); width: 100%; background-size: cover;">
+        
+    </section>
+
+{%endblock content%}
