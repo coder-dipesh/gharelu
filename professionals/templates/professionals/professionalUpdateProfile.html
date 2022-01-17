@@ -1,0 +1,50 @@
+{% extends 'layout.html' %} {% load static%} {%load bootstrap%} {% load crispy_forms_tags %} {% block title %}
+
+<title>Update Profile Professional | Gharelu</title>
+{% endblock title%} {% block content %}
+<style>
+  .container {
+    outline: none;
+    /* box-shadow:  0 0.2rem 0.5rem 0 rgba(0, 0, 0, 0.3); */
+    /* width: 60%; */
+  }
+  .card {
+    position: unset !important;
+    box-shadow: 0 0.2rem 0.5rem 0 rgba(0, 0, 0, 0.3);
+
+    /* align-items: center;
+    padding: 3em; */
+  }
+
+  .card-body {
+    padding: 1.5rem;
+    flex: 1 1 auto;
+  }
+
+  .form-input .form-group {
+    padding: 0.7em;
+  }
+  .form-input .form-group label {
+    font-weight: 600;
+  }
+</style>
+
+{% include 'navbar/professional-navbar.html' %}
+<div style="margin-top: 8rem">
+  {% include 'message.html'%}
+
+  <div class="container">
+    <div class="row px-3">
+      <h4 class="text-center">Update Profile</h4>
+      <div class="card col-lg-10 col-xl-9 card flex-row mx-auto px-0">
+        <div class="card-body">
+          <form class="form-box px-3 uniForm" method="POST" enctype="multipart/form-data">
+            {% csrf_token %} {{ profileUpdateForm|crispy }}
+            <button type="submit" class="btn btn-primary text-uppercase">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

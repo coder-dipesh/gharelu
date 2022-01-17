@@ -51,6 +51,8 @@ INSTALLED_APPS = [
     # BootstrapFORM install
     'bootstrapform',
 
+    'crispy_forms',
+
 
     #Google Oauth_app
     'allauth',
@@ -61,6 +63,9 @@ INSTALLED_APPS = [
 ]
 
 # SITE_ID= 1
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -107,11 +112,6 @@ DATABASES = {
 
     }
 }
-
-ACCOUNT_FORMS = {
-    'login': 'authentications.forms.MyCustomLoginForm',
-    'signup': 'authentications.forms.MyCustomSignupForm'
-    }
 
 
 # Password validation
@@ -192,5 +192,14 @@ SOCIALACCOUNT_PROVIDERS = {
 # After google oauth login reirect url
 
 LOGIN_REDIRECT_URL = '/'
+
+
+# TO send mail to  users
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'helpdesk.gharelu@gmail.com'
+EMAIL_HOST_PASSWORD = 'joqqavnhnusaifhf'
+EMAIL_USE_TLS = True
 
 

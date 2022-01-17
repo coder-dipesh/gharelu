@@ -1,0 +1,142 @@
+{%load static%}
+
+<style>
+  .nav-bar {
+    top: 0;
+    width: 100%;
+    position: fixed;
+    box-shadow: 0 0.2rem 0.5rem 0 rgba(0, 0, 0, 0.3);
+    font-family: "Poppins", "Times New Roman", serif;
+    font-weight: 500;
+  }
+
+  .dropdown-menu.show {
+    display: block;
+    right: 0;
+  }
+
+  .dropdown-menu[data-bs-popper] {
+    top: 100%;
+    left: -50px !important;
+    right: 0;
+    margin-top: 0.125rem;
+    z-index: 1000;
+  }
+
+  @media (max-width: 992px) {
+    .nav-dropdown::before {
+      top: 58px !important;
+    }
+  }
+  .nav-dropdown::before {
+    background-color: #fff;
+    content: "";
+    width: 22px;
+    height: 22px;
+    left: 150px;
+    top: -8px;
+    z-index: -1;
+    position: absolute;
+    transform: rotate(45deg);
+    transition: all 0.2s ease-in-out 0;
+  }
+  .professional-navbar-profile {
+    height: 3em;
+    width: 3em;
+    border-radius: 50%;
+    box-shadow: 0 0.2em 0.5em;
+    object-fit: cover;
+  }
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark nav-bar">
+  <div class="container-fluid overlay" id="navbar">
+    <a class="navbar-brand" href="">
+      <img src="{% static 'images/site-iconG.png' %}" alt="Gharelu" width="48" height="48" />
+    </a>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="False"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item topnav">
+          <a class="nav-link" aria-current="page" href="#">HOME</a>
+        </li>
+        <li class="nav-item topnav">
+          <a class="nav-link" aria-current="page" href="#">SERVICES</a>
+        </li>
+        <li class="nav-item topnav">
+          <a class="nav-link" aria-current="page" href="#">ABOUT US</a>
+        </li>
+        <li class="nav-item topnav">
+          <a class="nav-link" aria-current="page" href="#">SUPPORT</a>
+        </li>
+        <li class="nav-item topnav">
+          <a class="nav-link" aria-current="page" href="#">REVIEW</a>
+        </li>
+      </ul>
+
+      <ul class="d-flex navbar-nav mb-2 mb-lg-0">
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href=""
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <img
+              class="professional-navbar-profile"
+              src="/{{request.user.profile.profile_pic}}"
+              width="35"
+              alt="User Profile Picture"
+            />
+            &nbsp;&nbsp;
+
+            <!-- User Full Name -->
+            {{request.user.profile.firstname}} {{request.user.profile.lastname}}
+          </a>
+          <ul class="nav-dropdown dropdown-menu profile-dropdown" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="">{{request.user.email}}</a></li>
+            <li>
+              <hr class="dropdown-divider" />
+            </li>
+            <li><a class="dropdown-item" href="{% url 'professionalprofile' %}">My profile</a></li>
+            <li><a class="dropdown-item" href="{% url 'professionalupdateprofile' %}">Update profile</a></li>
+            <li><a class="dropdown-item" href="">Change password</a></li>
+
+            <li>
+              <hr class="dropdown-divider" />
+            </li>
+
+            <li><a class="dropdown-item" href="">My Bookings</a></li>
+            <li><a class="dropdown-item" href=""></a></li>
+
+            <li>
+              <hr class="dropdown-divider" />
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                href="{% url 'signout' %}"
+                onclick="return confirm('Do you want to logout form the system?')"
+                >Logout</a
+              >
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

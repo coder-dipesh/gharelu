@@ -3,7 +3,9 @@ from . import views
 
 urlpatterns = [
     path('',views.professionalDashboard, name='professionals'),
-    # path('',),
+    path('professionalprofile',views.professionalProfile, name='professionalprofile'),
+    path('professionalupdateprofile',views.professionalUpdateProfile, name='professionalupdateprofile'),
+
     # path('',),
     # path('',),
 
