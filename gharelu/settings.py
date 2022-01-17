@@ -51,6 +51,8 @@ INSTALLED_APPS = [
     # BootstrapFORM install
     'bootstrapform',
 
+    'crispy_forms',
+
 
     #Google Oauth_app
     'allauth',
@@ -61,6 +63,9 @@ INSTALLED_APPS = [
 ]
 
 # SITE_ID= 1
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

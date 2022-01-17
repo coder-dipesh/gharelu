@@ -174,17 +174,7 @@ body {
 </style>
 
 {% include 'message.html' %}
-                    {% if messages %}
-                        {% for message in messages %}
-                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                {{message}}
-                                <a type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </a>
-                            </div>
-                        {% endfor %}
-                    {% endif %} 
-                
+
 <div class="container">
     <div class="row px-3">
         <div class="col-lg-10 col-xl-9 card flex-row mx-auto px-0">
