@@ -191,7 +191,7 @@ SOCIALACCOUNT_PROVIDERS = {
 
 # After google oauth login reirect url
 
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = 'customers'
 
 
 # TO send mail to  users
