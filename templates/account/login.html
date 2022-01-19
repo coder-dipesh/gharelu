@@ -181,10 +181,10 @@
 
           <div class="d-flex justify-content-around mb-4">
             <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="cb1" name="" />
-              <label class="custom-control-label" for="cb1">Remember me</label>
+              <input type="checkbox" class="custom-control-input" onclick="passwordToggle()" />
+              <label class="custom-control-label" for="cb1">Show Password</label>
             </div>
-            <a href="#" class="forget-link"> Forget Password? </a>
+            <a href="{% url 'reset-password-enterusername'%}" class="forget-link"> Forget Password? </a>
           </div>
           <div class="mb-3">
             <button type="submit" class="btn btn-block text-uppercase">Login</button>
@@ -197,7 +197,7 @@
           <div class="social-auth container d-flex justify-content-center">
             <button type="submit">
               <a href="">
-                <i class="fa fa-google fa-2x"></i>
+                <i class="fab fa-google fa-2x"></i>
               </a>
             </button>
           </div>
@@ -217,6 +217,18 @@
       </div>
     </div>
   </div>
+
+  <script>
+    function passwordToggle() {
+      var x = document.getElementById("password");
+
+      if (x.type === "password") {
+        x.type = "text";
+      } else {
+        x.type = "password";
+      }
+    }
+  </script>
 
   {% endblock content %}
 </div>

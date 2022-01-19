@@ -3,6 +3,7 @@ from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
 from authentications.auth import professional_only
 from authentications.forms import ProfileForm
+import os
 
 # Create your views here.
 
@@ -31,14 +32,11 @@ def professionalProfile(request):
     context = {'profileForm':ProfileForm(instance=profile)}
     return render(request, 'professionals/professionalProfile.html', context)
 
-import os
 
 @login_required
 @professional_only
 def professionalUpdateProfile(request):
     profile= request.user.profile # Getting currently logged in user data
-
-
 
     if request.method == 'POST':
         # Delete image from uploads static after changing new image

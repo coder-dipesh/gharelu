@@ -1,18 +1,7 @@
 {% extends 'layout.html' %} {% load static%} {%load bootstrap%} {% block title %}
-<title>Professional Profile | Gharelu</title>
+<title>Customer Profile | Gharelu</title>
 {% endblock title%} {% block content %}
 <style>
-  /* .container .card{
-    box-sizing: inherit;
-    box-shadow:  0 0.2rem 0.5rem 0 rgba(0, 0, 0, 0.3);
-    position: relative;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    padding: 15px;
-
-} */
-
   .container {
     display: flex;
     flex-wrap: wrap;
@@ -22,7 +11,6 @@
   .card {
     position: unset !important;
     box-shadow: 0 2px 10px rgb(0 22 84 / 10%);
-
     margin: 10px auto;
     position: relative;
   }
@@ -41,7 +29,7 @@
   }
 </style>
 
-{% include 'navbar/professional-navbar.html' %}
+{% include 'navbar/customer-navbar.html' %}
 <div style="margin-top: 6rem">
   <h4 class="text-center">Your Profile</h4>
 

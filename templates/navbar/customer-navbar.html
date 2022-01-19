@@ -3,7 +3,6 @@
 <style>
   .nav-bar {
     top: 0;
-    /* overflow: hidden; */
     width: 100%;
     position: fixed;
     box-shadow: 0 0.2rem 0.5rem 0 rgba(0, 0, 0, 0.3);
@@ -24,6 +23,15 @@
     z-index: 1000;
   }
 
+  .dropdown-item {
+    color: #647b9c !important;
+  }
+
+  @media (max-width: 992px) {
+    .nav-dropdown::before {
+      top: 58px !important;
+    }
+  }
   .nav-dropdown::before {
     background-color: #fff;
     content: "";
@@ -36,6 +44,14 @@
     transform: rotate(45deg);
     transition: all 0.2s ease-in-out 0;
   }
+  .professional-navbar-profile {
+    height: 3em;
+    width: 3em;
+    border-radius: 50%;
+    box-shadow: 0 0.2em 0.5em;
+    object-fit: cover;
+  }
+
 </style>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark nav-bar">
@@ -59,7 +75,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item topnav">
-          <a class="nav-link" aria-current="page" href="#">HOME</a>
+          <a class="nav-link" aria-current="page" href="{% url 'customers' %}">HOME</a>
         </li>
         <li class="nav-item topnav">
           <a class="nav-link" aria-current="page" href="#">SERVICES</a>
@@ -85,31 +101,55 @@
             data-bs-toggle="dropdown"
             aria-expanded="false"
           >
-            <img src="{% static 'images/user.png' %}" width="35" alt="..." />
-            Dipesh Siwakoti
-            <!-- {{request.user.username}} -->
+            <img
+              class="professional-navbar-profile"
+              src="/{{request.user.profile.profile_pic}}"
+              width="35"
+              alt="P.Picture"
+            />
+            &nbsp;&nbsp;
+
+            <!-- User Full Name -->
+            {{request.user.profile.firstname}} {{request.user.profile.lastname}}
           </a>
           <ul class="nav-dropdown dropdown-menu profile-dropdown" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="">My profile</a></li>
-            <li><a class="dropdown-item" href="">Update profile</a></li>
-            <li><a class="dropdown-item" href="">Change password</a></li>
+            <li style="overflow: hidden">
+              <a class="dropdown-item" href=""> <i class="fas fa-envelope pe-3 fa-sm"></i> {{request.user.email}}</a>
+            </li>
+            <li>
+              <hr class="dropdown-divider" />
+            </li>
+            <li>
+              <a class="dropdown-item" href="{% url 'customerprofile' %}"
+                ><i class="fas fa-user pe-3 fa-sm"></i> My profile</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="{% url 'customerupdateprofile' %}">
+                <i class="fas fa-pen pe-3 fa-sm"></i> Update profile</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href=""><i class="fas fa-key pe-3 fa-sm"></i> Change password</a>
+            </li>
 
             <li>
               <hr class="dropdown-divider" />
             </li>
 
-            <li><a class="dropdown-item" href="">My Bookings</a></li>
-            <li><a class="dropdown-item" href=""></a></li>
+            <li>
+              <a class="dropdown-item" href=""> <i class="fas fa-calendar-check pe-3 fa-sm"></i> My Bookings</a>
+            </li>
 
             <li>
               <hr class="dropdown-divider" />
             </li>
             <li>
               <a
-                class="dropdown-item"
+                class="dropdown-item text-danger"
                 href="{% url 'signout' %}"
                 onclick="return confirm('Do you want to logout form the system?')"
-                >Logout</a
+                ><i class="fas fa-sign-out-alt pe-3 fa-sm"></i> Sign Out</a
               >
             </li>
           </ul>
@@ -118,3 +158,5 @@
     </div>
   </div>
 </nav>
+
+<!-- #647b9c -->
