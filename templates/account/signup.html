@@ -178,6 +178,43 @@ body {
 <div class="container">
     <div class="row px-3">
         <div class="col-lg-10 col-xl-9 card flex-row mx-auto px-0">
+
+            {% if otp %}
+
+            <div class="card-body">
+
+
+                <h4 class="title text-left px-4 mt-4">
+                    Verify Your Email
+                </h4>
+
+                <form action="" method="POST" class="form form-box px-3">
+                    {% csrf_token %}
+
+                    <div class="input-group mb-3">
+                    <input type="hidden" name="usr" value="{{usr.username}}" />
+                    <span class="input-group-text" id="basic-addon1">OTP</span>
+                    <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Enter your OTP"
+                        aria-label="OTP"
+                        aria-describedby="basic-addon1"
+                        name="otp"
+                    />
+                    </div>
+
+                    <div class="mb-sm-3">
+                        <button type="submit" value="" class="btn btn-block text-uppercase">
+                            verify
+                        </button>
+                    </div>
+                    </form>
+            </div>
+
+
+
+            {% else %}
             <div class="img-left d-none d-md-flex"></div>
 
             <div class="card-body">
@@ -242,6 +279,9 @@ body {
                         </a>
                     </div>
             </div>
+        
+        
+        {% endif %}
         </div>
 </div>
 

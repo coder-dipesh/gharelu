@@ -1,0 +1,55 @@
+<!-- Inheriting from parent -->
+{% extends 'layout.html' %} {% load static%} {%load bootstrap%} {% block title %}
+
+<title>404 Error | Gharelu</title>
+
+{% endblock title%}
+
+<!-- Body content goes here -->
+{% block content %}
+<style>
+  body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: Poppins, "serif";
+  }
+
+  .card {
+    height: 90vh;
+    overflow: hidden;
+    border: 0 !important;
+    border-radius: 20px !important;
+  }
+
+  .img-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+  }
+  .card-body {
+    display: flex;
+    justify-content: center;
+    padding: 1.5rem;
+  }
+</style>
+
+<div class="container">
+  <div class="row px-3">
+    <div class="col-lg-10 col-xl-9 card flex-row mx-auto px-0">
+      <div class="img-left d-md-flex mr-1">
+        <img src="{ static '404error.gif' }" class="img-fluid" />
+      </div>
+    </div>
+    <div class="card-body">
+      <a href="#">Go back to home</a>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,77 @@
+{%load static%}
+
+<style>
+  #navbarSupportedContent ul li button a {
+    transition: all 0.2s ease-in-out;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  #navbarSupportedContent ul li button:hover {
+    opacity: 0.9;
+    box-shadow: 0 5px 15px rgba(219, 24, 66, 0.4);
+    color: #fff;
+    text-decoration: none;
+  }
+  .nav-bar {
+    top: 0;
+    width: 100%;
+    position: fixed;
+    box-shadow: 0 0.2rem 0.5rem 0 rgba(0, 0, 0, 0.3);
+    font-family: "Poppins", "Times New Roman", serif;
+    font-weight: 500;
+  }
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark nav-bar">
+  <div class="container-fluid overlay" id="navbar">
+    <a class="navbar-brand" href="/admins/">
+      <img src="{% static 'images/site-iconG.png' %}" alt="Gharelu" width="48" height="48" />
+    </a>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="False"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item topnav">
+          <a class="nav-link" aria-current="page" href="">HOME</a>
+        </li>
+        <li class="nav-item topnav">
+          <a class="nav-link" aria-current="page" href="#">ADD SERVICE</a>
+        </li>
+        <li class="nav-item topnav">
+          <a class="nav-link" aria-current="page" href="#"> </a>
+        </li>
+        <li class="nav-item topnav">
+          <a class="nav-link" aria-current="page" href="#"></a>
+        </li>
+        <li class="nav-item topnav">
+          <a class="nav-link" aria-current="page" href="#"></a>
+        </li>
+      </ul>
+
+      <ul class="d-flex navbar-nav mb-2 mb-lg-0">
+        <li class="nav-item dropdown">
+          <a class="nav-link" href="" id="navbarDropdown"> {{request.user.username}} </a>
+        </li>
+        <li>
+          <button class="btn btn-outline-danger l-btn" type="submit">
+            <a href="{% url 'signout'  %}" onclick="return confirm('Do you want to logout form the system?')"
+              >Sign Out</a
+            >
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
