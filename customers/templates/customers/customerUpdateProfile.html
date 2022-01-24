@@ -1,7 +1,8 @@
 {% extends 'layout.html' %} {% load static%} {%load bootstrap%} {% load crispy_forms_tags %} {% block title %}
 
-<title>Update Profile Professional | Gharelu</title>
+<title>Update Profile Customer | Gharelu</title>
 {% endblock title%} {% block content %}
+
 <style>
   body {
     font-family: Poppins;
@@ -33,7 +34,7 @@
   #id_profile_pic {
     color: #70798b;
     font-weight: 400;
-    /* font-family: Poppins; */
+    font-family: Poppins;
     font-size: 16px;
   }
 
@@ -47,7 +48,7 @@
   }
 </style>
 
-{% include 'navbar/professional-navbar.html' %}
+{% include 'navbar/customer-navbar.html' %}
 <div style="margin-top: 8rem">
   {% include 'message.html'%}
 
