@@ -40,7 +40,7 @@ def professionalUpdateProfile(request):
 
     if request.method == 'POST':
         # Delete image from uploads static after changing new image
-        os.remove(profile.profile_pic.path)
+        # os.remove(profile.profile_pic.path)
 
         userdata = ProfileForm(request.POST,request.FILES,instance=profile) 
         if userdata.is_valid():

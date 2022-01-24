@@ -3,6 +3,9 @@
 <title>Update Profile Professional | Gharelu</title>
 {% endblock title%} {% block content %}
 <style>
+  body {
+    font-family: Poppins;
+  }
   .container {
     outline: none;
   }
@@ -16,11 +19,31 @@
     flex: 1 1 auto;
   }
 
-  .form-input .form-group {
-    padding: 0.7em;
-  }
-  .form-input .form-group label {
+  .requiredField {
     font-weight: 600;
+    font-family: Poppins;
+    font-size: 16px;
+    color: #242f65;
+  }
+  #id_firstname,
+  #id_lastname,
+  #id_phone,
+  #id_address,
+  #id_city,
+  #id_profile_pic {
+    color: #70798b;
+    font-weight: 400;
+    /* font-family: Poppins; */
+    font-size: 16px;
+  }
+
+  #div_id_firstname,
+  #div_id_lastname,
+  #div_id_phone,
+  #div_id_address,
+  #div_id_city,
+  #div_id_profile_pic {
+    margin: 1em;
   }
 </style>
 
@@ -35,7 +58,7 @@
         <div class="card-body">
           <form class="form-box px-3 uniForm" method="POST" enctype="multipart/form-data">
             {% csrf_token %} {{ profileUpdateForm|crispy }}
-            <button type="submit" class="btn btn-primary text-uppercase">Submit</button>
+            <button type="submit" class="btn btn-primary text-uppercase my-2">Submit</button>
           </form>
         </div>
       </div>

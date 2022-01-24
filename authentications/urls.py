@@ -9,6 +9,8 @@ urlpatterns = [
     path('reset-password-enterusername',views.entermailResetpassword, name='reset-password-enterusername'),
     path('reset-password/<token>/',views.resetPassword, name='reset-password'),
     path('reset-password-done',views.resetpasswordDone, name='reset-password-done'),
+    path('change-password', views.change_password, name='change-password'),
+
 
     path('signout',views.signout, name='signout'),
 

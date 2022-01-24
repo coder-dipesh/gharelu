@@ -154,6 +154,9 @@
     transform: scale(1.2);
     text-shadow: 1px 1px 5px #dd4b39;
   }
+  .custom-checkbox {
+    margin-left: 1.3em;
+  }
 </style>
 
 {% include 'message.html' %}
@@ -179,7 +182,7 @@
             <input type="password" name="password" id="password" placeholder="********" required />
           </div>
 
-          <div class="d-flex justify-content-around mb-4">
+          <div class="d-flex justify-content-between mb-2">
             <div class="custom-control custom-checkbox">
               <input type="checkbox" class="custom-control-input" onclick="passwordToggle()" />
               <label class="custom-control-label" for="cb1">Show Password</label>

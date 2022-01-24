@@ -27,6 +27,11 @@
     box-shadow: 0 0.2em 0.5em;
     object-fit: cover;
   }
+  .card-footer span {
+    color: #4a5682;
+    font-family: Poppins;
+    font-weight: 500;
+  }
 </style>
 
 {% include 'navbar/customer-navbar.html' %}
@@ -41,12 +46,15 @@
         <img src="/{{request.user.profile.profile_pic}}" width="60%" class="card-img-top profile-image" />
       </div>
       <div class="card-footer">
-        <div class="py-3"><b> First Name :</b> {{request.user.profile.firstname}}</div>
-        <div class="py-3"><b>Last Name :</b> {{request.user.profile.lastname}}</div>
-        <div class="py-3"><b>Email :</b> {{request.user.profile.email}}</div>
-        <div class="py-3"><b>Phone :</b> +977 {{request.user.profile.phone}}</div>
-        <div class="py-3"><b>Address :</b> {{request.user.profile.address}}</div>
-        <div class="py-3"><b>City :</b> {{request.user.profile.city}}</div>
+        <div class="py-3">
+          <b> First Name :</b>
+          <span>{{request.user.profile.firstname}}</span>
+        </div>
+        <div class="py-3"><b>Last Name :</b> <span>{{request.user.profile.lastname}}</span></div>
+        <div class="py-3"><b>Email :</b> <span>{{request.user.profile.email}}</span></div>
+        <div class="py-3"><b>Phone :</b> <span>+977 {{request.user.profile.phone}}</span></div>
+        <div class="py-3"><b>Address :</b> <span>{{request.user.profile.address}}</span></div>
+        <div class="py-3"><b>City :</b> <span>{{request.user.profile.city}}</span></div>
         <p class="card-text">
           <small class="text-muted" style="color: #bf3b31 !important">Last updated 3 mins ago</small>
         </p>

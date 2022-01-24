@@ -31,6 +31,7 @@
     justify-content: center;
     height: 100%;
     width: 100%;
+    /* background: url("/static/images/404-error.gif") center no-repeat; */
   }
   .card-body {
     display: flex;
@@ -43,11 +44,11 @@
   <div class="row px-3">
     <div class="col-lg-10 col-xl-9 card flex-row mx-auto px-0">
       <div class="img-left d-md-flex mr-1">
-        <img src="{ static '404error.gif' }" class="img-fluid" />
+        <img src="{% static 'images/404-error.gif' %}" alt="404 Page Not Found" class="img-fluid" />
       </div>
     </div>
     <div class="card-body">
-      <a href="#">Go back to home</a>
+      <a href="/">Go back to home</a>
     </div>
   </div>
 </div>

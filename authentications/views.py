@@ -5,7 +5,11 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from .forms import CreateUserForm
-from .auth import unauthenticated_user
+from django.contrib.auth.forms import PasswordChangeForm
+from .auth import professional_only, unauthenticated_user,customer_only
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import update_session_auth_hash
+
 from .models import Profile, UserOTP
 from django.core.mail import send_mail
 from django.conf import settings
@@ -115,7 +119,6 @@ def userSignup(request):
     return render(request, 'account/signup.html', context)  
 
 
-
 def send_forget_password_mail(email , token ):
     subject = 'Your forget password link'
     message = f'Hi , click on the link to reset your password http://localhost:8000/auth/reset-password/{token}/'
@@ -180,3 +183,22 @@ def resetpasswordDone(request):
     messages.add_message(request, messages.SUCCESS ,'Password reset')
 
     return render(request, 'account/reset-password-done.html')
+
+
+@login_required
+def change_password(request):
+    if request.method == 'POST':
+        form = PasswordChangeForm(request.user, request.POST)
+        if form.is_valid():
+            user = form.save()
+            update_session_auth_hash(request, user)
+            messages.add_message(request, messages.SUCCESS, "Password changed successfully")
+            return redirect('/auth/change-password')
+        else:
+            messages.add_message(request, messages.ERROR, "Please check the fields")
+            return render(request, 'account/change-password.html' ,{'user_password_change_form':form})
+    context = {
+        'user_password_change_form': PasswordChangeForm(request.user),
+
+    }
+    return render(request, 'account/change-password.html', context)

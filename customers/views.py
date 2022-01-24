@@ -32,19 +32,23 @@ def customerProfile(request):
     context = {'profileForm':ProfileForm(instance=profile)}
     return render(request, 'customers/customerProfile.html', context)
 
+
 import os
 
 @login_required
 @customer_only
 def customerUpdateProfile(request):
     profile= request.user.profile # Getting currently logged in user data
+    print(profile)
 
 
     if request.method == 'POST':
+        print('hello')
         # Delete image from uploads static after changing new image
         # os.remove(profile.profile_pic.path)
 
         userdata = ProfileForm(request.POST,request.FILES,instance=profile) 
+        print(userdata)
         if userdata.is_valid():
             userdata.save()
             messages.add_message(request, messages.SUCCESS, 'Profile data updated successfully!')
