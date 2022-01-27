@@ -15,11 +15,151 @@
 
 <!-- Body content goes here -->
 {% block content %}
+<style>
 
-{% include 'navbar/navbar.html' %}
 
-    <section class="image" id="" style="background: url('{% static 'images/about.png' %}'); width: 100%; background-size: cover;">
+
+    body{
+        font-family: Poppins;
+    }
+    .image{
+    display: flex;
+    width: 100%;
+    height: 750px;
+    background:url("/static/images/about.png") no-repeat center;
+    background-size: cover;
+    background-attachment: fixed;
+    }
+
+    .row{
+        display: flex;
+        flex-wrap: wrap;
+        margin-right: -15px;
+    }
+
+    .image .image-content .words {
+        color: #fff;
+        padding-top: 18rem;
+        padding-left: 3rem;
+
+  }
+
+    .image .image-content .words span {
+        font-size: 40px;
+        font-weight: 700;
+        /* display: inline-block; */
+        /* text-shadow:  0 0 3px #ff0000, 0 0 5px #0000ff;  */
+        animation: move 3s ease-in-out infinite;
+        /* position: unset !important; */
+    }
+
+        @keyframes move {
+        0% {
+            transform: translate(-30%, 0);
+        }
+            50% {
+            text-shadow: 0 25px 50px rgba(0, 0, 0, 0.75);
+        }
+            100% {
+            transform: translate(30%, 0);
+        }
+    }
+
+    .image .image-content .sub-info{
+        color: rgb(255, 255, 255);
+        font-weight: 450;
+        font-size: 25px;
+        padding-top: 1rem;
+        padding-left: 3rem;
+    }
+
+</style>
+
+{% include 'navbar/customer-navbar.html' %}
+ <section class="image" id="">
+        <div class="container"><div class="row">
+            <div class="image-content">
+                <div class="words">
+                    <span>A</span>
+                    <span>B</span>
+                    <span>O</span>
+                    <span>U</span>
+                    <span>T</span>
+                    <span> </span>
+                    <span>G</span>
+                    <span>H</span>
+                    <span>A</span>
+                    <span>R</span>
+                    <span>E</span>
+                    <span>L</span>
+                    <span>U</span>
+                    <span>.</span>
+                    <span>C</span>
+                    <span>O</span>
+                    <span>M</span>
+                  </div>
+                  <div class="col-lg-6">
+                 <p class="sub-info">Gharelu.com provides services to the customer as required and offer emplyoment opportunities to the service provider.</p>
+                 </div></div></div>
         
+    </section>
+
+    <section id="learn" class="p-5 bg-white">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-md">
+                    <h2 class="text-center">Welcome To <span class="text-success">Gharelu.com</span></h2>
+                    <p class="text-secondary">
+                        Welcome to our service oriented website! Our site holds a wealth of information about the services and programs we offer for our regional community as well as employment opportunities.
+                    </p>
+                    <p class="text-secondary">
+                        I believe we have an outstanding service provider and support personnel - whose ultimate goal is to provide you with the best service possible in a respectful and compassionate manner.  We are continually looking for new ways to be better at what we do. Please don't hesitate to let us know what we can do to make your visit to Gharelu site more comfortable. As a fundamental component of our mission statement, we allow ourselves to be guided by the needs of those we serve. As needs change, we will change.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="Doctor-style bg_img_4">
+        <div class="layer mb-5">
+            <div class="container py-4">
+                <h2 class="heading my-5 text-dark text-center">Message from our Service Provider</h2>
+                <div class="text-center">
+                    <div class="row">
+                        <div class="col mt-md-0 mt-5">
+                            <div class="Doctor-picture text-center">
+                                <img src="/static/images/who.jpg" alt="Image"
+                                    class="Doctor-msg-img img-fluid text-center rounded-circle">
+                            </div>
+                            <div class="Doctor-border text-center">
+                                <h3 class="text-dark">Life is for service.</h3>
+                                <p class="text-dark text-center ps-5 pe-5">
+                                    <span class="fa fa-quote-left"></span> To give real service you must add something which cannot be bought or measured with money, and that is sincerity and integrity.
+                                    <span class="fa ms-2 fa-quote-right"></span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="instructors" class="p-5 bg-light">
+        <div class="team-area">
+            <div class="container">
+                <div class="row">
+                    <h2 class="text-center text-dark mb-5">The Team Behind <span class="text-danger">Gharelu.com</span></h2>
+                            <div class="about-content col-lg-6">
+                                <!-- <div class="col-lg-6"> -->
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi ut voluptatum eveniet doloremque autem excepturi eaque, sit laboriosam voluptatem nisi delectus. Facere explicabo hic minus accusamus alias fuga nihil dolorum quae. Explicabo illo unde, odio consequatur ipsam possimus veritatis, placeat, ab molestiae velit inventore exercitationem consequuntur blanditiis omnis beatae. Dolor iste excepturi ratione soluta quas culpa voluptatum repudiandae harum non.</p>
+                                </div>
+                            </div>
+                        </div>
+                  
+                </div>
+            </div>
+        </div>
     </section>
 
 {%endblock content%}
