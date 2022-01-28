@@ -9,327 +9,41 @@
 {% endblock title%}
 
 <!-- Body content goes here -->
-{% block content %}
-
-<style>
-  html {
-    overflow-x: hidden;
-  }
-  * {
-    margin: 0;
-    padding: 0;
-    outline: none;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-  }
-
-  .home {
-    background: url("/static/images/homePageSearch.png") center no-repeat;
-    display: flex;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    object-fit: cover;
-    /* background-attachment: fixed; */
-    font-family: "Poppins", sans-serif;
-    justify-content: center;
-  }
-
-  #cover-image {
-    width: 100%;
-  }
-
-  .main-search .max-width .home-content {
-    padding-bottom: 150px;
-  }
-
-  .main-search .max-width .home-content p {
-    line-height: 8px;
-    text-align: center;
-    color: rgb(117, 117, 117);
-  }
-
-  .main-search .max-width .home-content p:first-child {
-    font-weight: 1000;
-    font-size: 20px;
-  }
-
-  .main-search .max-width .home-content p:nth-child(2) {
-    font-weight: 1000;
-    font-size: 20px;
-  }
-
-  .main-search .max-width .home-content p:nth-child(3) {
-    font-weight: 20;
-    font-size: 15px;
-  }
-
-  .home-content {
-    padding-top: 150px;
-  }
-
-  .main-search .max-width .home-content .search {
-    margin-top: 10px;
-    text-align: center;
-    align-items: center;
-  }
-
-  .main-search .max-width .home-content .search input {
-    margin-right: 20px;
-    text-align: center;
-    height: 45px;
-    border-radius: 5px;
-    outline: none;
-    border: none;
-    width: 368px;
-  }
-
-  .main-search .max-width .home-content .search p {
-    text-align: right;
-  }
-
-  .main-search .max-width .home-content .search input:nth-child(2) {
-    margin-left: 10px;
-  }
-
-  .main-search .max-width .home-content .search button {
-    height: 45px;
-    width: 80px;
-    background-color: #2683da;
-    border: none;
-    border-radius: 5px;
-    color: #fff;
-    font-weight: bold;
-  }
-
-  .main-search .max-width .home-content .search button:hover {
-    background-color: #34dc38;
-  }
-
-  .form {
-    position: relative;
-  }
-
-  .form .text1 {
-    position: absolute;
-    top: 10px;
-    left: 3px;
-  }
-
-  .form .text2 {
-    position: absolute;
-    top: 10px;
-    left: 2px;
-  }
-
-  .form span {
-    position: absolute;
-    right: 17px;
-    top: 8px;
-    padding: 2px;
-    border-left: 1px solid #d1d5db;
-  }
-
-  .left-pan {
-    padding-left: 0px;
-  }
-
-  .left-pan i {
-    padding-left: 5px;
-  }
-
-  .form-input {
-    height: 55px;
-    text-indent: 33px;
-    border-radius: 10px;
-  }
-
-  .form-input:focus {
-    box-shadow: none;
-    border: none;
-  }
-
-  .ratings i {
-    width: 10px;
-    height: 30px;
-    color: blue;
-  }
-
-  .service-button {
-    position: relative;
-    display: flex;
-    align-items: center;
-    text-transform: uppercase;
-  }
-
-  .service-button a {
-    position: relative;
-    padding: 1rem 0px 1rem 0px;
-    width: 100pc;
-    text-decoration: none;
-    color: blue;
-    font-weight: regular;
-    padding: 8px;
-    border-radius: 3px;
-    background: white;
-    text-align: center;
-  }
-  .service-button a:hover {
-    color: #fff;
-    background: #97ffbf;
-    transition: 0.1s;
-  }
-
-  .testimonial {
-    position: relative;
-    margin-top: 2%;
-    padding: 1rem 6rem 1rem 5rem;
-    width: 100%;
-    min-height: 5vh;
-    background: #dbfff9;
-    border-radius: 10px;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .testimonial h2 {
-    text-align: center;
-    border-top: thick #fffafa;
-  }
-  .testimonial h4 {
-    font-size: 26px;
-    text-align: center;
-  }
-
-  .box {
-    height: 100%;
-    text-align: center;
-    padding: 1rem 1rem;
-    background: #ffe0e1;
-    border-radius: 20px;
-    display: block;
-    flex-wrap: wrap;
-  }
-  .box p {
-    flex: 1.5rem;
-    font-family: Poppins;
-    font-size: 16px;
-    text-align: justify;
-    margin: 8% 8% 0% 8%;
-  }
-  /* .single-box {
-    width: 100%;
-    height: 100%;
-    margin-bottom: -11px;
-    padding: 1rem 1rem 2rem 1rem;
-  }
-
-  .box .image {
-    position: relative;
-    width: 90px;
-    height: 90px;
-    left: 0%;
-  }
-  .box .image img {
-    position: relative;
-    width: 50%;
-    border-radius: 100%;
-    left: -5%;
-    bottom: -30px;
-  }
-  .box .image span h6 {
-    position: relative;
-    bottom: 0%;
-    left: 60%;
-    font-family: Poppins;
-    font-size: 12px;
-  }
-
-  .testimonial .carousel-indicators {
-    left: 0;
-    top: auto;
-    bottom: -15px;
-  }
-
-  .testimonial .carousel-indicators li {
-    background: #000000;
-    border-radius: 50%;
-    width: 15px;
-    height: 15px;
-  }
-
-  .testimonial .carousel-indicators .active {
-    background: #ffffff;
-  }
-
-  .testimonial .carousel-control-prev {
-    left: -119px;
-    bottom: -0px;
-  }
-
-  .testimonial .carousel-control-next {
-    right: -119px;
-    bottom: -0px;
-  } */
-</style>
-
-{% include 'navbar/navbar-flash.html' %}
+{% block content %} {% include 'navbar/navbar-flash.html' %}
 
 <div class="container-fluid" style="margin-top: 4.6rem">
-  <!-- <section
-    class="main-search"
-    id=""
-    style="background: url('/static/images/homePageSearch.png'); width: 100%; background-size: cover"
-  >
-    <div class="max-width">
-      <div class="home-content">
-        <p>Problems in your home? We know how to deal with it. Let our</p>
-        <p>professionals solve your house-hold problems at your place.</p>
-        <p>From cleaning service to Home Inspection services we do it all. Reach out to us!</p>
-
-        <div class="search">
-          <span><i class="fa fa-search fa-lg" aria-hidden="true"></i></span>
-
-          <input type="text" placeholder="What.." name="what" />
-          <input type="text" placeholder="where.." name="where" />
-          <button type="submit">FIND</button>
-        </div>
-      </div>
-    </div>
-  </section> -->
-
   <section class="home" id="home">
-    <div class="max-width">
+    <div class="position-relative" style="width: 100%">
+      <div class="intro-text" id="info">
+        <span>
+          Problems in your home? We know how to deal with it.<br />
+          Let our professionals solve your house-hold problems at your place.<br />
+          From cleaning service to Home Inspection services we do it all. Reach out to us!
+        </span>
+      </div>
       <div class="home-content">
-        <div class="intro-text">
-          <p>Problems in your home? We know how to deal with it. Let our</p>
-          <p>professionals solve your house-hold problems at your place.</p>
-          <p>From cleaning service to Home Inspection services we do it all. Reach out to us!</p>
-        </div>
-
         <div class="container">
-          <div class="row height d-flex justify-content-center align-items-center">
-            <div class="col-md-6">
+          <div class="row justify-content-center">
+            <div class="col-10 col-sm-10 col-md-4 col-lg-4 margin-0-5 font-size-14">
               <div class="form">
-                <i class="text1"><b>What</b></i>
+                <label for="text-input-what" class="text1 icl-TextInput-label">What</label>
                 <input type="text" class="form-control form-input" placeholder="Enter a profession..." />
                 <span class="left-pan"><i class="fa fa-search"> </i> </span>
               </div>
             </div>
 
-            <div class="col-md-6">
+            <div class="col-10 col-sm-10 col-md-4 col-lg-4 margin-0-5 font-size-14">
               <div class="form">
-                <i class="text2"><b>Where</b></i>
+                <p class="text2">Where</p>
                 <input type="text" class="form-control form-input" placeholder="Enter a location..." />
-                <span class="left-pan"
-                  ><i class="icon">
-                    <!-- <img src="{% static 'images/loc.png'%}" style="width: 20px; height: 15px; top: 10px; right: -3px" /> -->
-                  </i>
-                </span>
+                <span class="left-pan"><i class="fa fa-map-marker-alt"> </i> </span>
               </div>
             </div>
-
-            <button class="btn btn-primary" type="submit">FIND</button>
+            <div class="col-10 col-sm-10 col-md-4 col-lg-4">
+              <div class="form">
+                <button class="btn btn-primary col-10 col-sm-10 col-md-4 col-lg-3" id="find" type="submit">FIND</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -338,7 +52,7 @@
 
   <!--	   Service Start-->
 
-  <!-- <section class="pt-5 pb-5">
+  <section class="pt-5 pb-5">
     <div class="container">
       <div class="row">
         <div class="col-6">
@@ -618,13 +332,13 @@
         </div>
       </div>
     </div>
-  </section> -->
+  </section>
 
   <!--          Service End-->
 
   <!--	  Testimonial Start-->
 
-  <!-- <div class="testimonial">
+  <div class="testimonial">
     <h2><strong>-</strong></h2>
     <h4><strong>Know What Our Customer Say!</strong></h4>
 
@@ -772,7 +486,7 @@
         </div>
       </div>
     </div>
-  </div> -->
+  </div>
 </div>
 
 {%endblock content%}
