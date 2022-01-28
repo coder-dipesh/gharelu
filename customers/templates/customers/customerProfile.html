@@ -1,10 +1,7 @@
 {% extends 'layout.html' %} {% load static%} {%load bootstrap%} {% block title %}
-<title>Professional Profile | Gharelu</title>
+<title>Customer Profile | Gharelu</title>
 {% endblock title%} {% block content %}
 <style>
-  body {
-    font-family: Poppins;
-  }
   .container {
     display: flex;
     flex-wrap: wrap;
@@ -32,11 +29,12 @@
   }
   .card-footer span {
     color: #4a5682;
+    font-family: Poppins;
     font-weight: 500;
   }
 </style>
 
-{% include 'navbar/professional-navbar.html' %}
+{% include 'navbar/customer-navbar.html' %}
 <div style="margin-top: 6rem">
   <h4 class="text-center">Your Profile</h4>
 
@@ -63,19 +61,19 @@
       </div>
     </div>
   </div>
-
-  <script>
-    var form_fields = document.getElementsByTagName("input");
-    form_fields[1].placeholder = "First Name";
-    form_fields[2].placeholder = "Last Name";
-    form_fields[3].placeholder = "+977 9816034112";
-    form_fields[4].placeholder = "Buddanilakantha, Kapan";
-    form_fields[5].placeholder = "Kathmandu";
-
-    for (var field in form_fields) {
-      field.className += " form-control my-2";
-    }
-  </script>
-
-  {% endblock content %}
 </div>
+
+<script>
+  var form_fields = document.getElementsByTagName("input");
+  form_fields[1].placeholder = "First Name";
+  form_fields[2].placeholder = "Last Name";
+  form_fields[3].placeholder = "+977 9816034112";
+  form_fields[4].placeholder = "Buddanilakantha, Kapan";
+  form_fields[5].placeholder = "Kathmandu";
+
+  for (var field in form_fields) {
+    field.className += " form-control my-2";
+  }
+</script>
+
+{% endblock content %}
