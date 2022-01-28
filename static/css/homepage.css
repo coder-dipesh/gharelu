@@ -77,6 +77,8 @@ body {
 
 .main-search .max-width .home-content .search input:nth-child(2) {
   margin-left: 10px;
+.main-search .max-width .home-content .search input:nth-child(2){
+margin-left: 10px;
 }
 
 .main-search .max-width .home-content .search button {
@@ -92,6 +94,9 @@ body {
 .main-search .max-width .home-content .search button:hover {
   background-color: #34dc38;
 }
+
+
+
 
 .form {
   position: relative;

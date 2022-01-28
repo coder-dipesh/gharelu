@@ -8,5 +8,6 @@ urlpatterns = [
     # path('',),
     # path('',),
     # path('',),
+    path('about',views.about, name='about'),
 
 ]

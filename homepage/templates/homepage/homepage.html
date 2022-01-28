@@ -51,6 +51,84 @@
   </section>
 
   <!--	   Service Start-->
+  <h1>Our Services</h1>
+
+  <div class="wrapper">
+    <div class="card text-center">
+      <div class="image"><img src="https://i.imgur.com/Jk44eEl.png" width="300" /></div>
+      <div class="about-product text-center">
+        <h3>COX Headphone</h3>
+        <h4>$99.<small>99</small></h4>
+        <button class="btn btn-success buy-now">Buy Now</button>
+      </div>
+    </div>
+  </div>
+{% block content %}
+
+{% include 'navbar/navbar-flash.html' %}
+
+
+<section class="home" id="home" style="background: url('{% static "images/homePageSearch.png" %}'); width: 100%; background-size: cover;">
+      
+   <div class="max-width">
+      
+       <div class="home-content">
+           <div class="intro-text">
+         <p>Problems in your home? We know how to deal with it. Let our </p>
+         <p>   professionals solve your house-hold problems at your place.</p>
+         <p>From cleaning service to Home Inspection services we do it all. Reach out to us!</p>
+
+         <div class="search">
+            <span><i class="fa fa-search fa-lg" aria-hidden="true" ></i></span>
+            
+            <input type="text" placeholder="What.." name="">
+            <input type="text" placeholder="where.." name="">
+            <button>FIND</button>
+         </div>
+
+      </div>
+
+      <div class="container">
+        <div class="row height d-flex justify-content-center align-items-center">
+           <div class="col-md-6">
+               <div class="form"> 
+               <i class="text1"><b>What</b></i> 
+               <input type="text" class="form-control form-input" placeholder="Enter a profession..."> 
+               <span class="left-pan"><i class="fa fa-search" >
+                   
+               </i>
+               </span> 
+               </div>
+           </div>
+   
+            <div class="col-md-6">
+               <div class="form"> 
+               <i class="text2"><b>Where</b></i> 
+               <input type="text" class="form-control form-input" placeholder="Enter a location..."> 
+               <span class="left-pan"><i class="icon"> <img src="{% static 'images/loc.png'%}" style="width: 20px; height: 15px; top: 10px; right: -3px;">
+                   
+               </i>
+               </span> 
+               </div>
+           </div>
+           <button>FIND</button>
+           </div>
+           <!-- <button>FIND</button> -->
+       </div>
+       
+       </div>
+   </div>
+</section> 	
+
+</section>
+
+
+<!--	   Service Start-->
+
+<section class="pt-5 pb-5">
+  <div class="container">
+    <div class="row">
+<!--    	<div id="carouselExampleIndicators1" class="carousel carousel-dark slide" data-ride="carousel">-->
 
   <section class="pt-5 pb-5">
     <div class="container">
