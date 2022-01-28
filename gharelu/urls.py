@@ -30,4 +30,6 @@ urlpatterns = [
 
 
 ]
+handler404 = 'homepage.views.error404'
+
 
