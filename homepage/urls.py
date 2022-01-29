@@ -9,4 +9,9 @@ urlpatterns = [
     # path('',),
     # path('',),
 
+     # path('',),
+    # path('',),
+    # path('',),
+    path('service',views.service,name='service')
+
 ]
