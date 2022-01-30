@@ -16,3 +16,6 @@ def about(request):
 
 def service(request):
     return render(request,'homepage/service.html')
+
+def footer(request):
+    return render(request,'footer.html')
