@@ -1,19 +1,17 @@
-<!-- Inheriting from parent -->
+<!--========================== Inheriting from parent===================== -->
 {% extends 'layout.html' %}
 {%load bootstrap%}
 {%load static%}
 
 
-<!-- Site title goes here -->
+<!-- =========================Site title goes here=========================== -->
 {% block title %}
 
     <title> About | Gharelu</title>
 
 {% endblock title%}
 
-
-
-<!-- Body content goes here -->
+<!--========================= Body content goes here ========================-->
 {% block content %}
 <style>
 
@@ -23,6 +21,9 @@
         text-justify: inter-word;
         line-height: 1.7;
     }
+
+    /* ==========================cover image at begining========================= */
+
     .image{
         display: flex;
         width: 100%;
@@ -37,6 +38,8 @@
         /* flex-wrap: wrap; */
         margin-right: -15px;
     }
+
+    /* ===========================content about gharelu========================= */
 
     .image .image-content .words {
         color: #fff;
@@ -71,6 +74,9 @@
         padding-top: 1rem;
         padding-left: 3rem;
     }
+
+    /* ==================================team============================= */
+
     #instructors .team-area .container .about-content{
           text-align: justify;
           text-justify: inter-word;
@@ -82,6 +88,8 @@
 </style>
 
 {% include 'navbar/navbar-flash.html' %}
+
+<!-- =====================================image====================================== -->
 
     <section class="image" id="" style="margin-top: 2rem">
         <div class="container"><div class="row">
@@ -108,8 +116,9 @@
                   <div class="col-lg-6">
                  <p class="sub-info">Gharelu.com provides services to the customer as required and offer emplyoment opportunities to the service provider.</p>
                  </div></div></div>
-        
     </section>
+
+<!-- =====================================about gharelu================================ -->
 
     <section id="learn" class="p-5 bg-white">
         <div class="container">
@@ -126,6 +135,8 @@
             </div>
         </div>
     </section>
+
+    <!-- ====================================message================================== -->
 
     <section>
         <div class="layer mb-5">
@@ -152,6 +163,8 @@
         </div>
     </section>
 
+    <!-- ===================================Team=================================== -->
+
     <section id="instructors" class="p-5 bg-light">
         <div class="team-area">
             <div class="container">
@@ -160,14 +173,13 @@
                             <div class="about-content col-lg-6">
                                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi ut voluptatum eveniet doloremque autem excepturi eaque, sit laboriosam voluptatem nisi delectus. Facere explicabo hic minus accusamus alias fuga nihil dolorum quae. Explicabo illo unde, odio consequatur ipsam possimus veritatis, placeat, ab molestiae velit inventore exercitationem consequuntur blanditiis omnis beatae. Dolor iste excepturi ratione soluta quas culpa voluptatum repudiandae harum non.</p>
                             </div>
-                            <div class="about-content col-lg-6">
-                                    <img src="/static/images/404-error.gif" class="img-fluid" >
-                            </div>
                         </div>
                   
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- ===================================footer==================================== -->
 
 {%endblock content%}
