@@ -132,7 +132,7 @@ def entermailResetpassword(request):
             username = request.POST.get('username')
             
             if not User.objects.filter(username=username).first():
-                messages.add_message(request, messages.ERROR, 'No user found with this email.')
+                messages.add_message(request, messages.ERROR, 'No user found with this username.')
                 return redirect('/auth/reset-password-enterusername')
             
             user_obj = User.objects.get(username = username)
