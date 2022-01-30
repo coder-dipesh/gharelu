@@ -80,12 +80,13 @@
 }
 
 .categories{
-    padding: 30px 0;
+    padding: 30px 0px;
 }
 
 .shell{
-  padding:80px 0;
+  padding:2rem  0;
 }
+
 .product{
   background:#fff;
   padding:15px;
@@ -94,6 +95,7 @@
   position:relative;
   margin:20px auto;
 }
+
 .img{
   position:absolute;
   top:5px;
@@ -108,20 +110,25 @@
   padding: 15px;
   transition: all 0.2s ease-in-out;
 }
+
 .img img{
   width:100%;
   transition: all 0.2s ease-in-out;
   border-radius:6px;
 }
+
 .product:hover .img{
   top:-40px;
 }
+
 .product:hover .img img{
   box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
 }
+
 .text{
-  padding-top:150%;
+  padding-top:100%;
 }
+
 .text .category{
   text-align:center;
   font-size:12px;
@@ -131,6 +138,7 @@
   position:relative;
   transition: all 0.2s ease-in-out;
 }
+
 .text .category > *{
   position:absolute;
   top:50%;
@@ -141,26 +149,28 @@
   -ms-transform: translate(-50%,-50%);
   -o-transform: translate(-50%,-50%);
   -khtml-transform: translate(-50%,-50%);
-    
 }
+
 .text .category > button{
   padding: 12px 30px;
   border: 1px solid #313131;
   background:#212121;
   color:#fff;
   box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
-  border-radius:27px;
+  border-radius:5rem;
   transition: all 0.05s ease-in-out;
-  
 }
+
 .product:hover .text .category > button{
   border-color:#ddd;
   box-shadow: none;
   padding: 11px 28px;
 }
+
 .product:hover .text .category{
   margin-top: 0px;
 }
+
 </style>
 
 {% include 'navbar/customer-navbar.html' %}
@@ -177,7 +187,7 @@
 <div class="content" id="services">
     <div class="categories">
         <div class="container">
-            <h2 style="color: #f3c500;    font-size: 40px;    margin-bottom: 0px;    text-align: center;">Select Your Service</h2>
+            <h2 style="color: rgb(0, 253, 21);    font-size: 40px;    text-align: center;">Select Your Service</h2>
             
             
 <div class="shell">
@@ -187,11 +197,11 @@
         <div class="col-md-3">
           <div class="product">
             <div class="img">
-              <img src="https://3.bp.blogspot.com/-eDeTttUjHxI/WVSvmI-552I/AAAAAAAAAKw/0T3LN6jABKMyEkTRUUQMFxpe6PLvtcMMwCPcBGAYYCw/s1600/001-culture-clash-matthew-gianoulis.jpg" alt="Product" class="img-responsive" />
+              <img src="/static/images/carpenter.png" alt="Product" class="img-responsive" />
             </div>
             <div class="text">
               <div class="category">
-                <button>Ethnic</button> 
+                <button>Carpenter</button> 
               </div>
             </div>
           </div>
@@ -200,11 +210,11 @@
         <div class="col-md-3">
           <div class="product">
             <div class="img">
-              <img src="https://3.bp.blogspot.com/-eDeTttUjHxI/WVSvmI-552I/AAAAAAAAAKw/0T3LN6jABKMyEkTRUUQMFxpe6PLvtcMMwCPcBGAYYCw/s1600/001-culture-clash-matthew-gianoulis.jpg" alt="Product" class="img-responsive" />
+              <img src="/static/images/cleaner.png" alt="Product" class="img-responsive" />
             </div>
             <div class="text">
               <div class="category">
-                <button>Ethnic</button>               </div>
+                <button>Cleaner</button>               </div>
             </div>
           </div>
         </div>
@@ -212,11 +222,11 @@
         <div class="col-md-3">
           <div class="product">
             <div class="img">
-              <img src="https://3.bp.blogspot.com/-eDeTttUjHxI/WVSvmI-552I/AAAAAAAAAKw/0T3LN6jABKMyEkTRUUQMFxpe6PLvtcMMwCPcBGAYYCw/s1600/001-culture-clash-matthew-gianoulis.jpg" alt="Product" class="img-responsive" />
+              <img src="/static/images/electrician.png" alt="Product" class="img-responsive" />
             </div>
             <div class="text">
               <div class="category">
-                <button>Ethnic</button>               </div>
+                <button>Electrician</button>               </div>
             </div>
           </div>
         </div>
@@ -224,11 +234,11 @@
         <div class="col-md-3">
           <div class="product">
             <div class="img">
-              <img src="https://3.bp.blogspot.com/-eDeTttUjHxI/WVSvmI-552I/AAAAAAAAAKw/0T3LN6jABKMyEkTRUUQMFxpe6PLvtcMMwCPcBGAYYCw/s1600/001-culture-clash-matthew-gianoulis.jpg" alt="Product" class="img-responsive" />
+              <img src="/static/images/makeup.png" alt="Product" class="img-responsive" />
             </div>
             <div class="text">
               <div class="category">
-                <button>Ethnic</button>               </div>
+                <button>Makeup</button>               </div>
             </div>
           </div>
         </div>
@@ -236,11 +246,11 @@
         <div class="col-md-3">
           <div class="product">
             <div class="img">
-              <img src="https://3.bp.blogspot.com/-eDeTttUjHxI/WVSvmI-552I/AAAAAAAAAKw/0T3LN6jABKMyEkTRUUQMFxpe6PLvtcMMwCPcBGAYYCw/s1600/001-culture-clash-matthew-gianoulis.jpg" alt="Product" class="img-responsive" />
+              <img src="/static/images/mason.png" alt="Product" class="img-responsive" />
             </div>
             <div class="text">
               <div class="category">
-                <button>Ethnic</button>               </div>
+                <button>Mason</button>               </div>
             </div>
           </div>
         </div>
@@ -248,11 +258,11 @@
         <div class="col-md-3">
           <div class="product">
             <div class="img">
-              <img src="https://3.bp.blogspot.com/-eDeTttUjHxI/WVSvmI-552I/AAAAAAAAAKw/0T3LN6jABKMyEkTRUUQMFxpe6PLvtcMMwCPcBGAYYCw/s1600/001-culture-clash-matthew-gianoulis.jpg" alt="Product" class="img-responsive" />
+              <img src="/static/images/movein.png" alt="Product" class="img-responsive" />
             </div>
             <div class="text">
               <div class="category">
-                <button>Ethnic</button>               </div>
+                <button>Movein</button>               </div>
             </div>
           </div>
         </div>
@@ -260,11 +270,11 @@
         <div class="col-md-3">
           <div class="product">
             <div class="img">
-              <img src="https://3.bp.blogspot.com/-eDeTttUjHxI/WVSvmI-552I/AAAAAAAAAKw/0T3LN6jABKMyEkTRUUQMFxpe6PLvtcMMwCPcBGAYYCw/s1600/001-culture-clash-matthew-gianoulis.jpg" alt="Product" class="img-responsive" />
+              <img src="/static/images/painter.png" alt="Product" class="img-responsive" />
             </div>
             <div class="text">
               <div class="category">
-                <button>Ethnic</button>               </div>
+                <button>Painter</button>               </div>
             </div>
           </div>
         </div>
@@ -272,11 +282,11 @@
         <div class="col-md-3">
           <div class="product">
             <div class="img">
-              <img src="https://3.bp.blogspot.com/-eDeTttUjHxI/WVSvmI-552I/AAAAAAAAAKw/0T3LN6jABKMyEkTRUUQMFxpe6PLvtcMMwCPcBGAYYCw/s1600/001-culture-clash-matthew-gianoulis.jpg" alt="Product" class="img-responsive" />
+              <img src="/static/images/plumber.png" alt="Product" class="img-responsive" />
             </div>
             <div class="text">
               <div class="category">
-                <button>Ethnic</button>               </div>
+                <button>Plumber</button>               </div>
             </div>
           </div>
         </div>

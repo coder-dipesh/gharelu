@@ -1,0 +1,99 @@
+/* Codingwithnick */
+
+html,
+body {
+  height: 100%;
+  font-family: "poppins", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+p {
+  font-size: 15px;
+  font-family: "poppins", sans-serif;
+  color: #bdb2b2;
+  font-weight: 400;
+  line-height: 25px;
+  margin: 0 0 15px 0;
+}
+
+a {
+  text-decoration: none;
+}
+ul {
+  padding-left: 0;
+}
+
+input:focus {
+  outline: none;
+}
+
+a:hover,
+a:focus {
+  text-decoration: none;
+  outline: none;
+}
+
+.footer {
+  background: #111111;
+  padding-top: 50px;
+}
+
+.footer-widget {
+  margin-bottom: 30px;
+}
+
+.footer-widget h6 {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: capitalize;
+  margin-bottom: 20px;
+}
+
+.footer-widget ul li {
+  line-height: 36px;
+  list-style: none;
+}
+
+.footer-widget ul li a {
+  color: #bdb2b2;
+  font-size: 14px;
+}
+.footer-widget ul li span {
+  padding: 10px;
+  color: #bdb2b2;
+  font-size: 14px;
+}
+
+.footer-widget ul li a:hover {
+  color: hsl(0, 0%, 100%);
+}
+
+.footer-widget ul li span:hover {
+  color: hsl(0, 0%, 100%);
+}
+
+.footer-copyright-text {
+  padding: 13px 0;
+  height: 35px;
+  margin-top: 3px;
+}
+
+.footer-copyright-text p {
+  color: black;
+}
+
+.footer-copyright-text img{
+    float: left;
+  
+}
+
+.btn-secondary {
+  margin-top: 10px;
+  background: rgb(255, 0, 0);
+  border: rgb(0, 0, 0);
+  padding: 3px 53px;
+}
+.fa.fa-arrow-up.btn-danger.btn-lg {
+  float: Right;
+
+}
