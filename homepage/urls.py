@@ -10,4 +10,9 @@ urlpatterns = [
     # path('',),
     path('about',views.about, name='about'),
 
+     # path('',),
+    # path('',),
+    # path('',),
+    path('service',views.service,name='service')
+
 ]
