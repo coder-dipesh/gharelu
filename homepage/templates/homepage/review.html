@@ -16,165 +16,260 @@
 <!-- Body content goes here -->
 {% block content %}
 <style>
-
-body{
-        font-family: Poppins;
-        text-align: justify;
-        text-justify: inter-word;
-        line-height: 1.7;
-    }
-
-.picture {
-    background-color: yellow;
-    width: 100%;
-    height: 20rem;
+body {
+  background-color: rgb(245, 245, 245);
+  overflow-x: hidden;
 }
 
-.picture  .container .words{
-    font-size: 50px;
-    font-weight: bolder;
-    text-align: center;
-    padding-top: 7rem;
+.jumbotron {
+  /*background: #358CCE;*/
+  
+  background-color: #39cb58;
+  color: #FFF;
+  border-radius: 0px;
+  height: 300px;
 }
 
-.picture  .container p{
-    font-size: 50px;
-    font-weight: bolder;
-    text-align: center;
+.jumbotron-sm {
+  padding-top: 24px;
+  padding-bottom: 24px;
 }
 
-h3{
-        color: #ffffff;
-        padding-bottom: 70px;
-    }
-    h1{
-       padding-bottom:150px;
-       font-weight: bold;
-      color: #ffbb00;
-      font-size: 50px;
-    }
-    
-    .btn-success{
-        transition: 0.5s ease;
-        letter-spacing: 2px;
-        font-weight: bold;
-        font-size: 18px;
-    }
-    
-    
+.jumbotron small {
+  color: #FFF;
+}
 
+.header {
+  height: 150px;
+}
+
+#feedbackIcon {
+  height: 40px;
+  width: 40px;
+  margin-top: -10px;
+  color: #fff;
+  fill: #fff;
+}
+
+#feedbackIcon path {
+  fill: rgb(231, 8, 8);
+}
+
+.card {
+  position: relative;
+  top: 18px;
+  margin-bottom: 50px;
+}
+
+.cardStyle {
+  position: relative;
+  background-color: #fff;
+  border: 1px solid rgb(221, 221, 221);
+  margin-top: 20px;
+  padding: 20px;
+}
+
+.cardStyle:before {
+  position: absolute;
+  height: 100%;
+  width: 30px;
+  left: -30px;
+  content: " ";
+  display: block;
+  /* z-index: 200; */
+  
+  background: url("http://al2015.gatesnotesazure.com/assets/media/images/top-shadow-left.png") no-repeat;
+}
+
+.cardStyle:after {
+  position: absolute;
+  height: 100%;
+  width: 30px;
+  top: 0;
+  right: -30px;
+  content: " ";
+  display: block;
+  /* z-index: 200; */
+  
+  background: url("http://al2015.gatesnotesazure.com/assets/media/images/top-shadow-right.png") no-repeat;
+}
+
+.h1 {
+  color: rgb(184, 43, 43);
+  font-size: 50px;
+margin-top: 150px
+}
+
+.h1 .h2 {
+  color: #ddd;
+  font-size: 25px;
+}
+
+.h1,
+.h3,
+h2l,
+label,
+.modal-title {
+  font-family: Lato;
+  font-weight: 300;
+}
+
+label {
+  color: #666;
+  font-weight: 400;
+}
+
+.h1 .fa-envelope,
+.h1 .glyphicon-bullhorn {
+  font-size: 35px;
+}
+
+.glyphicon-bullhorn {
+  margin-left: 10px;
+}
+
+.btn-success {
+  padding: 10px 25px;
+}
 </style>
 
 {% include 'navbar/customer-navbar.html' %}
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title text-center" id="myModalLabel">Multiplier.in - Your Feedback</h4>
+        </div>
+        <div class="modal-body">
+          <h3 class="h3 text-center">Thank You! for your Precious Feedback.</h3>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- The Feedback Page -->
+  <div class="jumbotron jumbotron-sm">
+    <h1 class="h1">Feedback </h1>
 
-<section class="picture" id="">
-      <div class="container"><div class="row">
-          <div class="image-content">
-              <div class="words">What client say</div>
-              <p>About us?</p>
-               </div></div>
-  </section>
-
-  <section class="review">
-      
     <div class="container">
-    
-        <div class="col-md-5">
-        <div>
+      <div class="row">
+        <div class="col-sm-12 col-lg-12 header"></div>
+      </div>
+    </div>
+  </div>
+  <div class="container card">
+    <div class="row">
+      <div class="col-sm-12 col-lg-12">
+        <h2 class="col-xs-12">Your Feedback is Important to Us</h2>
         
-        <img src="/static/images/login.gif" width="100%" height="650px">
-        
-        
+       
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-12">
+        <div class="cardStyle">
+          <form name="feedback" id="form" data-toggle="validator">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="name">
+                    Name</label>
+                  <input type="text" class="form-control" id="name" placeholder="Enter name" required="required" />
+                </div>
+                <div class="form-group">
+                  <label for="email">
+                    Email Address</label>
+                  <div class="input-group">
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
+                    </span>
+                    <input type="email" class="form-control" id="email" placeholder="Enter email" required="required" />
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="ease">
+                    How easy was it to use our Platform ?</label>
+                  <textarea name="ease" id="easeOfAccess" class="form-control" rows="3" cols="25" required="required" placeholder=""></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="bestFeature">
+                    What did you like best about our website?</label>
+                  <textarea name="bestFeature" id="bestFeature" class="form-control" rows="3" cols="5" required="required" placeholder="for.eg: Could be improved !"></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="rating">
+                    If you were to review the website what score would you give it out of 10 ?</label>
+                  <select id="rating" name="rating" class="form-control" required="required">
+                    <option value="none" selected="" disabled>Choose One:</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="improve">
+                    What can we do to improve ?
+                    <small class="col-xs-12" style="padding: 0;">according to you what changes should be made in the beta version</small>
+                  </label>
+                  <textarea name="improve" id="improve" class="form-control" rows="3" cols="25" required="required" placeholder=""></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="recommendation">
+                    How likely is it that you would recommend us to a friend or colleague ?</label>
+                  <select id="recommendation" name="recommendation" class="form-control" required="required">
+                    <option value="none" selected="" disabled>Choose One:</option>
+                    <option value="0">Never</option>
+                    <option value="1">No !</option>
+                    <option value="2">Maybe</option>
+                    <option value="3">Yes !</option>
+                    <option value="4">Definitely</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="other">
+                    Do you have any other comments, questions, or concerns ?</label>
+                  <textarea name="other" id="other" class="form-control" rows="3" cols="25" required="required" placeholder=""></textarea>
+                </div>
+  
+              </div>
+              <div class="col-md-12">
+                <button type="submit" class="btn btn-success pull-right" id="btnContactUs">
+                  Submit Feedback</button>
+              </div>
+            </div>
+          </form>
         </div>
-        </div>
-        
-        
-        <div class="col-md-5 right ">
-            <img src="/static/images/homePageSearch.png">
-        <div class="row">
-        <form>
-                <div class="col-md-6">
-        
-        <input type="text" name="fname" placeholder="First Name*" class="form-control form-group" required="" >
-        </div>
-        <div class="col-md-6">
-        <input type="text" name="lname"placeholder="Last Name*"   class=" form-control form-group" required=""      >
-        </div>
-        </div>
-        <input type="email" name="email" placeholder="Username*"   class="form-control form-group" required=""  >
-        <br>
-        <label>Our Environment*</label>
-        
-        <select class="form-control" required="" >
-            <option  selected disabled> Select Enviorment</option>
-        <option >Excellent</option>
-        <option >Good</option>
-        <option >No deficiency</option>
-        <option >No cafeteria</option>
-        <option >Cleanliness issue</option>
-        <option >Other</option>
-        
-        
-        </select>
-        
-        <br><br>
-        <label>How would you rate achievement of your zoo (out of 5)?*</label>
-        
-        <select class="form-control" >
-            <option  selected disabled>5</option>
-        <option >4</option>
-        <option >3</option>
-        <option >2</option>
-        <option >1</option>
-        
-        
-        </select>
-        <br>
-        
-        <label >How would you rate achievement of your zoo (Description)?</label>
-        
-        <input type="text" name="decr" class="form-control" placeholder="Description" style="height: 60px;" required="" >
-        <br>
-        
-        
-        <label>What your opionion about country or city?</label>
-        
-        <div class="row">
-        <div class="col-md-6"><br>
-        <select class="form-control" >
-        <option selected disabled >Select Country</option>
-        <option>Pakistan</option>
-        <option>India</option>
-        <option>UAE</option>
-        <option>Iran</option>
-        <option>Others</option>
-        </select>
-        </div>
-        
-        <div class="col-md-6"><br>
-        <select class="form-control">
-        <option>Karachi</option>
-        <option>Islamabad</option>
-        <option>Shaja</option>
-        <option>Others</option>
-        
-        </select>
-        </div>
-        </div>
-        
-        <br>
-        <button class="btn btn-success btn-block">Submit</button>
-        
-        
-        </form>
-        </div>
-        
-        
-        
-        </div>
-        
-  </section>
+      </div>
+    </div>
+  </div>
 
+  <!-- <script>
+      $(document).ready(function() {
+
+$('#form').validator().on('submit', function(e) {
+  if (e.isDefaultPrevented()) {
+    // handle the invalid form...
+    $('#myModal').modal('hide');
+  } else {
+    // everything looks good!
+    $('#myModal').modal('show');
+  }
+})
+
+});
+  </script> -->
    
 
 {%endblock content%}
