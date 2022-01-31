@@ -18,6 +18,12 @@ urlpatterns = [
      # path('',),
     # path('',),
     # path('',),
-    path('review',views.review,name='review')
+    path('review',views.review,name='review'),
+
+     # path('',),
+    # path('',),
+    # path('',),
+    path('footer',views.footer,name='footer')
+
 
 ]

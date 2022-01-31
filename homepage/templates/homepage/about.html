@@ -1,19 +1,17 @@
-<!-- Inheriting from parent -->
+<!--========================== Inheriting from parent===================== -->
 {% extends 'layout.html' %}
 {%load bootstrap%}
 {%load static%}
 
 
-<!-- Site title goes here -->
+<!-- =========================Site title goes here=========================== -->
 {% block title %}
 
     <title> About | Gharelu</title>
 
 {% endblock title%}
 
-
-
-<!-- Body content goes here -->
+<!--========================= Body content goes here ========================-->
 {% block content %}
 <style>
 
@@ -23,6 +21,9 @@
         text-justify: inter-word;
         line-height: 1.7;
     }
+
+    /* ==========================cover image at begining========================= */
+
     .image{
         display: flex;
         width: 100%;
@@ -34,9 +35,11 @@
 
     .row{
         display: flex;
-        flex-wrap: wrap;
+        /* flex-wrap: wrap; */
         margin-right: -15px;
     }
+
+    /* ===========================content about gharelu========================= */
 
     .image .image-content .words {
         color: #fff;
@@ -71,6 +74,9 @@
         padding-top: 1rem;
         padding-left: 3rem;
     }
+
+    /* ==================================team============================= */
+
     #instructors .team-area .container .about-content{
           text-align: justify;
           text-justify: inter-word;
@@ -83,7 +89,9 @@
 
 {% include 'navbar/navbar-flash.html' %}
 
-    <section class="image" id="" style="margin-top: 2rem">
+<!-- =====================================image====================================== -->
+
+    <section class="image">
         <div class="container"><div class="row">
             <div class="image-content">
                 <div class="words">
@@ -108,8 +116,9 @@
                   <div class="col-lg-6">
                  <p class="sub-info">Gharelu.com provides services to the customer as required and offer emplyoment opportunities to the service provider.</p>
                  </div></div></div>
-        
     </section>
+
+<!-- =====================================about gharelu================================ -->
 
     <section id="learn" class="p-5 bg-white">
         <div class="container">
@@ -126,6 +135,8 @@
             </div>
         </div>
     </section>
+
+    <!-- ====================================message================================== -->
 
     <section>
         <div class="layer mb-5">
@@ -152,16 +163,21 @@
         </div>
     </section>
 
+    <!-- ===================================Team=================================== -->
+
     <section id="instructors" class="p-5 bg-light">
         <div class="team-area">
             <div class="container">
                 <div class="row">
                     <h2 class="text-center text-dark mb-5">The Team Behind <span style="color:#00EEB6;">Gharelu.com</span></h2>
                             <div class="about-content col-lg-6">
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi ut voluptatum eveniet doloremque autem excepturi eaque, sit laboriosam voluptatem nisi delectus. Facere explicabo hic minus accusamus alias fuga nihil dolorum quae. Explicabo illo unde, odio consequatur ipsam possimus veritatis, placeat, ab molestiae velit inventore exercitationem consequuntur blanditiis omnis beatae. Dolor iste excepturi ratione soluta quas culpa voluptatum repudiandae harum non.</p>
-                            </div>
-                            <div class="about-content col-lg-6">
-                                    <img src="/static/images/404-error.gif" class="img-fluid" >
+                                    <p class="text-secondary">Being a tech enthusiast, we holds some experience in the field of Information Technology. Studied in one of the IT hubs of Nepal(Kathmandu), We holds a experience in the field of Information Technology. A calculated risk-taker with some tech industry knowledge, Our team has worked in many sectors such as Web Development, Q&A Testing, Maintenance, Graphic Designing, and many more.</p>
+
+                                    <p class="text-secondary">
+                                            By sheer determination and passion, Our team planned to develop a website that provide home services, with a goal to enhance and develop the business, services and the community through the Internet. Our team believes in hard work and dedication, which can bring out the best in an individual.</p>
+
+                                     <p class="text-secondary">
+                                                Though the planned website is completed, but the hunger for knowledge still drives our team to achieve new goals and develop new ideas. We believes that a research-oriented person can fly a chopper if given a proper manual.</p>
                             </div>
                         </div>
                   
@@ -170,4 +186,9 @@
         </div>
     </section>
 
+    <!-- ===================================footer==================================== -->
+
+
+{% include 'footer.html' %}
+    
 {%endblock content%}

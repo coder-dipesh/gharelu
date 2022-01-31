@@ -19,3 +19,6 @@ def service(request):
 
 def review(request):
     return render(request,'homepage/review.html')
+    
+def footer(request):
+    return render(request,'footer.html')
