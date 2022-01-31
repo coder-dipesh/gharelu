@@ -1,0 +1,180 @@
+<!-- Inheriting from parent -->
+{% extends 'layout.html' %}
+{%load bootstrap%}
+{%load static%}
+
+
+<!-- Site title goes here -->
+{% block title %}
+
+    <title> Home | Gharelu</title>
+
+{% endblock title%}
+
+
+
+<!-- Body content goes here -->
+{% block content %}
+<style>
+
+body{
+        font-family: Poppins;
+        text-align: justify;
+        text-justify: inter-word;
+        line-height: 1.7;
+    }
+
+.picture {
+    background-color: yellow;
+    width: 100%;
+    height: 20rem;
+}
+
+.picture  .container .words{
+    font-size: 50px;
+    font-weight: bolder;
+    text-align: center;
+    padding-top: 7rem;
+}
+
+.picture  .container p{
+    font-size: 50px;
+    font-weight: bolder;
+    text-align: center;
+}
+
+h3{
+        color: #ffffff;
+        padding-bottom: 70px;
+    }
+    h1{
+       padding-bottom:150px;
+       font-weight: bold;
+      color: #ffbb00;
+      font-size: 50px;
+    }
+    
+    .btn-success{
+        transition: 0.5s ease;
+        letter-spacing: 2px;
+        font-weight: bold;
+        font-size: 18px;
+    }
+    
+    
+
+</style>
+
+{% include 'navbar/customer-navbar.html' %}
+
+<section class="picture" id="">
+      <div class="container"><div class="row">
+          <div class="image-content">
+              <div class="words">What client say</div>
+              <p>About us?</p>
+               </div></div>
+  </section>
+
+  <section class="review">
+      
+    <div class="container">
+    
+        <div class="col-md-5">
+        <div>
+        
+        <img src="/static/images/login.gif" width="100%" height="650px">
+        
+        
+        </div>
+        </div>
+        
+        
+        <div class="col-md-5 right ">
+            <img src="/static/images/homePageSearch.png">
+        <div class="row">
+        <form>
+                <div class="col-md-6">
+        
+        <input type="text" name="fname" placeholder="First Name*" class="form-control form-group" required="" >
+        </div>
+        <div class="col-md-6">
+        <input type="text" name="lname"placeholder="Last Name*"   class=" form-control form-group" required=""      >
+        </div>
+        </div>
+        <input type="email" name="email" placeholder="Username*"   class="form-control form-group" required=""  >
+        <br>
+        <label>Our Environment*</label>
+        
+        <select class="form-control" required="" >
+            <option  selected disabled> Select Enviorment</option>
+        <option >Excellent</option>
+        <option >Good</option>
+        <option >No deficiency</option>
+        <option >No cafeteria</option>
+        <option >Cleanliness issue</option>
+        <option >Other</option>
+        
+        
+        </select>
+        
+        <br><br>
+        <label>How would you rate achievement of your zoo (out of 5)?*</label>
+        
+        <select class="form-control" >
+            <option  selected disabled>5</option>
+        <option >4</option>
+        <option >3</option>
+        <option >2</option>
+        <option >1</option>
+        
+        
+        </select>
+        <br>
+        
+        <label >How would you rate achievement of your zoo (Description)?</label>
+        
+        <input type="text" name="decr" class="form-control" placeholder="Description" style="height: 60px;" required="" >
+        <br>
+        
+        
+        <label>What your opionion about country or city?</label>
+        
+        <div class="row">
+        <div class="col-md-6"><br>
+        <select class="form-control" >
+        <option selected disabled >Select Country</option>
+        <option>Pakistan</option>
+        <option>India</option>
+        <option>UAE</option>
+        <option>Iran</option>
+        <option>Others</option>
+        </select>
+        </div>
+        
+        <div class="col-md-6"><br>
+        <select class="form-control">
+        <option>Karachi</option>
+        <option>Islamabad</option>
+        <option>Shaja</option>
+        <option>Others</option>
+        
+        </select>
+        </div>
+        </div>
+        
+        <br>
+        <button class="btn btn-success btn-block">Submit</button>
+        
+        
+        </form>
+        </div>
+        
+        
+        
+        </div>
+        
+  </section>
+
+   
+
+{%endblock content%}

@@ -16,3 +16,6 @@ def about(request):
 
 def service(request):
     return render(request,'homepage/service.html')
+
+def review(request):
+    return render(request,'homepage/review.html')

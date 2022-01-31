@@ -13,6 +13,11 @@ urlpatterns = [
      # path('',),
     # path('',),
     # path('',),
-    path('service',views.service,name='service')
+    path('service',views.service,name='service'),
+
+     # path('',),
+    # path('',),
+    # path('',),
+    path('review',views.review,name='review')
 
 ]
