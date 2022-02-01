@@ -1,16 +1,7 @@
 html {
   overflow-x: hidden;
 }
-* {
-  margin: 0;
-  padding: 0;
-  outline: none;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
-body {
-  background: #ffffff;
-}
+
 
 .home {
   display: flex;
@@ -22,133 +13,38 @@ body {
   justify-content: center;
 }
 
-#cover-image {
-  width: 100%;
+  /* service css */
+
+.Head h3{
+	position:relative;
+	display:flex;
+	top:15%;
+	text-align:left;
+	left: 5%;
+    overflow: hidden;
 }
 
-.main-search .max-width .home-content {
-  padding-bottom: 150px;
+.cards-wrapper {
+  display: flex;
+  justify-content: center;
 }
-
-.main-search .max-width .home-content p {
-  line-height: 8px;
-  text-align: center;
-  color: rgb(117, 117, 117);
+.card img {
+  max-width: 100%;
+  max-height:100%;
 }
-
-.main-search .max-width .home-content p:first-child {
-  font-weight: 1000;
-  font-size: 20px;
-}
-
-.main-search .max-width .home-content p:nth-child(2) {
-  font-weight: 1000;
-  font-size: 20px;
-}
-
-.main-search .max-width .home-content p:nth-child(3) {
-  font-weight: 20;
-  font-size: 15px;
-}
-
-.home-content {
-  padding-top: 150px;
-}
-
-.main-search .max-width .home-content .search {
-  margin-top: 10px;
-  text-align: center;
-  align-items: center;
-}
-
-.main-search .max-width .home-content .search input {
-  margin-right: 20px;
-  text-align: center;
-  height: 45px;
-  border-radius: 5px;
-  outline: none;
+.card {
+  margin: 0 0.5em;
+  width:400px;
+  /* height: fit-content; */
+  box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
   border: none;
-  width: 368px;
+  border-radius: 0;
+  transition: border-color 1s, box-shadow 0.5s;
 }
 
-.main-search .max-width .home-content .search p {
-  text-align: right;
-}
-
-.main-search .max-width .home-content .search input:nth-child(2) {
-  margin-left: 10px;
-.main-search .max-width .home-content .search input:nth-child(2){
-margin-left: 10px;
-}
-
-.main-search .max-width .home-content .search button {
-  height: 45px;
-  width: 80px;
-  background-color: #2683da;
-  border: none;
-  border-radius: 5px;
-  color: #fff;
-  font-weight: bold;
-}
-
-.main-search .max-width .home-content .search button:hover {
-  background-color: #34dc38;
-}
-
-
-
-.form {
-  position: relative;
-  /* margin-top: -10%; */
-}
-
-.form .text1 {
-  position: absolute;
-  top: 10px;
-  left: 3px;
-  /*  color: #9ca3af*/
-}
-
-.form .text2 {
-  position: absolute;
-  top: 10px;
-  left: 2px;
-  /*  color: #9ca3af*/
-}
-
-/* .form .image {
-  position: absolute;
-  /* align-items: center; */
-/* top: 0px;
-  left: -3px; */
-/*  color: #9ca3af*/
-/* } */
-
-.form span {
-  position: absolute;
-  right: 17px;
-  top: 8px;
-  padding: 2px;
-  border-left: 1px solid #d1d5db;
-}
-
-.left-pan {
-  padding-left: 0px;
-}
-
-.left-pan i {
-  padding-left: 5px;
-}
-
-.form-input {
-  height: 55px;
-  text-indent: 33px;
-  border-radius: 10px;
-}
-
-.form-input:focus {
-  box-shadow: none;
-  border: none;
+.card:hover {
+  border-color: rgba(13, 110, 253, 0.7);
+  box-shadow: 0px 0px 10px 2px rgba(13, 110, 253, 0.6);
 }
 
 .ratings i {
@@ -156,47 +52,40 @@ margin-left: 10px;
   height: 30px;
   color: blue;
 }
-
-.service-button {
-  position: relative;
-  /* padding-top: 60px;
-  margin-top: -4%; */
-  /* padding: 1rem 1rem; */
-  display: flex;
-  align-items: center;
-  text-transform: uppercase;
-  /* left: 100px; */
+.carousel-inner {
+  padding: 1em;
 }
 
-.service-button a {
-  position: relative;
-  padding: 1rem 0px 1rem 0px;
-  width: 100pc;
-  text-decoration: none;
-  color: blue;
-  font-weight: regular;
-  padding: 8px;
-  border-radius: 3px;
-  background: white;
-  text-align: center;
+.service .carousel-control-prev, .service .carousel-control-next{
+  background-color: #e1e1e1;
+  width: 6vh;
+  height: 6vh;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
 }
-.service-button a:hover {
-  color: #fff;
-  background: #97ffbf;
-  transition: 0.1s;
+@media (min-width: 768px) {
+  .card img {
+    height: 17em;
+  }
 }
 
-.testimonial {
-  position: relative;
-  margin-top: 2%;
+ /* service css end */
+
+
+    /* testimonial css */
+
+.testimonial{
+	position: relative;
+	margin-top: 2%;
   padding: 1rem 6rem 1rem 5rem;
   width: 100%;
   min-height: 5vh;
-  background: #dbfff9;
-  border-radius: 10px;
-  align-items: center;
-  justify-content: center;
-  /* left: 40px; */
+	background: #DBFFF9;
+	border-radius: 10px;
+	align-items: center;
+	justify-content: center;
+	/* left: 40px; */
 }
 
 .testimonial h2 {
@@ -247,11 +136,11 @@ margin-left: 10px;
   bottom: -30px;
 }
 .box .image span h6 {
-  position: relative;
-  bottom: 0%;
-  left: 60%;
-  font-family: Poppins;
-  font-size: 12px;
+    position:relative;
+	bottom: 0%;
+	left: 60%;
+	font-family: Poppins, serif;
+	font-size: 12px;
 }
 
 .testimonial .carousel-indicators {
@@ -280,3 +169,6 @@ margin-left: 10px;
   right: -119px;
   bottom: -0px;
 }
+
+/* testimonial css end */
+
