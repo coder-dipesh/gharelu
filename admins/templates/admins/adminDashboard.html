@@ -1,50 +1,194 @@
-<!-- Inheriting from parent -->
-{% extends 'layout.html' %}
-{%load bootstrap%}
-{%load static%}
+{% extends 'admin_layout.html' %} {% load static %} {% block title %}Admin Dashboard | Gharelu{% endblock title %}
+{%block main %}
+<div id="wrapper">
+  <div class="d-flex flex-column" id="content-wrapper">
+    <div id="content">
+      <div class="container-fluid">
+        <div class="d-sm-flex justify-content-between align-items-center mb-4">
+          <h3 class="text-dark mb-0">Admin Dashboard</h3>
+        </div>
 
+        <div class="row">
+          <div class="col-lg-6 col-md-6 col-xl-4 mb-4">
+            <a href="/admins/orders">
+              <div class="card shadow border-0 py-2">
+                <div class="card-body">
+                  <div class="row align-items-center no-gutters">
+                    <div class="col me-2">
+                      <div class="text-uppercase fw-bold text-xs mb-1"><span>Total Orders</span></div>
+                      <div class="text-secondary fw-normal display-6 h5 mb-0">
+                        <span> Ordered: <span class="text-success">{{ 32 }}</span></span>
+                      </div>
+                    </div>
+                    <div class="col-auto" style="color: black"><i class="fas fa-box-open fa-3x"></i></div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
 
-<!-- Site title goes here -->
-{% block title %}
+          <div class="col-lg-6 col-md-6 col-xl-4 mb-4">
+            <a href="/admins/category">
+              <div class="card shadow border-0 py-2">
+                <div class="card-body">
+                  <div class="row align-items-center no-gutters">
+                    <div class="col me-2">
+                      <div class="text-uppercase fw-bold text-xs mb-1"><span>Total Categories</span></div>
+                      <div class="text-secondary fw-normal display-6 h5 mb-0">
+                        <span> Category: <span class="text-info">{{ category}}</span></span>
+                      </div>
+                    </div>
+                    <div class="col-auto" style="color: black"><i class="fa fa-th-large fa-3x"></i></div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
 
-    <title> Admin Dashboard | Gharelu</title>
+          <div class="col-lg-6 col-md-6 col-xl-4 mb-4">
+            <a href="/admins/">
+              <div class="card shadow border-0 py-2">
+                <div class="card-body">
+                  <div class="row align-items-center no-gutters">
+                    <div class="col me-2">
+                      <div class="text-uppercase fw-bold text-xs mb-1">
+                        <span>Total Services</span>
+                      </div>
+                      <div class="text-secondary fw-normal display-6 h5 mb-0">
+                        <span> Services: <span class="text-warning">{{ 2}}</span></span>
+                      </div>
+                    </div>
+                    <div class="col-auto" style="color: black"><i class="fas fa-cogs fa-3x"></i></div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
 
-{% endblock title%}
+        <div class="row">
+          <div class="col-lg-7 col-xl-8">
+            <div class="card mb-4 shadow border-0">
+              <div class="card-header d-flex justify-content-between align-items-center">
+                <h6 class="text-primary text-center fw-bold m-0">User Overview</h6>
+              </div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="card">
+                      <div class="card-header d-flex justify-content-between align-items-center">
+                        <h6 class="text-primary fw-bold m-0">Profesionals</h6>
+                      </div>
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Username</th>
+                            <th scope="col">Joined Date</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {% for iprofessional in professional_info %}
+                          <tr>
+                            <th scope="row">{{ iprofessional.id }}</th>
+                            <td>@{{ iprofessional.username }}</td>
+                            <td>{{ iprofessional.date_joined }}</td>
+                          </tr>
+                          {% endfor %}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="card">
+                      <div class="card-header d-flex justify-content-between align-items-center">
+                        <h6 class="text-primary fw-bold m-0">Customers</h6>
+                      </div>
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Username</th>
+                            <th scope="col">Joined Date</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {% for iuser in user_info %}
+                          <tr>
+                            <th scope="row">{{ iuser.id }}</th>
+                            <td>@{{ iuser.username }}</td>
+                            <td>{{ iuser.date_joined}}</td>
+                          </tr>
+                          {% endfor %}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-5 col-xl-4">
+            <div class="card mb-4 shadow border-0">
+              <div class="card-header d-flex justify-content-between align-items-center">
+                <h6 class="fw-medium m-0">Total User overview</h6>
+              </div>
+              <div class="card-body">
+                <div class="card py-2" style="margin-bottom: 20px">
+                  <div class="card-body">
+                    <div class="row align-items-center no-gutters">
+                      <div class="col me-2">
+                        <div class="text-uppercase fw-bold text-xs mb-1" style="color: #383841"></div>
+                        <div class="fw-bold display-6 h5 mb-0">
+                          <span style="color: #383841"> Active: <span class="text-secondary"> {{ admin }}</span> </span>
+                        </div>
+                      </div>
+                      <div class="col-auto">
+                        <i class="fas fa-user-secret fa-3x text-primary" style="color: #32323a !important"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card py-2">
+                  <div class="card-body">
+                    <div class="row align-items-center no-gutters">
+                      <div class="col me-2" style="color: #00eeb6">
+                        <div class="text-uppercase fw-bold text-xs mb-1"></div>
+                        <div class="fw-bold display-6 h5 mb-0">
+                          <span style="color: #00eeb6">
+                            Active: <span class="text-secondary"> {{ professional }}</span>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="col-auto"><i class="fas fa-user-graduate fa-3x" style="color: #00eeb6"></i></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card py-2">
+                  <div class="card-body">
+                    <div class="row align-items-center no-gutters">
+                      <div class="col me-2">
+                        <div class="text-uppercase fw-bold text-xs mb-1" style="color: #0099cc"></div>
+                        <div class="fw-bold display-6 h5 mb-0">
+                          <span style="color: #0099cc"> Active: <span class="text-secondary"> {{ user }}</span> </span>
+                        </div>
+                      </div>
+                      <div class="col-auto"><i class="fas fa-users fa-3x" style="color: #0099cc"></i></div>
+                    </div>
+                  </div>
+                </div>
 
-
-
-<!-- Body content goes here -->
-{% block content %}
-
-{% include 'navbar/admin-navbar.html' %}
-<div class="container-fluid" style="margin-top: 1rem;">
-
-
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In, modi! Earum ducimus quod doloribus possimus, ut suscipit harum dicta deleniti doloremque, veniam ullam. Dolorem quaerat deserunt veniam, delectus commodi ab.</p>
-
-<h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione nemo neque dolor corrupti eveniet impedit ipsum molestias architecto aspernatur quia quam provident, doloribus cumque deserunt praesentium magni eaque? Reprehenderit quasi molestias molestiae sunt eos eius cupiditate magni quas nostrum, tempora tempore saepe amet laboriosam aperiam?</h1>
-
-
-<br>
-
-<h1>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae tempora odio consequatur iusto beatae molestiae provident eaque vel tempore? Corporis, facere. Culpa rerum explicabo excepturi distinctio cum quas deleniti quis non maxime incidunt, molestias, placeat iste omnis repudiandae reprehenderit provident. Dolorum aperiam ad amet repudiandae.</h1>
-
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In, modi! Earum ducimus quod doloribus possimus, ut suscipit harum dicta deleniti doloremque, veniam ullam. Dolorem quaerat deserunt veniam, delectus commodi ab.</p>
-
-<h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione nemo neque dolor corrupti eveniet impedit ipsum molestias architecto aspernatur quia quam provident, doloribus cumque deserunt praesentium magni eaque? Reprehenderit quasi molestias molestiae sunt eos eius cupiditate magni quas nostrum, tempora tempore saepe amet laboriosam aperiam?</h1>
-
-
-<br>
-
-<h1>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae tempora odio consequatur iusto beatae molestiae provident eaque vel tempore? Corporis, facere. Culpa rerum explicabo excepturi distinctio cum quas deleniti quis non maxime incidunt, molestias, placeat iste omnis repudiandae reprehenderit provident. Dolorum aperiam ad amet repudiandae.</h1>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In, modi! Earum ducimus quod doloribus possimus, ut suscipit harum dicta deleniti doloremque, veniam ullam. Dolorem quaerat deserunt veniam, delectus commodi ab.</p>
-
-<h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione nemo neque dolor corrupti eveniet impedit ipsum molestias architecto aspernatur quia quam provident, doloribus cumque deserunt praesentium magni eaque? Reprehenderit quasi molestias molestiae sunt eos eius cupiditate magni quas nostrum, tempora tempore saepe amet laboriosam aperiam?</h1>
-
-
-<br>
-
-<h1>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae tempora odio consequatur iusto beatae molestiae provident eaque vel tempore? Corporis, facere. Culpa rerum explicabo excepturi distinctio cum quas deleniti quis non maxime incidunt, molestias, placeat iste omnis repudiandae reprehenderit provident. Dolorum aperiam ad amet repudiandae.</h1>
-
+                <div class="text-center small mt-4">
+                  <span class="me-2"> <i class="fas fa-circle" style="color: #32323a"></i>&nbsp;Admins </span>
+                  <span class="me-2"> <i class="fas fa-circle" style="color: #00eeb6"></i>&nbsp;Professionals </span>
+                  <span class="me-2"> <i class="fas fa-circle" style="color: #0099cc"></i>&nbsp;Customers </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-{%endblock content%}
+{% endblock main %}

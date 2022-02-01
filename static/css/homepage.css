@@ -1,18 +1,15 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap');
-
 html {
   overflow-x: hidden;
 }
 
 
-
-.home{
+.home {
   display: flex;
   width: 100%;
   height: 450px;
   background-size: contain;
   background-attachment: fixed;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   justify-content: center;
 }
 
@@ -82,7 +79,7 @@ html {
 	position: relative;
 	margin-top: 2%;
   padding: 1rem 6rem 1rem 5rem;
-	width:100%;
+  width: 100%;
   min-height: 5vh;
 	background: #DBFFF9;
 	border-radius: 10px;
@@ -91,55 +88,52 @@ html {
 	/* left: 40px; */
 }
 
-.testimonial h2{
-	text-align: center;
-	border-top: thick #FFFAFA;
+.testimonial h2 {
+  text-align: center;
+  border-top: thick #fffafa;
 }
-.testimonial h4{
-	font-size: 26px;
-	text-align: center;
+.testimonial h4 {
+  font-size: 26px;
+  text-align: center;
 }
 
-.box{
-	/* width: 85%; */
-	height: 100%;
-	text-align: center;
-	padding: 1rem 1rem;
-	background: #FFE0E1;
-	border-radius: 20px;
-	display: block;
+.box {
+  /* width: 85%; */
+  height: 100%;
+  text-align: center;
+  padding: 1rem 1rem;
+  background: #ffe0e1;
+  border-radius: 20px;
+  display: block;
   flex-wrap: wrap;
 }
-.box p{
-	flex:1.5rem;
-	font-family: Poppins ;
-	font-size: 16px;
-	text-align: justify;
-	margin: 8% 8% 0% 8%;
-/*	margin-right: 10%;*/
-
-
+.box p {
+  flex: 1.5rem;
+  font-family: Poppins;
+  font-size: 16px;
+  text-align: justify;
+  margin: 8% 8% 0% 8%;
+  /*	margin-right: 10%;*/
 }
-.single-box{
-	width: 100%;
-	height: 100%;
-	margin-bottom:-11px;
-	padding: 1rem 1rem 2rem 1rem;
-
+.single-box {
+  width: 100%;
+  height: 100%;
+  margin-bottom: -11px;
+  padding: 1rem 1rem 2rem 1rem;
 }
 
-.box .image{
-	position:relative;
-	width: 90px;
-	height: 90px;
-	left: 0%;
+.box .image {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  left: 0%;
 }
-.box .image img{
-	position: relative;
-	width: 50%;
-	border-radius: 100%;
-	left: -5%;
-	bottom: -30px;
+.box .image img {
+  position: relative;
+  width: 50%;
+  border-radius: 100%;
+  left: -5%;
+  bottom: -30px;
 }
 .box .image span h6 {
     position:relative;
@@ -149,32 +143,31 @@ html {
 	font-size: 12px;
 }
 
-.testimonial .carousel-indicators{
-	left: 0;
-	top: auto;
-	bottom: -15px;
-
+.testimonial .carousel-indicators {
+  left: 0;
+  top: auto;
+  bottom: -15px;
 }
 
-.testimonial .carousel-indicators li{
-	background: #000000;
-	border-radius: 50%;
-	width: 15px;
-	height: 15px;
+.testimonial .carousel-indicators li {
+  background: #000000;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
 }
 
-.testimonial .carousel-indicators .active{
-	background: #FFFFFF;
+.testimonial .carousel-indicators .active {
+  background: #ffffff;
 }
 
-.testimonial .carousel-control-prev{
-	left: -119px;
-	bottom: -0px;
+.testimonial .carousel-control-prev {
+  left: -119px;
+  bottom: -0px;
 }
 
-.testimonial .carousel-control-next{
-	right: -119px;
-	bottom:-0px;
+.testimonial .carousel-control-next {
+  right: -119px;
+  bottom: -0px;
 }
 
 /* testimonial css end */

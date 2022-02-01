@@ -1,0 +1,140 @@
+/* Codingwithnick */
+
+html,
+body {
+  height: 100%;
+  font-family: "poppins", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+p {
+  font-size: 15px;
+  font-family: "poppins", sans-serif;
+  color: #bdb2b2;
+  font-weight: 400;
+  line-height: 25px;
+  margin: 0 0 15px 0;
+}
+
+a {
+  text-decoration: none;
+}
+ul {
+  padding-left: 0;
+}
+
+input:focus {
+  outline: none;
+}
+
+a:hover,
+i:hover,
+a:focus {
+  text-decoration: none;
+  outline: none;
+}
+
+.footer {
+  background: #383841;
+  padding-top: 50px;
+}
+
+.footer .content {
+  padding-left: 2em;
+}
+
+.footer-widget {
+  margin-bottom: 30px;
+}
+
+.footer-widget h6 {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: capitalize;
+  margin-bottom: 20px;
+}
+
+.footer-widget ul li {
+  line-height: 36px;
+  list-style: none;
+}
+
+.footer-widget ul li a {
+  color: #bdb2b2;
+  font-size: 14px;
+}
+.footer-widget ul li span {
+  padding: 10px;
+  /* color: #bdb2b2; */
+  color: #fff;
+  font-size: 14px;
+}
+
+.footer-widget ul li a:hover {
+  color: hsl(0, 0%, 100%);
+}
+
+.footer-widget ul li span:hover {
+  color: hsl(0, 0%, 100%);
+}
+#img {
+  margin-top: 1em;
+}
+
+#dev-info {
+  color: #bdb2b2;
+  background-color: #24242c !important;
+}
+
+.footer-copyright-text {
+  padding: 13px 0;
+  margin-top: 3px;
+  margin-right: 3.2em;
+}
+
+.footer-copyright-text img {
+  float: left;
+}
+
+.btn-secondary {
+  height: 45px;
+  width: 250px !important;
+  margin-top: 10px;
+  background: #00eeb6;
+  border: rgb(0, 0, 0);
+  padding: 3px 53px;
+}
+.fa.fa-arrow-up.btn-danger.btn-lg {
+  float: Right;
+}
+
+.footer-newsletter input[type="email"],
+input[type="button"] {
+  height: 45px;
+  width: 250px !important;
+  padding-left: 1em;
+}
+
+#btn-back-to-top {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  height: 39px;
+  width: 39px;
+  z-index: 99;
+  font-size: 12px;
+  border: none;
+  outline: none;
+  background-color: #00eeb6;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  text-align: center;
+}
+
+@media (max-width: 426px) {
+  #btn-back-to-top {
+    bottom: 45px;
+  }
+}

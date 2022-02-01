@@ -1,22 +1,56 @@
 <!-- Inheriting from parent -->
-{% extends 'layout.html' %}
-{%load bootstrap%}
-{%load static%}
-
+{% extends 'layout.html' %} {%load bootstrap%} {%load static%}
 
 <!-- Site title goes here -->
 {% block title %}
 
-    <title> Home | Gharelu</title>
+<title>Home | Gharelu</title>
 
 {% endblock title%}
 
-
-
 <!-- Body content goes here -->
-{% block content %}
+{% block content %} {% include 'navbar/navbar-flash.html' %}
 
-{% include 'navbar/navbar-flash.html' %}
+<div class="container-fluid" style="margin-top: 4.6rem">
+  <section class="home" id="home">
+    <div class="position-relative" style="width: 100%">
+      <div class="intro-text" id="info">
+        <span>
+          Problems in your home? We know how to deal with it.<br />
+          Let our professionals solve your house-hold problems at your place.<br />
+          From cleaning service to Home Inspection services we do it all. Reach out to us!
+        </span>
+      </div>
+      <div class="home-content">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-10 col-sm-10 col-md-4 col-lg-4 margin-0-5 font-size-14">
+              <div class="form">
+                <label for="text-input-what" class="text1 icl-TextInput-label">What</label>
+                <input type="text" class="form-control form-input" placeholder="Enter a profession..." />
+                <span class="left-pan"><i class="fa fa-search"> </i> </span>
+              </div>
+            </div>
+
+            <div class="col-10 col-sm-10 col-md-4 col-lg-4 margin-0-5 font-size-14">
+              <div class="form">
+                <p class="text2">Where</p>
+                <input type="text" class="form-control form-input" placeholder="Enter a location..." />
+                <span class="left-pan"><i class="fa fa-map-marker-alt"> </i> </span>
+              </div>
+            </div>
+            <div class="col-10 col-sm-10 col-md-4 col-lg-4">
+              <div class="form">
+                <button class="btn btn-primary col-10 col-sm-10 col-md-4 col-lg-3" id="find" type="submit">FIND</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--	   Service Start-->
 
 
 <section class="home" id="home" style="background: url('{% static "images/homePageSearch.png" %}'); width: 100%; background-size: cover;">
@@ -25,6 +59,7 @@
       
 
    </div>
+</section> 	
 
 </section>
 
@@ -317,6 +352,86 @@
    </div>
  </div>
 
+            <div class="carousel-item">
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="single-box">
+                    <div class="box">
+                      <p>
+                        Gharelu sent an experienced handyman named Sahil who built my dresser in the the time estimated
+                        with ease. He was also friendly and helpful and also perfesional. I would recommend Gharelu to
+                        anyone.
+                      </p>
+                      <div class="content">
+                        <div class="image">
+                          <img src="{% static '/images/Artboard 6.png'%}" alt="" />
+                          <span><h6>Manisha</h6> </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="single-box">
+                    <div class="box">
+                      <p>
+                        I've used Gharelu twice before with very good results and yesterday was no different. My pro was
+                        on time, professional, skilled, & thorough. He finished the job quickly. I'd highly recommend
+                        Gharulu.
+                      </p>
+                      <div class="content">
+                        <div class="image">
+                          <img src="{% static '/images/Artboard 3.png'%}" alt="" />
+                          <span><h6>Krishmeen</h6> </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
+                <div class="col-md-4">
+                  <div class="single-box">
+                    <div class="box">
+                      <p>
+                        I had a great Gharelu experience. My professional, Suraj, arrived promptly and assembled my
+                        trundle bed in roughly half the estimated time of my appointment. I would definitely work with
+                        him and Gharelu again.
+                      </p>
+                      <div class="content">
+                        <div class="image">
+                          <img src="{% static '/images/Artboard 7.png'%}" alt="" />
+                          <span><h6>Sayush</h6> </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-target="#carouselExampleIndicators1"
+            data-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden"></span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-target="#carouselExampleIndicators1"
+            data-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 {%endblock content%}

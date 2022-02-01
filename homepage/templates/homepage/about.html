@@ -1,0 +1,194 @@
+<!--========================== Inheriting from parent===================== -->
+{% extends 'layout.html' %}
+{%load bootstrap%}
+{%load static%}
+
+
+<!-- =========================Site title goes here=========================== -->
+{% block title %}
+
+    <title> About | Gharelu</title>
+
+{% endblock title%}
+
+<!--========================= Body content goes here ========================-->
+{% block content %}
+<style>
+
+    body{
+        font-family: Poppins;
+        text-align: justify;
+        text-justify: inter-word;
+        line-height: 1.7;
+    }
+
+    /* ==========================cover image at begining========================= */
+
+    .image{
+        display: flex;
+        width: 100%;
+        height: 750px;
+        background:url("/static/images/about.png") no-repeat center;
+        background-size: cover;
+        background-attachment: fixed;
+    }
+
+    .row{
+        display: flex;
+        /* flex-wrap: wrap; */
+        margin-right: -15px;
+    }
+
+    /* ===========================content about gharelu========================= */
+
+    .image .image-content .words {
+        color: #fff;
+        padding-top: 18rem;
+        padding-left: 3rem;
+
+  }
+
+    .image .image-content .words span {
+        font-size: 40px;
+        font-weight: 700;
+        animation: move 2s ease-in-out ;
+    }
+
+        @keyframes move {
+        0% {
+            transform: translate(-30%, 0);
+        }
+            50% {
+            text-shadow: 0 25px 50px rgba(0, 0, 0, 0.75);
+        }
+            100% {
+            transform: translate(30%, 0);
+        }
+    }
+
+    .image .image-content .sub-info{
+        display: flex;
+        color: rgb(255, 255, 255);
+        font-weight: 450;
+        font-size: 20px;
+        padding-top: 1rem;
+        padding-left: 3rem;
+    }
+
+    /* ==================================team============================= */
+
+    #instructors .team-area .container .about-content{
+          text-align: justify;
+          text-justify: inter-word;
+    }
+    p{
+        font-size: 17pxs;
+    }
+
+</style>
+
+{% include 'navbar/navbar-flash.html' %}
+
+<!-- =====================================image====================================== -->
+
+    <section class="image">
+        <div class="container"><div class="row">
+            <div class="image-content">
+                <div class="words">
+                    <span>A</span>
+                    <span>B</span>
+                    <span>O</span>
+                    <span>U</span>
+                    <span>T</span>
+                    <span> </span>
+                    <span>G</span>
+                    <span>H</span>
+                    <span>A</span>
+                    <span>R</span>
+                    <span>E</span>
+                    <span>L</span>
+                    <span>U</span>
+                    <span>.</span>
+                    <span>C</span>
+                    <span>O</span>
+                    <span>M</span>
+                  </div>
+                  <div class="col-lg-6">
+                 <p class="sub-info">Gharelu.com provides services to the customer as required and offer emplyoment opportunities to the service provider.</p>
+                 </div></div></div>
+    </section>
+
+<!-- =====================================about gharelu================================ -->
+
+    <section id="learn" class="p-5 bg-white">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-md">
+                    <h2 class="text-center">Welcome To <a href="/" style="color: #00EEB6; text-decoration:none;">Gharelu.com</a></h2>
+                    <p class="text-secondary">
+                        Welcome to our service oriented website! Our site holds a wealth of information about the services and programs we offer for our regional community as well as employment opportunities.
+                    </p>
+                    <p class="text-secondary">
+                        I believe we have an outstanding service provider and support personnel - whose ultimate goal is to provide you with the best service possible in a respectful and compassionate manner.  We are continually looking for new ways to be better at what we do. Please don't hesitate to let us know what we can do to make your visit to Gharelu site more comfortable. As a fundamental component of our mission statement, we allow ourselves to be guided by the needs of those we serve. As needs change, we will change.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================================message================================== -->
+
+    <section>
+        <div class="layer mb-5">
+            <div class="container py-4">
+                <h2 class="heading my-5 text-dark text-center">Message from our Service Provider</h2>
+                <div class="text-center">
+                    <div class="row">
+                        <div class="col mt-md-0 mt-5">
+                            <div class="text-center">
+                                <img src="/static/images/who.jpg" alt="Image"
+                                    class="img-fluid">
+                            </div>
+                            <div class=" text-center">
+                                <h3 class="text-dark mt-4">Life is for service.</h3>
+                                <p class="text-dark text-center ps-5 pe-5">
+                                    <span class="fa fa-quote-left"></span> To give real service you must add something which cannot be bought or measured with money, and that is sincerity and integrity.
+                                    <span class="fa ms-2 fa-quote-right"></span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================Team=================================== -->
+
+    <section id="instructors" class="p-5 bg-light">
+        <div class="team-area">
+            <div class="container">
+                <div class="row">
+                    <h2 class="text-center text-dark mb-5">The Team Behind <span style="color:#00EEB6;">Gharelu.com</span></h2>
+                            <div class="about-content col-lg-6">
+                                    <p class="text-secondary">Being a tech enthusiast, we holds some experience in the field of Information Technology. Studied in one of the IT hubs of Nepal(Kathmandu), We holds a experience in the field of Information Technology. A calculated risk-taker with some tech industry knowledge, Our team has worked in many sectors such as Web Development, Q&A Testing, Maintenance, Graphic Designing, and many more.</p>
+
+                                    <p class="text-secondary">
+                                            By sheer determination and passion, Our team planned to develop a website that provide home services, with a goal to enhance and develop the business, services and the community through the Internet. Our team believes in hard work and dedication, which can bring out the best in an individual.</p>
+
+                                     <p class="text-secondary">
+                                                Though the planned website is completed, but the hunger for knowledge still drives our team to achieve new goals and develop new ideas. We believes that a research-oriented person can fly a chopper if given a proper manual.</p>
+                            </div>
+                        </div>
+                  
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================footer==================================== -->
+
+
+{% include 'footer.html' %}
+    
+{%endblock content%}

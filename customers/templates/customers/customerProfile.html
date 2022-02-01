@@ -1,0 +1,80 @@
+{% extends 'layout.html' %} {% load static%} {%load bootstrap%} {% block title %}
+<title>Customer Profile | Gharelu</title>
+{% endblock title%} {% block content %}
+<style>
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .card {
+    position: unset !important;
+    box-shadow: 0 2px 10px rgb(0 22 84 / 10%);
+    margin: 10px auto;
+    position: relative;
+  }
+  .card .card-header {
+    display: flex;
+    justify-content: center;
+    height: 12em;
+    background-image: linear-gradient(to right, #0093e9, #80d0c7) !important;
+  }
+  .profile-image {
+    height: 10em;
+    width: 10em;
+    border-radius: 50%;
+    box-shadow: 0 0.2em 0.5em;
+    object-fit: cover;
+  }
+  .card-footer span {
+    color: #4a5682;
+    font-family: Poppins;
+    font-weight: 500;
+  }
+</style>
+
+{% include 'navbar/customer-navbar.html' %}
+<div style="margin-top: 6rem">
+  <h4 class="text-center">Your Profile</h4>
+
+  <div class="container">
+    {% include 'message.html'%}
+
+    <div class="card" style="width: 40rem">
+      <div class="card-header">
+        <img src="/{{request.user.profile.profile_pic}}" width="60%" class="card-img-top profile-image" />
+      </div>
+      <div class="card-footer">
+        <div class="py-3">
+          <b> First Name :</b>
+          <span>{{request.user.profile.firstname}}</span>
+        </div>
+        <div class="py-3"><b>Last Name :</b> <span>{{request.user.profile.lastname}}</span></div>
+        <div class="py-3"><b>Email :</b> <span>{{request.user.profile.email}}</span></div>
+        <div class="py-3"><b>Phone :</b> <span>+977 {{request.user.profile.phone}}</span></div>
+        <div class="py-3"><b>Address :</b> <span>{{request.user.profile.address}}</span></div>
+        <div class="py-3"><b>City :</b> <span>{{request.user.profile.city}}</span></div>
+        <p class="card-text">
+          <small class="text-muted" style="color: #bf3b31 !important">Last updated 3 mins ago</small>
+        </p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  var form_fields = document.getElementsByTagName("input");
+  form_fields[1].placeholder = "First Name";
+  form_fields[2].placeholder = "Last Name";
+  form_fields[3].placeholder = "+977 9816034112";
+  form_fields[4].placeholder = "Buddanilakantha, Kapan";
+  form_fields[5].placeholder = "Kathmandu";
+
+  for (var field in form_fields) {
+    field.className += " form-control my-2";
+  }
+</script>
+
+{% endblock content %}
