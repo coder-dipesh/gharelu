@@ -33,12 +33,20 @@ body {
   padding: 10px !important;
 }
 
+#card-ico {
+  color: black;
+}
+
 .welcome {
   color: #00eeb6;
 }
 .welcome:hover {
   color: #00eeb6;
   transform: scale(1.1);
+}
+
+a {
+  color: #fff !important;
 }
 
 a,
@@ -58,11 +66,7 @@ a:hover {
   min-width: 250px;
   max-width: 250px;
   position: fixed;
-  height: 100vh !important;
-
-  /* background-image: linear-gradient(to top, #0093e9, #80d0c7); */
   background-color: #383841;
-  /* backdrop-filter: blur(10px); */
   color: #fff;
   transition: 0.3s;
   position: sticky;
@@ -86,8 +90,8 @@ a:hover {
 }
 
 #sidebar ul li a:hover {
-  color: #244cee;
-  background: #fff;
+  color: #111 !important;
+  background: #f7f7f7;
 }
 
 #sidebar ul li a i {
@@ -116,7 +120,8 @@ ul ul a {
   transition: 0.3s;
 }
 #sidebarCollapse {
-  color: #000000;
+  /* color: #000000; */
+  color: #fff;
 }
 
 #logout {

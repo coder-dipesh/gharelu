@@ -5,19 +5,32 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
+
+    <link rel="stylesheet" 
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
+
     <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css">
+    href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css">
+
     <link rel="stylesheet" href="{% static 'css/admin.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://kit.fontawesome.com/15b46f2d59.js" crossorigin="anonymous"></script>
+
     <link rel="icon" type="image/x-icon" href="{%static 'images/site-iconG.png' %}" />
-    <title>{% block title %} {% endblock title %}
- 
+
+    <title>
+        {% block title %} {% endblock title %}
     </title>
+
        <style>
       @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
     </style>
+
 </head>
 
 <body>
@@ -25,10 +38,16 @@
     <div class="container-fluid">
 
         <a href="/admins"><img src="{% static 'images/site-iconG.png' %}" alt="Gharelu" width="48" height="48" /></a>
+            <div class="content" style="background-color: #00eeb6;  color:#fff;">
+        <button type="button" id="sidebarCollapse" class="btn btn-white" >
+            <i class="fa fa-bars" aria-hidden="true"></i>
+        </button>
+    </div>
         <ul class="navbar-nav flex-nowrap ms-auto">
+
             <div class="d-none d-sm-block topbar-divider"></div>
             <button class="btn btn-sm hover welcome">
-                <a href="">Welcome, Admin @{{ request.user.username }}
+                <a href="">Welcome, Admin <span style="color:#00eeb6"> @{{ request.user.username }}</span>
                 </a>
             </button>
 
@@ -46,42 +65,47 @@
         </div>
         <ul class="list-unstyled components">
             <li>
-                <a href="/admins" class="{{ activate_adminhome }}" aria-expanded="false"><i class="fa fa-home"
-                                                                                            aria-hidden="true"></i> Home</a>
+                <a href="/admins" class="{{ activate_adminhome }}" aria-expanded="false">
+                    <i class="fa fa-home" aria-hidden="true"></i>
+                    Home
+                </a>
             </li>
 
             <li>
-                <a href="/admins/orders" class="{{ activate_orders }}" aria-expanded="false"><i
-                        class="fas fa-box-open" aria-hidden="true"></i>Orders</a>
+                <a href="/admins/orders" class="{{ activate_orders }}" aria-expanded="false">
+                    <i class="fas fa-box-open" aria-hidden="true"></i>
+                    Orders
+                </a>
             </li>
 
             <li>
-                <a href="/admins/addcountry" aria-expanded="false" class="{{ activate_country }}"><i class="fa fa-th-large" aria-hidden="true"></i>
-                    Category</a>
+                <a href="/admins/category" aria-expanded="false" class="{{ activate_category }}">
+                    <i class="fa fa-th-large" aria-hidden="true"></i>
+                    Category
+                </a>
             </li>
 
             <li>
-                <a href="/admins/showadmins" class="{{ activate_admins }}" aria-expanded="false"><i class="fa fa-users"
-                                                                                                    aria-hidden="true"></i>
-                    Admins</a>
+                <a href="/admins/alladmins" class="{{ activate_admins }}" aria-expanded="false">
+                    <i class="fa fa-users" aria-hidden="true"></i>
+                    Admins
+                </a>
             </li>
             <li>
                 <a href="{% url 'signout'  %}" onclick="return confirm('Are you sure want to logout?')" id="logout" aria-expanded="false">
-                    <i
-                        class="fa fa-sign-out-alt" aria-hidden="true" ></i> Sign
-                    Out</a>
+                    <i class="fa fa-sign-out-alt" aria-hidden="true" ></i>
+                    Sign Out
+                </a>
             </li>
 
         </ul>
-
-
     </nav>
 
-    <div class="content">
+    <!-- <div class="content">
         <button type="button" id="sidebarCollapse" class="btn btn-white">
             <i class="fa fa-bars" aria-hidden="true"></i>
         </button>
-    </div>
+    </div> -->
 
 
     <div class="container-fluid">
@@ -90,12 +114,127 @@
 </div>
 
 
+    <button type="button" onclick="topFunction()" id="btn-back-to-top">
+            <i class="fas fa-arrow-up"></i>
+        <center></center>
+    </button>
 
-<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
-<script type="text/javascript" src="{% static 'js/main.js' %}"></script>
-{% block js_file %}{% endblock js_file %}
+    <!-- Footer section Begin -->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row content">
+
+                <div class="col">
+                    <div class="footer-widget">
+                        <h6>Stay in touch</h6>
+                        <ul>
+                            <li>
+                                <a href="https://facebook.com" target="__blank"> 
+                                    <span>
+                                        <i class="fa fa-facebook"></i>
+                                        &nbsp;&nbsp;Facebook
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://instagram.com" target="__blank">
+                                    <span>
+                                        <i class="fa fa-instagram"></i> 
+                                        &nbsp;&nbsp;Instagram
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://linkedin.com" target="__blank"> 
+                                    <span>
+                                        <i class="fa fa-linkedin"> </i> 
+                                        &nbsp;&nbsp;Linkedin
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://youtube.com" target="__blank">
+                                    <span>
+                                        <i class="fa fa-youtube"></i>
+                                        &nbsp;&nbsp;Youtube
+                                    </span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div> 
+                </div>               
+
+                <div class="col">
+                    <div class="footer-widget">
+                        <h6> Quick Links</h6>
+                        <ul>
+                            <li><a href="{% url 'homepage' %}">Home</a></li>
+                            <li><a href="{% url 'service' %}">Service</a></li>
+                            <li><a href="{% url 'about' %}">About us</a></li>
+                            <li><a href="{% url 'homepage' %}">Support </a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col">
+                    <div class="footer-widget">
+                        <h6>Suscribe to our newsletter</h6>
+                        <div class="footer-newsletter">
+                            <p>Be the first to know about Service and Various updates.</p>
+                                <input type="email" placeholder="you@example.com">
+                                <button class="btn-secondary submit-btn" type="submit"> <span><i class="fa fa-check"  aria-hidden="true"></i></span> &nbsp;SUBSCRIBE </button>                                        
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row" id="dev-info">
+                <div class="col-lg-12 text-center" >
+                    <div class="footer-copyright-text">
+                        <span> <img src="{% static 'images/site-iconG.png' %}" alt="Site Icon" id="img" width="38" height=38"> </span>     
+                        <p> 
+                            &copy; 2021 : All Right Reserved.<br> Designed and Developed With <span class="text-danger"><i class="fa fa-heart" aria-hidden="true"></i></span> By: Coder-Squad
+                        </p> 
+                    </div>                        
+                </div>    
+            </div>
+        </div>
+       
+    </footer>
+
+
+<script>
+var mybutton = document.getElementById("btn-back-to-top");
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
+
+
+
+
+<script 
+src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+
+<script 
+src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{% static 'js/main.js' %}"></script>
+
+<!-- {% block js_file %}{% endblock js_file %} -->
+
 </body>
-
 </html>
