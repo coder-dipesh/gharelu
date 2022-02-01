@@ -111,9 +111,50 @@ def delete_category(request, category_id):
 @login_required
 @admin_only
 def allAdmins(request):
+    admins = User.objects.filter(is_superuser=1).order_by('-id')
     
     context = {
+        'admins': admins,
         'activate_admins': 'active bg-primary'
     }
 
     return render(request, 'admins/allAdmins.html' , context)
+
+@login_required
+@admin_only
+def demoteToCustomer(request, user_id):
+    user = User.objects.get(id=user_id)
+    user.is_staff = False
+    user.is_superuser = False
+    user.save()
+    messages.add_message(request, messages.SUCCESS, 'User Demoted to Customer Successfully!')
+    return redirect('/admins/alladmins')
+
+@login_required
+@admin_only
+def demoteToProfessional(request, user_id):
+    user = User.objects.get(id=user_id)
+    user.is_superuser = False
+    user.is_staff = True
+    user.save()
+    messages.add_message(request, messages.SUCCESS, 'User Demoted to Professional Successfully!')
+    return redirect('/admins/alladmins')
+
+
+@login_required
+@admin_only
+def deactivate(request, user_id):
+    user = User.objects.get(id=user_id)
+    user.is_active = False
+    user.save()
+    messages.add_message(request, messages.SUCCESS, 'Admin Account Deactivated!')
+    return redirect('/admins/alladmins')
+
+@login_required
+@admin_only
+def reactivate(request, user_id):
+    user = User.objects.get(id=user_id)
+    user.is_active = True
+    user.save()
+    messages.add_message(request, messages.SUCCESS, 'Admin Account Reactivated!')
+    return redirect('/admins/alladmins')
