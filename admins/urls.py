@@ -14,6 +14,13 @@ urlpatterns = [
     path('update_category/<int:category_id>', views.category_update_form, name='update_category'),
 
     path('alladmins/', views.allAdmins, name='alladmins' ),
+    path('demote_to_customer/<int:user_id>', views.demoteToCustomer, name='demote_to_customer'),
+    path('demote_to_professional/<int:user_id>', views.demoteToProfessional, name='demote_to_professional'),
+
+    path('deactivate/<int:user_id>', views.deactivate, name='deactivate'),
+    path('reactivate/<int:user_id>', views.reactivate, name='reactivate'),
+
+
 
 
 ]
