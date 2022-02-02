@@ -21,13 +21,10 @@ body {
   overflow-x: hidden;
 }
 
-.jumbotron {
-  /*background: #358CCE;*/
-  
+.jumbotron {  
   background-color: #39cb58;
-  color: #FFF;
-  border-radius: 0px;
-  height: 300px;
+  height: 100px;
+  text-align: center;
 }
 
 .jumbotron-sm {
@@ -96,16 +93,17 @@ body {
 
 .h1 {
   color: rgb(184, 43, 43);
-  font-size: 50px;
-margin-top: 150px
+  font-size: 80px;
+  margin-top: 150px;
+  font-weight: bolder;
 }
 
-.h1 .h2 {
+ .h2 {
   color: #ddd;
   font-size: 25px;
 }
 
-.h1,
+
 .h3,
 h2l,
 label,
@@ -255,21 +253,6 @@ label {
     </div>
   </div>
 
-  <!-- <script>
-      $(document).ready(function() {
-
-$('#form').validator().on('submit', function(e) {
-  if (e.isDefaultPrevented()) {
-    // handle the invalid form...
-    $('#myModal').modal('hide');
-  } else {
-    // everything looks good!
-    $('#myModal').modal('show');
-  }
-})
-
-});
-  </script> -->
-   
+  {% include 'footer.html' %}
 
 {%endblock content%}
