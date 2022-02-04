@@ -55,7 +55,7 @@
                         <span>Total Services</span>
                       </div>
                       <div class="text-secondary fw-normal display-6 h5 mb-0">
-                        <span> Services: <span class="text-warning">{{ 2}}</span></span>
+                        <span> Services: <span class="text-warning">{{ service }}</span></span>
                       </div>
                     </div>
                     <div class="col-auto" style="color: black"><i class="fas fa-cogs fa-3x"></i></div>
@@ -80,25 +80,24 @@
                         <h6 class="text-primary fw-bold m-0">Profesionals</h6>
                       </div>
                       <div class="table-responsive">
-
-                      <table class="table">
-                        <thead>
-                          <tr>
-                            <th scope="col">ID</th>
-                            <th scope="col">Username</th>
-                            <th scope="col">Joined Date</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {% for iprofessional in professional_info %}
-                          <tr>
-                            <th scope="row">{{ iprofessional.id }}</th>
-                            <td>@{{ iprofessional.username }}</td>
-                            <td>{{ iprofessional.date_joined }}</td>
-                          </tr>
-                          {% endfor %}
-                        </tbody>
-                      </table>
+                        <table class="table">
+                          <thead>
+                            <tr>
+                              <th scope="col">ID</th>
+                              <th scope="col">Username</th>
+                              <th scope="col">Joined Date</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {% for iprofessional in professional_info %}
+                            <tr>
+                              <th scope="row">{{ iprofessional.id }}</th>
+                              <td>@{{ iprofessional.username }}</td>
+                              <td>{{ iprofessional.date_joined }}</td>
+                            </tr>
+                            {% endfor %}
+                          </tbody>
+                        </table>
                       </div>
                     </div>
                   </div>
@@ -108,24 +107,24 @@
                         <h6 class="text-primary fw-bold m-0">Customers</h6>
                       </div>
                       <div class="table-responsive">
-                      <table class="table">
-                        <thead>
-                          <tr>
-                            <th scope="col">ID</th>
-                            <th scope="col">Username</th>
-                            <th scope="col">Joined Date</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {% for iuser in user_info %}
-                          <tr>
-                            <th scope="row">{{ iuser.id }}</th>
-                            <td>@{{ iuser.username }}</td>
-                            <td>{{ iuser.date_joined}}</td>
-                          </tr>
-                          {% endfor %}
-                        </tbody>
-                      </table>
+                        <table class="table">
+                          <thead>
+                            <tr>
+                              <th scope="col">ID</th>
+                              <th scope="col">Username</th>
+                              <th scope="col">Joined Date</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {% for iuser in user_info %}
+                            <tr>
+                              <th scope="row">{{ iuser.id }}</th>
+                              <td>@{{ iuser.username }}</td>
+                              <td>{{ iuser.date_joined}}</td>
+                            </tr>
+                            {% endfor %}
+                          </tbody>
+                        </table>
                       </div>
                     </div>
                   </div>

@@ -1,0 +1,88 @@
+{% extends 'professional_layout.html' %} {% load bootstrap %} {% load static %} {% load crispy_forms_tags%} {% block title%} All Service | Professional Gharelu {%endblock title %} {% block main %}
+<div class="d-flex justify-content-between">
+  <h3 class="text-dark mb-4 display-6 mt-lg-5">Showing All Services</h3>
+</div>
+{% include 'message.html' %}
+<style>
+  p.help-block {
+    color: #abc;
+  }
+
+  span.help-block {
+    color: red;
+  }
+</style>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-12">
+      <div style="min-height: 100vh">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card bg-light py-2 px-2">
+              <a class="btn btn-primary btn-sm ms-auto py-2" href="/professionals/service_form">Add New Service</a>
+              <div class="table-responsive">
+                <table class="table mt-4">
+                  <tr>
+                    <th>Service Name</th>
+                    <th>Service Description</th>
+                    <th>Service Category</th>
+                    <th>Service Photo</th>
+                    <th>Service Price</th>
+                    <th>Service Location</th>
+                    <th>Service Created</th>
+                    <th>Actions</th>
+                  </tr>
+                  <hr />
+
+                  {% for i in services %}
+
+                  <tr>
+                    <td>{{ i.service_name }}</td>
+                    <td>{{ i.service_description }}</td>
+                    <td>{{ i.service_category.category_name }}</td>
+                    <td><img src="/{{i.service_photo}}" width="200" /></td>
+                    <td>RS. {{ i.service_price }}</td>
+                    <td>{{ i.service_location }}</td>
+                    <td>{{ i.service_created_date }}</td>
+
+                    <td>
+                      <a
+                        class="btn btn-sm"
+                        href="/professionals/update_service/{{i.id}}"
+                        style="background-color: #00eeb6"
+                      >
+                        <i class="fa fa-pencil-square-o fa-x" aria-hidden="true"></i>
+                      </a>
+                      <a
+                        class="btn btn-danger mt-2"
+                        href="/professionals/delete_service/{{i.id}}"
+                        onclick="return confirm('Are you sure to delete this service?')"
+                        style="background-color: #dd4e67"
+                      >
+                        <i class="fa fa-trash fa-x" aria-hidden="true"> </i>
+                      </a>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <script>
+  var form_fields = document.getElementsByTagName("input");
+  form_fields[1].placeholder = "Enter category name";
+  form_fields[2].placeholder = "Enter Category description";
+
+  for (field in form_fields) {
+    form_fields[field].className += " my-3";
+  }
+</script> -->
+
+{% endblock %}
