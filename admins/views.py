@@ -6,12 +6,16 @@ from authentications.auth import admin_only
 from django.contrib import messages
 from django.contrib.auth.models import User
 
+from professionals.models import Service
+
 @login_required
 @admin_only
 def adminDashboard(request):
 
     users = User.objects.all()
     category = Category.objects.all()
+    service = Service.objects.all()
+
 
     user_count = users.filter(is_staff=0).count()
     admin_count = users.filter(is_superuser=1).count()
@@ -22,6 +26,7 @@ def adminDashboard(request):
     professional_info = users.filter(is_staff=1,is_superuser=0)
 
     totalCategory =category.count()
+    totalService =service.count()
 
 
     context = {
@@ -32,6 +37,7 @@ def adminDashboard(request):
         'admin_info': admin_info,
         'professional_info':professional_info,
         'category':totalCategory,
+        'service':totalService,
         'activate_adminhome': 'active bg-primary'
     }
     return render(request, 'admins/adminDashboard.html' , context )
@@ -52,7 +58,7 @@ def allCategory(request):
     categories = Category.objects.all().order_by('-id')
     context = {
         'categories': categories,
-        'activate_category': 'active'
+        'activate_category': 'active bg-primary'
     }
     return render(request, 'admins/category.html', context)
 
