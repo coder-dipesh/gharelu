@@ -52,19 +52,9 @@ INSTALLED_APPS = [
 
     # BootstrapFORM install
     'bootstrapform',
-
     'crispy_forms',
-
-
-    #Google Oauth_app
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    'allauth.socialaccount.providers.google',
-
 ]
 
-# SITE_ID= 1
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
@@ -169,30 +159,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Manually Added by Developer
 
-AUTHENTICATION_BACKENDS = [
-    'django.contrib.auth.backends.ModelBackend',
-    'allauth.account.auth_backends.AuthenticationBackend',
+# AUTHENTICATION_BACKENDS = [
+#     'django.contrib.auth.backends.ModelBackend',
+#     'allauth.account.auth_backends.AuthenticationBackend',
 
-]
-
-
-# The SCOPE specifies what is requested from Google APIs.
-
-SOCIALACCOUNT_PROVIDERS = {
-    'google': {
-        'SCOPE': [
-            'profile',
-            'email',
-        ],
-        'AUTH_PARAMS': {
-            'access_type': 'offline', #To refresh authentication in the background, we set 'access_type' to offline from 'online'.
-        }
-    }
-}
-
-# After google oauth login reirect url
-
-LOGIN_REDIRECT_URL = 'customers'
+# ]
 
 
 # TO send mail to  users

@@ -7,9 +7,11 @@
 <!-- Site title goes here -->
 {% block title %}
 
-    <title> Review | Gharelu</title>
+    <title> Home | Gharelu</title>
 
 {% endblock title%}
+
+
 
 <!-- Body content goes here -->
 {% block content %}
@@ -17,35 +19,19 @@
 <div class="card mt-5">
   <div class="row">
       <div class="col-md-6 offset-md-3">
-          <h1 class="text-center text-dark">Give Review</h1>
+          <h1 class="text-center text-dark">Give Feedback</h1>
           <hr>
           <div class="card-body">
-            <form class="form myForm " action="" method="POST">
-                
-              <div class="form-group">
-    <label class="control-label col-sm-2 col-lg-2 " for="id_name">Name</label>
+                  <form class="form myForm " action="" method="POST">
+                      {% csrf_token %}
+                      {{ form_feedback| bootstrap_horizontal }}
+                      <div class="text-center fw-normal">
+                          <button type="submit" class="btn btn-primary mt-4">Send</button>
+                          <br>
+                      </div>
 
-<div class=" col-sm-10 col-lg-10 ">
-    <input type="text" name="name" maxlength="100" class=" form-control" required="" id="id_name" placeholder="Enter name">
-</div>
-
-</div>
-
-<div class="form-group">
-    <span class="control-label col-sm-2 col-lg-2 " for="id_product_feedback">Your Review</span>
-
-<div class=" col-sm-10 col-lg-10 ">
-    <textarea name="product_feedback" cols="40" rows="10" class=" form-control" required="" id="id_product_feedback"></textarea>    
-</div>
-
-</div>
-                <div class="text-center fw-normal">
-                    <button type="submit" class="btn btn-primary mt-4">Send</button>
-                    <br>
-                </div>
-
-            </form>
-    </div>
+                  </form>
+          </div>
 
       </div>
   </div>
@@ -53,6 +39,8 @@
 <script>
   var form_fields = document.getElementsByTagName('input')
   form_fields[1].placeholder = "Enter name";
+  form_fields[2].placeholder = "Enter email";
+  form_fields[3].placeholder = "Enter subject";
   form_fields[4].placeholder = "Enter message";
   
   for (var field in form_fields){
