@@ -30,8 +30,12 @@
     </style>
   </head>
   <body>
-    {% block content %} {% endblock content %}
-
+    {% block content %}
+    
+    
+    
+    
+    {% endblock content %}
     <!-- Footer section Begin -->
 
         <button type="button" onclick="topFunction()" id="btn-back-to-top">
@@ -39,7 +43,7 @@
         <center></center>
     </button>
 
-    <footer class="footer">
+    <footer class="footer mt-4">
         <div class="container-fluid">
             <div class="row col-md-10 col-lg-10 col-xl-9 content">
 
@@ -60,10 +64,10 @@
                     <div class="footer-widget">
                         <h6> Quick Links</h6>
                         <ul>
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">Service</a></li>
-                            <li><a href="#">About us</a></li>
-                            <li><a href="#">Support </a></li>
+                            <li><a href="{% url 'homepage' %}">Home</a></li>
+                            <li><a href="{% url 'service' %}">Service</a></li>
+                            <li><a href="{% url 'about' %}">About us</a></li>
+                            <li><a href="{% url 'service' %}">Support </a></li>
                         </ul>
                     </div>
                 </div>
