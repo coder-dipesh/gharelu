@@ -1,5 +1,5 @@
 <!-- Inheriting from parent -->
-{% extends 'layout.html' %}
+{% extends 'auth_layout.html' %}
 {%load bootstrap%}
 {% load static %}
 
@@ -261,23 +261,7 @@ body {
                         </button>
                     </div>
 
-                    <div class="text-center mb-3">
-                        or continue with
-                    </div>
-                    </form>
-
-
-                    <form method="post" action="/accounts/google/login/?process=login">
-                        {% csrf_token %}
-                        <div class="social-auth container d-flex justify-content-center">
-                            <button type="submit">
-                                <a href="">
-                                    <i class="fab fa-google fa-2x"></i>
-                                </a>
-                            </button>
-                    </div>
-                    </form>
-
+                    
                     <hr class="my-4">
                     <div class="text-center mb-2">
                         Already have an account?

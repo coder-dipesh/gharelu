@@ -1,8 +1,5 @@
-from allauth.account.forms import LoginForm, SignupForm
-from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from django.db.models import fields
 from django.forms import ModelForm
 
 from authentications.models import Profile
@@ -60,22 +57,3 @@ class ProfileForm(ModelForm):
         model = Profile
         fields = ['firstname','lastname','phone','address','city','profile_pic']
 
-
-
-
-
-
-
-class MyCustomSignupForm(SignupForm):
-
-    def save(self, request):
-        print('hehee')
-        user = super(MyCustomSignupForm, self).save(request)
-        print(user)
-        return user
-
-class MyCustomLoginForm(LoginForm):
-
-    def login(self, *args, **kwargs):
-        print("Lo")
-        return super(MyCustomLoginForm, self).login(*args, **kwargs)

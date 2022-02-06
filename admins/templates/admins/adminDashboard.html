@@ -1,221 +1,198 @@
-{% extends 'admin_layout.html' %}
-{% load static %}
-{% block title %}Admin Dashboard | Gharelu{% endblock title %}
-
-{% block main %}
-    <div id="wrapper">
-        <div class="d-flex flex-column" id="content-wrapper">
-            <div id="content">
-                <div class="container-fluid">
-                    <div class="d-sm-flex justify-content-between align-items-center mb-4">
-                        <h3 class="text-dark mb-0">Admin Dashboard</h3>
-                    </div>
-
-
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6 col-xl-4 mb-4">
-                            <a href="/admins/orders">
-                                <div class="card shadow border-0 py-2">
-                                    <div class="card-body">
-                                        <div class="row align-items-center no-gutters">
-                                            <div class="col me-2">
-                                                <div class="text-uppercase  fw-bold text-xs mb-1"><span>Total Orders</span>
-                                                </div>
-                                                <div class="text-secondary fw-normal display-6 h5 mb-0">
-                                                    <span> Ordered: {{ booking }}</span></div>
-                                            </div>
-                                            <div class="col-auto"><i class="fas fa-box-open fa-3x "></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="col-lg-6 col-md-6 col-xl-4 mb-4">
-                            <a href="/admins/addcountry">
-                                <div class="card shadow border-0 py-2">
-                                    <div class="card-body">
-                                        <div class="row align-items-center no-gutters">
-                                            <div class="col me-2">
-                                                <div class="text-uppercase  fw-bold text-xs mb-1"><span>Total Categories</span>
-                                                </div>
-                                                <div class="text-secondary fw-normal display-6 h5 mb-0">
-                                                    <span> Category: {{ country }}</span></div>
-                                            </div>
-                                            <div class="col-auto"><i class="fa fa-th-large fa-3x"></i></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="col-lg-6 col-md-6 col-xl-4 mb-4">
-                            <a href="/admins/showplace">
-                                <div class="card shadow border-0 py-2">
-                                    <div class="card-body">
-                                        <div class="row align-items-center no-gutters">
-                                            <div class="col me-2">
-                                                <div class="text-uppercase fw-bold text-xs mb-1">
-                                                    <span>Total Services</span>
-                                                </div>
-                                                <div class="text-secondary fw-normal display-6 h5 mb-0">
-                                                    <span> Services: {{ place }}</span></div>
-                                            </div>
-                                            <div class="col-auto"><i class="fas fa-cogs  fa-3x "></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
-                    </div>
-
-
-                    <div class="row">
-                        <div class="col-lg-7 col-xl-8">
-                            <div class="card mb-4 shadow border-0">
-                                <div class="card-header d-flex justify-content-between align-items-center">
-                                    <h6 class="text-primary text-center fw-bold m-0">User Overview</h6>
-                                </div>
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <div class="card">
-                                                <div class="card-header d-flex justify-content-between align-items-center">
-                                                    <h6 class="text-primary fw-bold m-0">Profesionals</h6>
-                                                </div>
-                                                <table class="table">
-                                                    <thead>
-                                                    <tr>
-                                                        <th scope="col">ID</th>
-                                                        <th scope="col">Username</th>
-                                                        <th scope="col">Joined Date</th>
-                                                    </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                    {% for iprofessional in professional_info %}
-                                                        <tr>
-                                                            <th scope="row">{{ iprofessional.id }}</th>
-                                                            <td>@{{ iprofessional.username }}</td>
-                                                            <td>{{ iprofessional.date_joined }}</td>
-                                                        </tr>
-                                                    {% endfor %}
-
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="card ">
-                                                <div class="card-header d-flex justify-content-between align-items-center">
-                                                    <h6 class="text-primary fw-bold m-0">Customers</h6>
-                                                </div>
-                                                <table class="table">
-                                                    <thead>
-                                                    <tr>
-                                                        <th scope="col">ID</th>
-                                                        <th scope="col">Username</th>
-                                                        <th scope="col">Joined Date</th>
-                                                    </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                    {% for iuser in user_info %}
-                                                        <tr>
-                                                            <th scope="row">{{ iuser.id }}</th>
-                                                            <td>@{{ iuser.username }}</td>
-                                                            <td>{{ iuser.date_joined}}</td>
-                                                        </tr>
-                                                    {% endfor %}
-
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-5 col-xl-4">
-                            <div class="card mb-4 shadow border-0">
-                                <div class="card-header d-flex justify-content-between align-items-center">
-                                    <h6 class=" fw-medium m-0">Total User overview</h6>
-                                </div>
-                                <div class="card-body">
-                                    <div class="card  py-2" style="margin-bottom: 20px">
-                                        <div class="card-body">
-                                            <div class="row align-items-center no-gutters">
-                                                <div class="col me-2">
-                                                    <div class="text-uppercase fw-bold text-xs mb-1" style="color:#383841;">
-                                                    </div>
-                                                    <div class=" fw-bold display-6 h5 mb-0">
-                                                        <span style="color:#383841;"> Active: <span class="text-secondary" > {{ admin }}</span> </span>
-                                                    </div>
-                                                </div>
-                                                <div class="col-auto">
-                                                    <i class="fas fa-user-secret fa-3x text-primary" style="color: #32323a !important;"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card py-2">
-                                        <div class="card-body">
-                                            <div class="row align-items-center no-gutters">
-                                                <div class="col me-2" style="color:#00EEB6;">
-                                                    <div class="text-uppercase fw-bold text-xs mb-1">
-                                                    </div>
-                                                    <div class=" fw-bold display-6 h5 mb-0">
-                                                        <span style="color:#00EEB6;"> Active: <span class="text-secondary" > {{ professional }}</span> </span>
-                                                    </div>
-                                                </div>
-                                                <div class="col-auto"><i class="fas fa-user-graduate fa-3x " style="color:#00EEB6;"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card py-2">
-                                        <div class="card-body">
-                                            <div class="row align-items-center no-gutters">
-                                                <div class="col me-2">
-                                                    <div class="text-uppercase fw-bold text-xs mb-1" style="color:#0099CC;">
-                                                    </div>
-                                                    <div class=" fw-bold display-6 h5 mb-0">
-                                                        <span style="color:#0099CC;"> Active: <span class="text-secondary" > {{ user }}</span> </span>
-                                                    </div>
-                                                </div>
-                                                <div class="col-auto"><i class="fas fa-users fa-3x " style="color:#0099CC;"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-
-
-
-                                    <div class="text-center small mt-4">
-                                        <span class="me-2">
-                                            <i class="fas fa-circle" style="color:#32323a;"></i>&nbsp;Admins
-                                        </span>
-                                        <span class="me-2">
-                                            <i class="fas fa-circle" style="color:#00EEB6;"></i>&nbsp;Professionals
-                                        </span>
-                                        <span class="me-2">
-                                            <i class="fas fa-circle" style="color:#0099CC;"></i>&nbsp;Customers
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>                
-                </div>
-            </div>
+{% extends 'admin_layout.html' %} {% load static %} {% block title %}Admin Dashboard | Gharelu{% endblock title %}
+{%block main %}
+<div id="wrapper">
+  <div class="d-flex flex-column" id="content-wrapper">
+    <div id="content">
+      <div class="container-fluid">
+        <div class="d-sm-flex justify-content-between align-items-center mb-4">
+          <h3 class="text-dark mb-0">Admin Dashboard</h3>
         </div>
-    </div>
 
-    </div>
+        <div class="row">
+          <div class="col-lg-6 col-md-6 col-xl-4 mb-4">
+            <a href="/admins/orders">
+              <div class="card shadow border-0 py-2">
+                <div class="card-body">
+                  <div class="row align-items-center no-gutters">
+                    <div class="col me-2">
+                      <div class="text-uppercase fw-bold text-xs mb-1"><span>Total Orders</span></div>
+                      <div class="text-secondary fw-normal display-6 h5 mb-0">
+                        <span> Ordered: <span class="text-success">{{ 32 }}</span></span>
+                      </div>
+                    </div>
+                    <div class="col-auto" style="color: black"><i class="fas fa-box-open fa-3x"></i></div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
 
+          <div class="col-lg-6 col-md-6 col-xl-4 mb-4">
+            <a href="/admins/category">
+              <div class="card shadow border-0 py-2">
+                <div class="card-body">
+                  <div class="row align-items-center no-gutters">
+                    <div class="col me-2">
+                      <div class="text-uppercase fw-bold text-xs mb-1"><span>Total Categories</span></div>
+                      <div class="text-secondary fw-normal display-6 h5 mb-0">
+                        <span> Category: <span class="text-info">{{ category}}</span></span>
+                      </div>
+                    </div>
+                    <div class="col-auto" style="color: black"><i class="fa fa-th-large fa-3x"></i></div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-lg-6 col-md-6 col-xl-4 mb-4">
+            <a href="/admins/">
+              <div class="card shadow border-0 py-2">
+                <div class="card-body">
+                  <div class="row align-items-center no-gutters">
+                    <div class="col me-2">
+                      <div class="text-uppercase fw-bold text-xs mb-1">
+                        <span>Total Services</span>
+                      </div>
+                      <div class="text-secondary fw-normal display-6 h5 mb-0">
+                        <span> Services: <span class="text-warning">{{ service }}</span></span>
+                      </div>
+                    </div>
+                    <div class="col-auto" style="color: black"><i class="fas fa-cogs fa-3x"></i></div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-7 col-xl-8">
+            <div class="card mb-4 shadow border-0">
+              <div class="card-header d-flex justify-content-between align-items-center">
+                <h6 class="text-primary text-center fw-bold m-0">User Overview</h6>
+              </div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="card">
+                      <div class="card-header d-flex justify-content-between align-items-center">
+                        <h6 class="text-primary fw-bold m-0">Profesionals</h6>
+                      </div>
+                      <div class="table-responsive">
+                        <table class="table">
+                          <thead>
+                            <tr>
+                              <th scope="col">ID</th>
+                              <th scope="col">Username</th>
+                              <th scope="col">Joined Date</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {% for iprofessional in professional_info %}
+                            <tr>
+                              <th scope="row">{{ iprofessional.id }}</th>
+                              <td>@{{ iprofessional.username }}</td>
+                              <td>{{ iprofessional.date_joined }}</td>
+                            </tr>
+                            {% endfor %}
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="card">
+                      <div class="card-header d-flex justify-content-between align-items-center">
+                        <h6 class="text-primary fw-bold m-0">Customers</h6>
+                      </div>
+                      <div class="table-responsive">
+                        <table class="table">
+                          <thead>
+                            <tr>
+                              <th scope="col">ID</th>
+                              <th scope="col">Username</th>
+                              <th scope="col">Joined Date</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {% for iuser in user_info %}
+                            <tr>
+                              <th scope="row">{{ iuser.id }}</th>
+                              <td>@{{ iuser.username }}</td>
+                              <td>{{ iuser.date_joined}}</td>
+                            </tr>
+                            {% endfor %}
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-5 col-xl-4">
+            <div class="card mb-4 shadow border-0">
+              <div class="card-header d-flex justify-content-between align-items-center">
+                <h6 class="fw-medium m-0">Total User overview</h6>
+              </div>
+              <div class="card-body">
+                <div class="card py-2" style="margin-bottom: 20px">
+                  <div class="card-body">
+                    <div class="row align-items-center no-gutters">
+                      <div class="col me-2">
+                        <div class="text-uppercase fw-bold text-xs mb-1" style="color: #383841"></div>
+                        <div class="fw-bold display-6 h5 mb-0">
+                          <span style="color: #383841"> Active: <span class="text-secondary"> {{ admin }}</span> </span>
+                        </div>
+                      </div>
+                      <div class="col-auto">
+                        <i class="fas fa-user-secret fa-3x text-primary" style="color: #32323a !important"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card py-2">
+                  <div class="card-body">
+                    <div class="row align-items-center no-gutters">
+                      <div class="col me-2" style="color: #00eeb6">
+                        <div class="text-uppercase fw-bold text-xs mb-1"></div>
+                        <div class="fw-bold display-6 h5 mb-0">
+                          <span style="color: #00eeb6">
+                            Active: <span class="text-secondary"> {{ professional }}</span>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="col-auto"><i class="fas fa-user-graduate fa-3x" style="color: #00eeb6"></i></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card py-2">
+                  <div class="card-body">
+                    <div class="row align-items-center no-gutters">
+                      <div class="col me-2">
+                        <div class="text-uppercase fw-bold text-xs mb-1" style="color: #0099cc"></div>
+                        <div class="fw-bold display-6 h5 mb-0">
+                          <span style="color: #0099cc"> Active: <span class="text-secondary"> {{ user }}</span> </span>
+                        </div>
+                      </div>
+                      <div class="col-auto"><i class="fas fa-users fa-3x" style="color: #0099cc"></i></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="text-center small mt-4">
+                  <span class="me-2"> <i class="fas fa-circle" style="color: #32323a"></i>&nbsp;Admins </span>
+                  <span class="me-2"> <i class="fas fa-circle" style="color: #00eeb6"></i>&nbsp;Professionals </span>
+                  <span class="me-2"> <i class="fas fa-circle" style="color: #0099cc"></i>&nbsp;Customers </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock main %}
