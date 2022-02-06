@@ -11,8 +11,8 @@ urlpatterns = [
     path('category/', views.allCategory, name='category' ),
     path('category_form', views.category_form, name='category_form'),
 
-    path ('review',views.review),
-    path ('get_review',views.get_review),
+    # path ('review',views.review),
+    # path ('get_review',views.get_review),
 
 
 
