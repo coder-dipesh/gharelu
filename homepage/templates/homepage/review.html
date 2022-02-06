@@ -7,7 +7,7 @@
 <!-- Site title goes here -->
 {% block title %}
 
-    <title> Home | Gharelu</title>
+    <title> Review | Gharelu</title>
 
 {% endblock title%}
 
@@ -15,17 +15,15 @@
 
 <!-- Body content goes here -->
 {% block content %}
-<!-- 
+
 <style>
     *{
-margin: 0;
-padding: 0;
 box-sizing: border-box;
 font-family: "poppins", sans-serif;
 }
 
 html,body{
-display: grid;
+/* display: grid; */
 height:100%;
 place-items:center;
 text-align: center;
@@ -75,12 +73,13 @@ content: red;
 }
 
 
-</style> -->
+</style>
 
 
 {% include 'navbar/customer-navbar.html' %}
 
-<!-- <div class="container">
+<div class="container">
+    <h1>Give your ratings</h1>
     <div class=star-widget>
         <input type="radio" name="rate" id="rate-5">
         <label for="rate-5" class="fas fa-star star"></label>
@@ -98,7 +97,7 @@ content: red;
         <label for="rate-1" class="fas fa-star"></label>
 
     </div>
-</div> -->
+</div>
 
 <div class="card mt-5">
   <div class="row">
@@ -116,17 +115,8 @@ content: red;
   
 
 <div class="form-group">
-  
-      
-          <label class="control-label col-sm-2 col-lg-2 " for="id_name">Name</label>
-      
-
       <div class=" col-sm-10 col-lg-10 ">
           <input type="text" name="name" maxlength="100" class=" form-control" required="" id="id_name" placeholder="Enter name">
-
-          
-
-          
       </div>
   
 </div>
@@ -134,14 +124,10 @@ content: red;
 
   
 
-<div class="form-group">
-  
-      
-          <span class="control-label col-sm-2 col-lg-2 " for="id_product_feedback">Give your thoughts</span>
-      
+<div class="form-group" >
 
       <div class=" col-sm-10 col-lg-10 ">
-          <textarea name="product_feedback" cols="40" rows="10" class=" form-control" required="" id="id_product_feedback"></textarea>
+          <textarea name="product_feedback" cols="40" rows="10" class=" form-control" required="" id="id_product_feedback" placeholder="Give your thoughts......."></textarea>
 
           
 
@@ -153,7 +139,7 @@ content: red;
 
 
                       <div class="text-center fw-normal">
-                          <button type="submit" class="btn btn-primary mt-4">Send</button>
+                          <button type="submit" class="btn btn-primary mt-4" >Send</button>
                           <br>
                       </div>
 
@@ -167,11 +153,7 @@ content: red;
 <script>
   var form_fields = document.getElementsByTagName('input')
   form_fields[1].placeholder = "Enter name";
-  form_fields[2].placeholder = "Enter email";
-  form_fields[3].placeholder = "Enter subject";
   form_fields[4].placeholder = "Enter message";
-
-
 
   for (var field in form_fields){
   form_fields[field].className = 'form-control my-2'
@@ -180,6 +162,6 @@ content: red;
 
 </script>    
 
-{% include 'footer.html' %}
+<!-- {% include 'footer.html' %} -->
 
 {%endblock content%}
