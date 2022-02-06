@@ -11,10 +11,10 @@ class Category(models.Model):
     def __str__(self):
         return self.category_name
 
-class Feedback(models.Model):
-    name = models.CharField(max_length=100, validators=[validators.MinLengthValidator(2)])
-    product_feedback = models.TextField()
+# class Feedback(models.Model):
+#     name = models.CharField(max_length=100, validators=[validators.MinLengthValidator(2)])
+#     product_feedback = models.TextField()
 
-    def __str__(self):
-        return self.feedback
+#     def __str__(self):
+#         return self.feedback
 

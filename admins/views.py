@@ -1,7 +1,7 @@
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
-from admins.forms import CategoryForm, review
-from admins.models import Category, review
+from admins.forms import CategoryForm
+from admins.models import Category
 from authentications.auth import admin_only
 from django.contrib import messages
 from django.contrib.auth.models import User
@@ -28,8 +28,8 @@ def adminDashboard(request):
     totalCategory =category.count()
     totalService =service.count()
 
-    feed = review.objects.all()
-    feed_count = feed.count()
+    # feed = Feedback.objects.all()
+    # feed_count = feed.count()
 
 
     context = {
@@ -41,7 +41,7 @@ def adminDashboard(request):
         'professional_info':professional_info,
         'category':totalCategory,
         'service':totalService,
-         'feed': feed_count,
+        #  'feed': feed_count,
         'activate_adminhome': 'active bg-primary'
     }
     return render(request, 'admins/adminDashboard.html' , context )

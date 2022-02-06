@@ -7,7 +7,7 @@ class CategoryForm(ModelForm):
         model = Category
         fields = "__all__"
 
-class review(ModelForm):
-    class Meta:
-        model = review
-        fields = "__all__"
+# class review(ModelForm):
+#     class Meta:
+#         model = review
+#         fields = "__all__"

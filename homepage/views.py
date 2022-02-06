@@ -14,7 +14,8 @@ def homepage(request):
 def about(request):
     return render(request,'homepage/about.html')
 
-
+def service1(request):
+    return render(request,'homepage/service2.html')
 
 
 def service(request):
