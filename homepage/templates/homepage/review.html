@@ -15,244 +15,91 @@
 
 <!-- Body content goes here -->
 {% block content %}
-<style>
-body {
-  background-color: rgb(245, 245, 245);
-  overflow-x: hidden;
-}
-
-.jumbotron {  
-  background-color: #39cb58;
-  height: 100px;
-  text-align: center;
-}
-
-.jumbotron-sm {
-  padding-top: 24px;
-  padding-bottom: 24px;
-}
-
-.jumbotron small {
-  color: #FFF;
-}
-
-.header {
-  height: 150px;
-}
-
-#feedbackIcon {
-  height: 40px;
-  width: 40px;
-  margin-top: -10px;
-  color: #fff;
-  fill: #fff;
-}
-
-#feedbackIcon path {
-  fill: rgb(231, 8, 8);
-}
-
-.card {
-  position: relative;
-  top: 18px;
-  margin-bottom: 50px;
-}
-
-.cardStyle {
-  position: relative;
-  background-color: #fff;
-  border: 1px solid rgb(221, 221, 221);
-  margin-top: 20px;
-  padding: 20px;
-}
-
-.cardStyle:before {
-  position: absolute;
-  height: 100%;
-  width: 30px;
-  left: -30px;
-  content: " ";
-  display: block;
-  /* z-index: 200; */
-  
-  background: url("http://al2015.gatesnotesazure.com/assets/media/images/top-shadow-left.png") no-repeat;
-}
-
-.cardStyle:after {
-  position: absolute;
-  height: 100%;
-  width: 30px;
-  top: 0;
-  right: -30px;
-  content: " ";
-  display: block;
-  /* z-index: 200; */
-  
-  background: url("http://al2015.gatesnotesazure.com/assets/media/images/top-shadow-right.png") no-repeat;
-}
-
-.h1 {
-  color: rgb(184, 43, 43);
-  font-size: 80px;
-  margin-top: 150px;
-  font-weight: bolder;
-}
-
- .h2 {
-  color: #ddd;
-  font-size: 25px;
-}
-
-
-.h3,
-h2l,
-label,
-.modal-title {
-  font-family: Lato;
-  font-weight: 300;
-}
-
-label {
-  color: #666;
-  font-weight: 400;
-}
-
-.h1 .fa-envelope,
-.h1 .glyphicon-bullhorn {
-  font-size: 35px;
-}
-
-.glyphicon-bullhorn {
-  margin-left: 10px;
-}
-
-.btn-success {
-  padding: 10px 25px;
-}
-</style>
 
 {% include 'navbar/customer-navbar.html' %}
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title text-center" id="myModalLabel">Multiplier.in - Your Feedback</h4>
-        </div>
-        <div class="modal-body">
-          <h3 class="h3 text-center">Thank You! for your Precious Feedback.</h3>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <!-- The Feedback Page -->
-  <div class="jumbotron jumbotron-sm">
-    <h1 class="h1">Feedback </h1>
 
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12 col-lg-12 header"></div>
-      </div>
-    </div>
-  </div>
-  <div class="container card">
-    <div class="row">
-      <div class="col-sm-12 col-lg-12">
-        <h2 class="col-xs-12">Your Feedback is Important to Us</h2>
-        
-       
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-12 col-md-12">
-        <div class="cardStyle">
-          <form name="feedback" id="form" data-toggle="validator">
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="name">
-                    Name</label>
-                  <input type="text" class="form-control" id="name" placeholder="Enter name" required="required" />
-                </div>
-                <div class="form-group">
-                  <label for="email">
-                    Email Address</label>
-                  <div class="input-group">
-                    <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
-                    </span>
-                    <input type="email" class="form-control" id="email" placeholder="Enter email" required="required" />
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="ease">
-                    How easy was it to use our Platform ?</label>
-                  <textarea name="ease" id="easeOfAccess" class="form-control" rows="3" cols="25" required="required" placeholder=""></textarea>
-                </div>
-                <div class="form-group">
-                  <label for="bestFeature">
-                    What did you like best about our website?</label>
-                  <textarea name="bestFeature" id="bestFeature" class="form-control" rows="3" cols="5" required="required" placeholder="for.eg: Could be improved !"></textarea>
-                </div>
-                <div class="form-group">
-                  <label for="rating">
-                    If you were to review the website what score would you give it out of 10 ?</label>
-                  <select id="rating" name="rating" class="form-control" required="required">
-                    <option value="none" selected="" disabled>Choose One:</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label for="improve">
-                    What can we do to improve ?
-                    <small class="col-xs-12" style="padding: 0;">according to you what changes should be made in the beta version</small>
-                  </label>
-                  <textarea name="improve" id="improve" class="form-control" rows="3" cols="25" required="required" placeholder=""></textarea>
-                </div>
-                <div class="form-group">
-                  <label for="recommendation">
-                    How likely is it that you would recommend us to a friend or colleague ?</label>
-                  <select id="recommendation" name="recommendation" class="form-control" required="required">
-                    <option value="none" selected="" disabled>Choose One:</option>
-                    <option value="0">Never</option>
-                    <option value="1">No !</option>
-                    <option value="2">Maybe</option>
-                    <option value="3">Yes !</option>
-                    <option value="4">Definitely</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label for="other">
-                    Do you have any other comments, questions, or concerns ?</label>
-                  <textarea name="other" id="other" class="form-control" rows="3" cols="25" required="required" placeholder=""></textarea>
-                </div>
-  
-              </div>
-              <div class="col-md-12">
-                <button type="submit" class="btn btn-success pull-right" id="btnContactUs">
-                  Submit Feedback</button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="card mt-5">
+  <div class="row">
+      <div class="col-md-6 offset-md-3">
+          <h1 class="text-center text-dark">Give Feedback</h1>
+          <hr>
+          <div class="card-body">
+                  <form class="form myForm " action="" method="POST">
+                      <input type="hidden" name="csrfmiddlewaretoken" value="7FYLtfeq9Ge2rghft3HKzb70xgnVDovy8X9LKFY9kp0iAEq7TTWCCVzeEWYML5Xu">
+                      
 
-  {% include 'footer.html' %}
+
+
+
+  
+
+<div class="form-group">
+  
+      
+          <label class="control-label col-sm-2 col-lg-2 " for="id_name">Name</label>
+      
+
+      <div class=" col-sm-10 col-lg-10 ">
+          <input type="text" name="name" maxlength="100" class=" form-control" required="" id="id_name" placeholder="Enter name">
+
+          
+
+          
+      </div>
+  
+</div>
+
+
+  
+
+<div class="form-group">
+  
+      
+          <span class="control-label col-sm-2 col-lg-2 " for="id_product_feedback">Product feedback</span>
+      
+
+      <div class=" col-sm-10 col-lg-10 ">
+          <textarea name="product_feedback" cols="40" rows="10" class=" form-control" required="" id="id_product_feedback"></textarea>
+
+          
+
+          
+      </div>
+  
+</div>
+
+
+
+                      <div class="text-center fw-normal">
+                          <button type="submit" class="btn btn-primary mt-4">Send</button>
+                          <br>
+                      </div>
+
+                  </form>
+          </div>
+
+      </div>
+  </div>
+</div>
+
+<script>
+  var form_fields = document.getElementsByTagName('input')
+  form_fields[1].placeholder = "Enter name";
+  form_fields[2].placeholder = "Enter email";
+  form_fields[3].placeholder = "Enter subject";
+  form_fields[4].placeholder = "Enter message";
+
+
+
+  for (var field in form_fields){
+  form_fields[field].className = 'form-control my-2'
+  }
+
+
+
+
+</script>
+
+{% include 'footer.html' %}
 
 {%endblock content%}
