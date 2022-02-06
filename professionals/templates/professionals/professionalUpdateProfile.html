@@ -1,7 +1,9 @@
-{% extends 'layout.html' %} {% load static%} {%load bootstrap%} {% load crispy_forms_tags %} {% block title %}
+<!-- Inheriting from parent -->
+{% extends 'professional_layout.html' %} {%load bootstrap%} {%load static%} {% load crispy_forms_tags %}
+<!-- Site title goes here -->
+{% block title %} Professional Profile | Gharelu {% endblock title%} {% block main %}
+<!-- Body content goes here -->
 
-<title>Update Profile Professional | Gharelu</title>
-{% endblock title%} {% block content %}
 <style>
   body {
     font-family: Poppins;
@@ -33,7 +35,6 @@
   #id_profile_pic {
     color: #70798b;
     font-weight: 400;
-    /* font-family: Poppins; */
     font-size: 16px;
   }
 
@@ -47,22 +48,31 @@
   }
 </style>
 
-{% include 'navbar/professional-navbar.html' %}
-<div style="margin-top: 8rem">
-  {% include 'message.html'%}
-
-  <div class="container">
-    <div class="row px-3">
-      <h4 class="text-center">Update Profile</h4>
-      <div class="card col-lg-10 col-xl-9 card flex-row mx-auto px-0">
-        <div class="card-body">
-          <form class="form-box px-3 uniForm" method="POST" enctype="multipart/form-data">
-            {% csrf_token %} {{ profileUpdateForm|crispy }}
-            <button type="submit" class="btn btn-primary text-uppercase my-2">Submit</button>
-          </form>
+<div class="container-fluid" style="margin-top: 2rem">
+  <div id="wrapper">
+    <div class="d-flex flex-column" id="content-wrapper">
+      <div id="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-sm-6 col-md-10 col-xl-10 mb-4">
+              <div class="container">
+                {% include 'message.html'%}
+                <h3 class="text-center">Update Profile</h3>
+                <div class="card col-lg-10 col-xl-9 card flex-row mx-auto px-0">
+                  <div class="card-body">
+                    <form class="form-box px-3 uniForm" method="POST" enctype="multipart/form-data">
+                      {% csrf_token %} {{ profileUpdateForm|crispy }}
+                      <button type="submit" class="btn btn-primary text-uppercase my-2">Submit</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-{% endblock content %}
+
+{% endblock %}

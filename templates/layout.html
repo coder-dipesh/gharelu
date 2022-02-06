@@ -5,13 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-    <!-- Bootstrap CSS Import -->
-    <!-- <link rel="stylesheet" href="../static/css/homepage.css" /> -->
-
-    <!-- Bootstrap CSS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
@@ -19,30 +13,17 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    
-
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+    <link rel="stylesheet" href="../static/css/footer.css" />
 
     <!-- Fontawesome Import -->
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
-    <!-- home service and testimonial link -->
-    <!-- <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script> -->
-    <!-- <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
-    /> -->
-    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.4.4/cjs/popper.min.js"></script> -->
-
     <!-- Setting Site Icon Globally -->
     <link rel="icon" type="image/x-icon" href="{%static 'images/site-iconG.png' %}" />
 
     {% block title %} {{ section.title }} {% endblock title%}
+
     <!-- Importing Poppins font Globally -->
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
@@ -50,6 +31,90 @@
   </head>
   <body>
     {% block content %} {% endblock content %}
+
+    <!-- Footer section Begin -->
+
+        <button type="button" onclick="topFunction()" id="btn-back-to-top">
+            <i class="fas fa-arrow-up"></i>
+        <center></center>
+    </button>
+
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row col-md-10 col-lg-10 col-xl-9 content">
+
+                <div class="col">
+                    <div class="footer-widget">
+                        <h6>Stay in touch</h6>
+                        <ul>
+                            <li><i class="fa fa-facebook"></i><span>Facebook</span></li>
+                            <li><a href="#" class="fa fa-instagram"></a><span>Instagram</span></li>
+                            <li><a href="#" class="fa fa-linkedin"></a><span>Linkedin</span></li>
+                            <li><a href="#" class="fa fa-youtube"></a><span>Youtube</span</li>
+
+                        </ul>
+                    </div> 
+                </div>               
+
+                <div class="col">
+                    <div class="footer-widget">
+                        <h6> Quick Links</h6>
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Service</a></li>
+                            <li><a href="#">About us</a></li>
+                            <li><a href="#">Support </a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col">
+                    <div class="footer-widget">
+                        <h6>Suscribe to our newsletter</h6>
+                        <div class="footer-newsletter">
+                            <p>Be the first to know about Service and Various updates.</p>
+                                <input type="email" placeholder="you@example.com">
+                                <button class="btn-secondary submit-btn" type="submit"> <span><i class="fa fa-check"  aria-hidden="true"></i></span> &nbsp;SUBSCRIBE </button>                                        
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row" id="dev-info">
+                <div class="col-lg-12 text-center" >
+                    <div class="footer-copyright-text">
+                        <span> <img src="../static/images/site-iconG.png" alt="Site Icon" id="img" width="38" height=38"> </span>     
+                        <p> 
+                            &copy; 2021 : All Right Reserved.<br> Designed and Developed With <span class="text-danger"><i class="fa fa-heart" aria-hidden="true"></i></span> By: Coder-Squad
+                        </p> 
+                    </div>                        
+                </div>    
+            </div>
+        </div>
+       
+    </footer>
+
+
+<script>
+var mybutton = document.getElementById("btn-back-to-top");
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
@@ -58,22 +123,5 @@
 
     <!-- JQuery Imports -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-
-    <script type="text/javascript" src="js/homepage.js"></script>
   </body>
-</html>
-
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-
-<!-- JQuery Imports -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-
-<script type="text/javascript" src="js/homepage.js"></script>
-<script src="js/jquery-3.4.1.min.js"></script>
-
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="js/popper.min.js"></script> 
-<script src="js/bootstrap-4.4.1.js"></script>
-</body>
 </html>

@@ -12,7 +12,7 @@ class Profile(models.Model):
     address = models.CharField(max_length=300, null=True)
     city = models.CharField(max_length=100,null=True)
     profile_pic = models.FileField(upload_to='static/uploads', default='static/images/user.png')
-    created_date = models.DateTimeField(auto_now_add=True, null=True)
+    created_date = models.DateField(auto_now_add=True, null=True)
 
     def __str__(self):
         return self.username

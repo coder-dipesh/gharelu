@@ -1,0 +1,67 @@
+{% extends 'admin_layout.html' %} {% load bootstrap %} {% load static %} {% block title %}All Admins | Admin
+Gharelu{%endblock title %} {% block main %}
+<div class="d-flex justify-content-between">
+  <h3 class="text-dark mb-4 px-4 display-6 mt-lg-5">Showing All Admins</h3>
+</div>
+
+<div class="container-fluid mt-4" style="min-height: 100vh">
+  <div class="row bg-light">
+    <div class="col-md-10 offset-md-1">
+      {% include 'message.html' %}
+
+      <div class="table-responsive py-2 px-2">
+        <table class="table">
+          <tr>
+            <th>ID</th>
+            <th>Email</th>
+            <th>Username</th>
+            <th>Active Status</th>
+            <th>Actions</th>
+            <th>Account Status</th>
+
+          </tr>
+          {% for i in admins %}
+          <tr>
+            <td>{{ i.id }}</td>
+            <td>{{ i.email }}</td>
+            <td>{{ i.username }}</td>
+            <td>{{ i.is_active }}</td>
+
+            <td>
+              <a
+                class="btn btn-danger btn-sm"
+                onclick="return confirm('Are you sure want to demote to Professional?')"
+                href="/admins/demote_to_professional/{{ i.id }}"
+                >Demote to Professional</a
+              >
+              <a
+                class="btn btn-outline-danger btn-sm mt-2" style="color: #343a40 !important;"
+                onclick="return confirm('Are you sure want to demote to Customer?')"
+                href="/admins/demote_to_customer/{{ i.id }}"
+                >Demote to Customer</a
+              >
+            </td>
+
+            <td>
+              <a
+                class="btn btn-sm" style="background-color: #dd4e67 ; "
+                onclick="return confirm('Are you sure want to deactivate account?')"
+                href="/admins/deactivate/{{ i.id }}"
+                >Deactivate</a
+              >
+              <a
+                class="btn btn-sm mt-2" style="background-color: #00eeb6 ; "
+                onclick="return confirm('Are you sure want to reactivate the account?')"
+                href="/admins/reactivate/{{ i.id }}"
+                >Reactivate</a
+              >
+            </td>
+          </tr>
+          {% endfor %}
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
