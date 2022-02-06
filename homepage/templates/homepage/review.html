@@ -16,39 +16,6 @@
 <!-- Body content goes here -->
 {% block content %}
 
-<div class="card mt-5">
-  <div class="row">
-      <div class="col-md-6 offset-md-3">
-          <h1 class="text-center text-dark">Give Feedback</h1>
-          <hr>
-          <div class="card-body">
-                  <form class="form myForm " action="" method="POST">
-                      {% csrf_token %}
-                      {{ form_feedback| bootstrap_horizontal }}
-                      <div class="text-center fw-normal">
-                          <button type="submit" class="btn btn-primary mt-4">Send</button>
-                          <br>
-                      </div>
-
-                  </form>
-          </div>
-
-      </div>
-  </div>
-</div>
-<script>
-  var form_fields = document.getElementsByTagName('input')
-  form_fields[1].placeholder = "Enter name";
-  form_fields[2].placeholder = "Enter email";
-  form_fields[3].placeholder = "Enter subject";
-  form_fields[4].placeholder = "Enter message";
-  
-  for (var field in form_fields){
-  form_fields[field].className = 'form-control my-2'
-  }
-
-</script>
-
   {% include 'footer.html' %}
 
 {%endblock content%}
