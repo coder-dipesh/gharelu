@@ -9,6 +9,6 @@ urlpatterns = [
 
     # path('footer',views.footer,name='footer'),
 
-    path('review',views.review,name='review'),
-
+    path ('giveFeedback',views.give_feedback),
+    path ('get_feedback',views.get_feedback),
 ]
