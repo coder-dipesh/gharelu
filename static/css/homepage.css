@@ -1,174 +1,324 @@
-html {
-  overflow-x: hidden;
+body {
+    overflow-x: hidden;
+    background: #ffffff;
 }
 
+/*Head Search box Start*/
 
-.home {
-  display: flex;
-  width: 100%;
-  height: 450px;
-  background-size: contain;
-  background-attachment: fixed;
-  font-family: "Poppins", sans-serif;
-  justify-content: center;
+ /*Main Search box*/
+.Search{
+    position: relative;
+    margin-top: 0%;
+    padding: 1rem 1% 1rem 1%;
+    width: 100%;
+    min-height: 45vh;
+    align-items: center;
+    justify-content: center;
 }
 
-  /* service css */
+ /*Heading Text Box*/
+.intro-text{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-.Head h3{
-	position:relative;
-	display:flex;
-	top:15%;
-	text-align:left;
-	left: 5%;
+.intro-text span{
+    position: relative;
+    width: 70%;
+    margin-top: 7%;
+    align-items: center;
+}
+
+.intro-text span p{
+    align-items: center;
+    justify-content: center;
+}
+
+  /*What Search panel */
+
+.search-1 {
+    position:relative;
+    width: 95%;
+    height: 100%;
+}
+
+.search-1 input {
+    height: 45px;
+    border: none;
+    width: 100%;
+    padding-left: 50px;
+    padding-right: 10px;
+    border-right: 2px solid #eee;
+    border-radius: 4px;
+}
+
+.search-1 input:focus {
+    border-color: none;
+    box-shadow: none;
+    outline: none
+}
+
+.search-1 h5 {
+    position:absolute;
+    top: 12px;
+    left: 5px;
+    font-size: 16px;
+    justify-content: center;
+}
+
+.search-1 i {
+    position:absolute;
+    top: 15px;
+    right: 9px;
+    justify-content: right;
+}
+
+/*::placeholder {
+    color: #eee;
+    opacity: 1
+}*/
+
+   /*Where Search Panel*/
+
+.search-2 {
+    position: relative;
+    width: 95%;
+    border-radius: 4px;
+
+}
+
+.search-2 input {
+    height: 45px;
+    border: none;
+    width: 100%;
+    padding-left: 57px;
+    padding-right: 100px;
+    border-radius: 4px;
+}
+
+.search-2 input:focus {
+    border-color: none;
+    box-shadow: none;
+    outline: none
+}
+
+.search-2 h5 {
+    position: absolute;
+    top: 12px;
+    left: 5px;
+    font-size: 16px;
+}
+.search-2 i {
+    position:absolute;
+    top: 15px;
+    right: 9px;
+    justify-content: right;
+}
+
+.search-3 button {
+      /*position: absolute;*/
+    right: 1px;
+    top: 0px;
+    border: none;
+    height: 45px;
+    background-color:darkblue;
+    color: #fff;
+    width: 90px;
+    border-radius: 4px;
+    align-items: end;
+}
+
+@media (max-width:768px) {
+    .search-1 input {
+        border-right: none;
+        border-bottom: 1px solid #eee
+    }
+
+    .search-2 h5 {
+        left: 6px
+    }
+
+    .search-2 input {
+        padding-left: 54px
+    }
+
+    .search-3 button {
+        height: 37px;
+        top: 5px;
+    }
+}
+
+  /*Head Search box End*/
+
+
+/* service css */
+
+.Service{
+    position: relative;
+    margin-top:5%;
+    /*padding: 1rem 1% 1rem 4%;*/
+    width: 100%;
+    max-height:80%;
+    align-items: center;
+    justify-content: center;
+}
+
+.Service h3{
+    position: relative;
+    /*display:flex;*/
+    /*top:-25%;*/
+    text-align:left;
+    left: 9%;
     overflow: hidden;
 }
 
 .cards-wrapper {
-  display: flex;
-  justify-content: center;
+    /*position: relative;*/
+    /*margin-top:5%;*/
+    display: flex;
+    justify-content: center;
 }
 .card img {
-  max-width: 100%;
-  max-height:100%;
+    max-width: 100%;
+    max-height:100%;
 }
 .card {
-  margin: 0 0.5em;
-  width:400px;
-  /* height: fit-content; */
-  box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
-  border: none;
-  border-radius: 0;
-  transition: border-color 1s, box-shadow 0.5s;
+    margin: 0 0.5em;
+    width: 380px ;
+    /* height: fit-content; */
+    box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
+    border: none;
+    border-radius: 0;
+    transition: border-color 1s, box-shadow 0.5s;
 }
 
 .card:hover {
-  border-color: rgba(13, 110, 253, 0.7);
-  box-shadow: 0px 0px 10px 2px rgba(13, 110, 253, 0.6);
+    border-color: rgba(13, 110, 253, 0.7);
+    box-shadow: 0px 0px 10px 2px rgba(13, 110, 253, 0.6);
 }
 
 .ratings i {
-  width: 10px;
-  height: 30px;
-  color: blue;
+    width: 10px;
+    height: 30px;
+    color: blue;
 }
 .carousel-inner {
-  padding: 1em;
+    padding: 2em;
 }
 
 .service .carousel-control-prev, .service .carousel-control-next{
-  background-color: #e1e1e1;
-  width: 6vh;
-  height: 6vh;
-  border-radius: 50%;
-  top: 50%;
-  transform: translateY(-50%);
+    background-color: #e1e1e1;
+    width: 3vh;
+    height: 3vh;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
 }
 @media (min-width: 768px) {
-  .card img {
-    height: 17em;
-  }
+    .card img {
+        height: 17em;
+    }
 }
 
- /* service css end */
+/* service css end */
 
-
-    /* testimonial css */
+/* testimonial css */
 
 .testimonial{
-	position: relative;
-	margin-top: 2%;
-  padding: 1rem 6rem 1rem 5rem;
-  width: 100%;
-  min-height: 5vh;
-	background: #DBFFF9;
-	border-radius: 10px;
-	align-items: center;
-	justify-content: center;
-	/* left: 40px; */
+    position: relative;
+    margin-top: 2%;
+    padding: 1rem 1% 1rem 1%;
+    width: 100%;
+    min-height: 5vh;
+    background: #DBFFF9;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+    /*left: 40px;*/
 }
 
 .testimonial h2 {
-  text-align: center;
-  border-top: thick #fffafa;
+    text-align: center;
+    border-top: thick #fffafa;
 }
 .testimonial h4 {
-  font-size: 26px;
-  text-align: center;
+    font-size: 26px;
+    text-align: center;
 }
 
 .box {
-  /* width: 85%; */
-  height: 100%;
-  text-align: center;
-  padding: 1rem 1rem;
-  background: #ffe0e1;
-  border-radius: 20px;
-  display: block;
-  flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    padding: 1rem 1rem;
+    background: #ffe0e1;
+    border-radius: 20px;
+    display: block;
+    flex-wrap: wrap;
 }
 .box p {
-  flex: 1.5rem;
-  font-family: Poppins;
-  font-size: 16px;
-  text-align: justify;
-  margin: 8% 8% 0% 8%;
-  /*	margin-right: 10%;*/
+    flex: 1.5rem;
+    font-family: Poppins;
+    font-size: 16px;
+    text-align: justify;
+    margin: 8% 8% 0% 8%;
+    /*	margin-right: 10%;*/
 }
 .single-box {
-  width: 100%;
-  height: 100%;
-  margin-bottom: -11px;
-  padding: 1rem 1rem 2rem 1rem;
+    width: 100%;
+    height: 100%;
+    margin-bottom: -11px;
+    padding: 1rem 1rem 2rem 1rem;
 }
 
 .box .image {
-  position: relative;
-  width: 90px;
-  height: 90px;
-  left: 0%;
+    position: relative;
+    width: 90px;
+    height: 90px;
+    left: 0%;
 }
 .box .image img {
-  position: relative;
-  width: 50%;
-  border-radius: 100%;
-  left: -5%;
-  bottom: -30px;
+    position: relative;
+    width: 50%;
+    border-radius: 100%;
+    left: -5%;
+    bottom: -30px;
 }
 .box .image span h6 {
     position:relative;
-	bottom: 0%;
-	left: 60%;
-	font-family: Poppins, serif;
-	font-size: 12px;
+    bottom: 0%;
+    left: 60%;
+    font-family: Poppins, serif;
+    font-size: 12px;
 }
 
 .testimonial .carousel-indicators {
-  left: 0;
-  top: auto;
-  bottom: -15px;
+    left: 0;
+    top: auto;
+    bottom: -15px;
 }
 
 .testimonial .carousel-indicators li {
-  background: #000000;
-  border-radius: 50%;
-  width: 15px;
-  height: 15px;
+    background: #000000;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
 }
 
 .testimonial .carousel-indicators .active {
-  background: #ffffff;
+    background: #ffffff;
 }
 
 .testimonial .carousel-control-prev {
-  left: -119px;
-  bottom: -0px;
+    left:-6%;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .testimonial .carousel-control-next {
-  right: -119px;
-  bottom: -0px;
+    right: -6%;
+    top: 50%;
+    transform: translateY(-50%);
 }
-
-/* testimonial css end */
-

@@ -38,7 +38,6 @@ def adminDashboard(request):
         'professional_info':professional_info,
         'category':totalCategory,
         'service':totalService,
-         'feed': feed_count,
         'activate_adminhome': 'active bg-primary'
     }
     return render(request, 'admins/adminDashboard.html' , context )
