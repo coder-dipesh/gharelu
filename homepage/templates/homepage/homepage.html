@@ -1,5 +1,5 @@
 <!-- Inheriting from parent -->
-{% extends 'layout.html' %} {%load bootstrap%} {%load static%}
+{% extends 'homepage_layout.html' %} {%load bootstrap%} {%load static%}
 
 <!-- Site title goes here -->
 {% block title %}
@@ -11,63 +11,101 @@
 <!-- Body content goes here -->
 {% block content %} {% include 'navbar/navbar-flash.html' %}
 
-<div class="container-fluid" style="margin-top: 4.6rem">
-  <section class="home" id="home">
-    <div class="position-relative" style="width: 100%">
-      <div class="intro-text" id="info">
+<!-- Head Search Box-->
+<div class="Search" style="background-size: cover; background-image: url('{% static "images/homePageSearch.png" %}');">
+    <div class="intro-text">
         <span>
-          Problems in your home? We know how to deal with it.<br />
-          Let our professionals solve your house-hold problems at your place.<br />
-          From cleaning service to Home Inspection services we do it all. Reach out to us!
+          <h2 class="display-8 text-white font-weight-bold text-center">Problems in your home? We know how to deal with it.
+          Let our professionals solve your house-hold problems at your place.<br /></h2>
+          <p class="  font-weight-regular text-center mb-2 text-secondary text-shadow">From cleaning service to Home Inspection services we do it all. Reach out to us!</p>
         </span>
-      </div>
-      <div class="home-content">
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-10 col-sm-10 col-md-4 col-lg-4 margin-0-5 font-size-14">
-              <div class="form">
-                <label for="text-input-what" class="text1 icl-TextInput-label">What</label>
-                <input type="text" class="form-control form-input" placeholder="Enter a profession..." />
-                <span class="left-pan"><i class="fa fa-search"> </i> </span>
-              </div>
-            </div>
-
-            <div class="col-10 col-sm-10 col-md-4 col-lg-4 margin-0-5 font-size-14">
-              <div class="form">
-                <p class="text2">Where</p>
-                <input type="text" class="form-control form-input" placeholder="Enter a location..." />
-                <span class="left-pan"><i class="fa fa-map-marker-alt"> </i> </span>
-              </div>
-            </div>
-            <div class="col-10 col-sm-10 col-md-4 col-lg-4">
-              <div class="form">
-                <button class="btn btn-primary col-10 col-sm-10 col-md-4 col-lg-3" id="find" type="submit">FIND</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
-  </section>
 
-  <!--	   Service Start-->
+    <div class="row mt-auto" style=" align-items: center; justify-content: center;">
+        <div class="col-md-4">
+            <div class="search-1">
+                <h5 class="">What</h5>
+                <input type="text" placeholder="Enter a professional">
+                <i class="fa fa-search p-0"></i>
+            </div>
+        </div>
+        <div class="col-md-4" >
+            <div class="search-2">
+                <h5 class="">Where</h5>
+                <input type="text" placeholder="Enter a location">
+                <i class="fas fa-map-marker-alt"></i>
+            </div>
+        </div>
+        <div class="col-md-1 col-sm-12">
+            <div class="search-3">
+                <button >FIND</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Head Search Box End-->
 
 
-<section class="home" id="home" style="background: url('{% static "images/homePageSearch.png" %}'); width: 100%; background-size: cover;">
-      
-   <div class="max-width">
-      
 
-   </div>
-</section> 	
 
-</section>
 
 <!-- service Start -->
-           <div class="Head">
-            <h3 class="text">Top Services</h3>
-        </div>
 
+<<<<<<< HEAD
+<div class="Service">
+    <span>
+        <h3 class="text">Top Services</h3>
+    </span>
+    <div id="carouselExampleControls2" class="carousel carousel-dark slid" data-ride="carousel" >
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="cards-wrapper">
+                    <div class="card">
+                        <img src="{% static '/images/carpenter.png'%}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">CARPENTER</h5>
+                            <p class="card-text">Fix the furniture in your home.Book it now and know how we handle it</p>
+                            <div class="d-flex my-4">
+                                <i class="star fas fa-star text-warning"></i>
+                                <i class="star fas fa-star text-warning"></i>
+                                <i class="star fas fa-star text-warning"></i>
+                                <i class="star fas fa-star text-warning"></i>
+                                <i class="star fas fa-star text-warning"></i>
+                                <span class="badge badge-pill badge-secondary ml-2">5.0</span>
+                            </div>
+                            <a href="#" class="btn btn-primary">Book Now</a>
+                        </div>
+                    </div>
+                    <div class="card d-none d-md-block">
+                        <img src="{% static '/images/plumber.png'%}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">PLUMBER</h5>
+                            <p class="card-text">Are the water pipes leaking at your home? Let the professionals fix it.</p>
+                            <div class="d-flex my-4">
+                                <i class="star fas fa-star text-warning"></i>
+                                <i class="star fas fa-star text-warning"></i>
+                                <i class="star fas fa-star text-warning"></i>
+                                <i class="star fas fa-star text-warning"></i>
+                                <i class="star fas fa-star"></i> <span class="badge badge-pill badge-secondary ml-2">4.0</span></div>
+                            <a href="#" class="btn btn-primary">BOOK Now</a>
+                        </div>
+                    </div>
+                    <div class="card d-none d-md-block">
+                        <img src="{% static '/images/cleaner.png'%}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">CLEANER</h5>
+                            <p class="card-text">Call our cleaner and analyze what your relatives say when they visit your home.</p>
+                            <div class="d-flex my-4">
+                                <i class="star fas fa-star text-warning"></i>
+                                <i class="star fas fa-star text-warning"></i>
+                                <i class="star fas fa-star text-warning"></i>
+                                <i class="star fas fa-star text-warning"></i>
+                                <i class="star fas fa-star text-warning"></i> <span class="badge badge-pill badge-secondary ml-2">5.0</span>
+                            </div>
+                            <a href="#" class="btn btn-primary">Book Now</a>
+                        </div>
+=======
 <div class="service">
     <div id="carouselExampleControls2" class="carousel carousel-dark slid" data-ride="carousel" >
         <div class="carousel-inner">
@@ -114,121 +152,123 @@
                     <i class="star fas fa-star text-warning"></i>
                     <i class="star fas fa-star text-warning"></i>
                     <i class="star fas fa-star text-warning"></i> <span class="badge badge-pill badge-secondary ml-2">5.0</span>
+>>>>>>> d80b27b0d9f53f6f7730dbb6aea981ca66f4ac01
                     </div>
-                <a href="#" class="btn btn-primary">Book Now</a>
-              </div>
+                </div>
             </div>
-          </div>
-          </div>
 
 
-          <div class="carousel-item">
-            <div class="cards-wrapper">
-              <div class="card">
-                <img src="{% static '/images/painter.png'%}" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">PAINTER</h5>
-                  <p class="card-text">Let the painter paint and decorate your home like never before! Book the service now.</p>
-                  <div class="d-flex my-4">
-                    <i class="star fas fa-star text-warning"></i>
-                    <i class="star fas fa-star text-warning"></i>
-                    <i class="star fas fa-star text-warning"></i>
-                    <i class="star fas fa-star text-warning"></i>
-                    <i class="star fas fa-star text-warning"></i> <span class="badge badge-pill badge-secondary ml-2">5.0</span></div>
-                  <a href="#" class="btn btn-primary">Book Now</a>
+            <div class="carousel-item">
+                <div class="cards-wrapper">
+                    <div class="card">
+                        <img src="{% static '/images/painter.png'%}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">PAINTER</h5>
+                            <p class="card-text">Let the painter paint and decorate your home like never before! Book the service now.</p>
+                            <div class="d-flex my-4">
+                                <i class="star fas fa-star text-warning"></i>
+                                <i class="star fas fa-star text-warning"></i>
+                                <i class="star fas fa-star text-warning"></i>
+                                <i class="star fas fa-star text-warning"></i>
+                                <i class="star fas fa-star text-warning"></i> <span class="badge badge-pill badge-secondary ml-2">5.0</span></div>
+                            <a href="#" class="btn btn-primary">Book Now</a>
+                        </div>
+                    </div>
+                    <div class="card d-none d-md-block">
+                        <img src="{% static '/images/electrician.png'%}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">ELECTRICIAN</h5>
+                            <p class="card-text">Don't deal with electrical appliances on your own. Book our services now and fix it today.</p>
+                            <div class="d-flex my-4">
+                                <i class="star fas fa-star text-warning"></i>
+                                <i class="star fas fa-star text-warning"></i>
+                                <i class="star fas fa-star text-warning"></i>
+                                <i class="star fas fa-star text-warning"></i>
+                                <i class="star fas fa-star text-warning"></i> <span class="badge badge-pill badge-secondary ml-2">5.0</span></div>
+                            <a href="#" class="btn btn-primary">Book Now</a>
+                        </div>
+                    </div>
+                    <div class="card d-none d-md-block">
+                        <img src="{% static '/images/mason.png'%}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">MASON</h5>
+                            <p class="card-text">Building your spaces were never so easy until you found a mason from Gharelu.</p>
+                            <div class="d-flex my-4">
+                                <i class="star fas fa-star text-warning"></i>
+                                <i class="star fas fa-star text-warning"></i>
+                                <i class="star fas fa-star text-warning"></i>
+                                <i class="star fas fa-star text-warning"></i>
+                                <i class="star fas fa-star text-warning"></i> <span class="badge badge-pill badge-secondary ml-2">5.0</span></div>
+                            <a href="#" class="btn btn-primary">Book Now</a>
+                        </div>
+                    </div>
                 </div>
-              </div>
-              <div class="card d-none d-md-block">
-                <img src="{% static '/images/electrician.png'%}" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">ELECTRICIAN</h5>
-                  <p class="card-text">Don't deal with electrical appliances on your own. Book our services now and fix it today.</p>
-                  <div class="d-flex my-4">
-                    <i class="star fas fa-star text-warning"></i>
-                    <i class="star fas fa-star text-warning"></i>
-                    <i class="star fas fa-star text-warning"></i>
-                    <i class="star fas fa-star text-warning"></i>
-                    <i class="star fas fa-star text-warning"></i> <span class="badge badge-pill badge-secondary ml-2">5.0</span></div>
-                  <a href="#" class="btn btn-primary">Book Now</a>
-                </div>
-              </div>
-              <div class="card d-none d-md-block">
-                <img src="{% static '/images/mason.png'%}" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">MASON</h5>
-                  <p class="card-text">Building your spaces were never so easy until you found a mason from Gharelu.</p>
-                  <div class="d-flex my-4">
-                    <i class="star fas fa-star text-warning"></i>
-                    <i class="star fas fa-star text-warning"></i>
-                    <i class="star fas fa-star text-warning"></i>
-                    <i class="star fas fa-star text-warning"></i>
-                    <i class="star fas fa-star text-warning"></i> <span class="badge badge-pill badge-secondary ml-2">5.0</span></div>
-                  <a href="#" class="btn btn-primary">Book Now</a>
-                </div>
-              </div>
             </div>
-          </div>
 
 
-          <div class="carousel-item">
-            <div class="cards-wrapper">
-              <div class="card">
-                <img src="{% static '/images/home.png'%}" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">HOME INSPECTION</h5>
-                  <p class="card-text">Inspect the home to know If you need any home improvement servicess. Our professionals will visit your home and let you know if you need one.</p>
-                  <div class="d-flex my-4">
-                    <i class="star fas fa-star text-warning"></i>
-                    <i class="star fas fa-star text-warning"></i>
-                    <i class="star fas fa-star text-warning"></i>
-                    <i class="star fas fa-star text-warning"></i>
-                    <i class="star fas fa-star text-warning"></i> <span class="badge badge-pill badge-secondary ml-2">5.0</span></div>
-                  <a href="#" class="btn btn-primary">Book Now</a>
+            <div class="carousel-item">
+                <div class="cards-wrapper">
+                    <div class="card">
+                        <img src="{% static '/images/home.png'%}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">HOME INSPECTION</h5>
+                            <p class="card-text">Inspect the home to know If you need any home improvement servicess. Our professionals will visit your home and let you know if you need one.</p>
+                            <div class="d-flex my-4">
+                                <i class="star fas fa-star text-warning"></i>
+                                <i class="star fas fa-star text-warning"></i>
+                                <i class="star fas fa-star text-warning"></i>
+                                <i class="star fas fa-star text-warning"></i>
+                                <i class="star fas fa-star text-warning"></i> <span class="badge badge-pill badge-secondary ml-2">5.0</span></div>
+                            <a href="#" class="btn btn-primary">Book Now</a>
+                        </div>
+                    </div>
+                    <div class="card d-none d-md-block">
+                        <img src="{% static '/images/makeup.png'%}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">MAKEUP ARTIST</h5>
+                            <p class="card-text">Let our makeup artist make you beautiful on your auspicious day and various occasions.</p>
+                            <div class="d-flex my-4">
+                                <i class="star fas fa-star text-warning"></i>
+                                <i class="star fas fa-star text-warning"></i>
+                                <i class="star fas fa-star text-warning"></i>
+                                <i class="star fas fa-star text-warning"></i>
+                                <i class="star fas fa-star text-warning"></i> <span class="badge badge-pill badge-secondary ml-2">5.0</span></div>
+
+                            <a href="#" class="btn btn-primary">Book Now</a>
+                        </div>
+                    </div>
+                    <div class="card d-none d-md-block">
+                        <img src="{% static '/images/movein.png'%}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">MOVE IN MOVE OUT</h5>
+                            <p class="card-text">Thinking of shifting to a new town or a city? Let our professionals help you move from a place to another keeping all your belongings safe. Book the service now!</p>
+                            <div class="d-flex my-4">
+                                <i class="star fas fa-star text-warning"></i>
+                                <i class="star fas fa-star text-warning"></i>
+                                <i class="star fas fa-star text-warning"></i>
+                                <i class="star fas fa-star text-warning"></i>
+
+                                <i class="star fas fa-star text-warning"></i> <span class="badge badge-pill badge-secondary ml-2">5.0</span></div>
+                            <a href="#" class="btn btn-primary">Book Now</a>
+                        </div>
+                    </div>
+
                 </div>
-              </div>
-              <div class="card d-none d-md-block">
-                <img src="{% static '/images/makeup.png'%}" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">MAKEUP ARTIST</h5>
-                  <p class="card-text">Let our makeup artist make you beautiful on your auspicious day and various occasions.</p>
-                  <div class="d-flex my-4">
-                    <i class="star fas fa-star text-warning"></i>
-                    <i class="star fas fa-star text-warning"></i>
-                    <i class="star fas fa-star text-warning"></i>
-                    <i class="star fas fa-star text-warning"></i>
-                    <i class="star fas fa-star text-warning"></i> <span class="badge badge-pill badge-secondary ml-2">5.0</span></div>
-
-                  <a href="#" class="btn btn-primary">Book Now</a>
-                </div>
-              </div>
-              <div class="card d-none d-md-block">
-                <img src="{% static '/images/movein.png'%}" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">MOVE IN MOVE OUT</h5>
-                  <p class="card-text">Thinking of shifting to a new town or a city? Let our professionals help you move from a place to another keeping all your belongings safe. Book the service now!</p>
-                  <div class="d-flex my-4">
-                    <i class="star fas fa-star text-warning"></i>
-                    <i class="star fas fa-star text-warning"></i>
-                    <i class="star fas fa-star text-warning"></i>
-                    <i class="star fas fa-star text-warning"></i>
-
-                    <i class="star fas fa-star text-warning"></i> <span class="badge badge-pill badge-secondary ml-2">5.0</span></div>
-                  <a href="#" class="btn btn-primary">Book Now</a>
-                </div>
-              </div>
-
             </div>
-          </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleControls2" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
         </a>
         <a class="carousel-control-next" href="#carouselExampleControls2" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
         </a>
+<<<<<<< HEAD
+    </div>
+=======
       </div>
+>>>>>>> d80b27b0d9f53f6f7730dbb6aea981ca66f4ac01
 </div>
 
 <!--          Service End-->
@@ -236,199 +276,118 @@
 <!--	  Testimonial Start-->
 
 <div class="testimonial">
-		  <h2><strong>-</strong></h2>
-<h4><strong>Know What Our Customer Say!</strong></h4>
+    <h2><strong>-</strong></h2>
+    <h4><strong>Know What Our Customer Say!</strong></h4>
 
-	    <div class="row">
-			  <div class="col-md-12">
-				  <div id="carouselExampleIndicators" class="carousel carousel-dark slide" data-ride="carousel">
-					  <ol class="carousel-indicators">
-						  <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active" aria-current="true" ></li>
-						  <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-					  </ol>
-					  <div class="carousel-inner">
-						  <div class="carousel-item active">
-							  <div class="row">
-								  <div class="col-md-4">
-									  <div class="single-box">
-										  <div class="box">
-										    <p> Ghareulu services can be hit and miss. Too many think they can noddle their way through any project.The quintessential jack of all trades. Our service today was performed by Aakash.He was very friendly.
-										   </p>
-											  <div class="content">
-												  <div class="image" >  <img src="{% static '/images/Artboard 1.png'%}" alt="">
-													 <span><h6>Tsering</h6>  </span>
-												  </div>
-										    </div>
-									    </div>
-									  </div>
-								  </div>
-								  <div class="col-md-4">
-									  <div class="single-box">
-										  <div class="box">
-										    <p>Tashi tackled the tasks I requested to be done with lots of energy and elbow grease. My oven, windows, and bathrooms are sparkling clean! I'm confident that preparedness will come with more experience. Thanks Tashi!</p>
-											  <div class="content">
-											    <div class="image" >  <img src="{% static '/images/Artboard 2.png'%}" alt="">
-													 <span><h6>Mayesh</h6>  </span>
-												  </div>
-											  </div>
-										  </div>
-									  </div>
-								  </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div id="carouselExampleIndicators" class="carousel carousel-dark slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active" aria-current="true" ></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="single-box">
+                                    <div class="box">
+                                        <p> Ghareulu services can be hit and miss. Too many think they can noddle their way through any project.The quintessential jack of all trades. Our service today was performed by Aakash.He was very friendly.
+                                        </p>
+                                        <div class="content">
+                                            <div class="image" >  <img src="{% static '/images/Artboard 1.png'%}" alt="">
+                                                <span><h6>Tsering</h6>  </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="single-box">
+                                    <div class="box">
+                                        <p>Tashi tackled the tasks I requested to be done with lots of energy and elbow grease. My oven, windows, and bathrooms are sparkling clean! I'm confident that preparedness will come with more experience. Thanks Tashi!</p>
+                                        <div class="content">
+                                            <div class="image" >  <img src="{% static '/images/Artboard 2.png'%}" alt="">
+                                                <span><h6>Mayesh</h6>  </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-								   <div class="col-md-4">
-									  <div class="single-box">
-										  <div class="box">
-										    <p>I have used Gharelu twice now. Once to install my air conditioner and the second to fully assemble my new grill. Manish did the grill assembly quickly. He did an excellent job and the grill works perfectly.</p>
-											  <div class="content">
-											     <div class="image" >  <img src="{% static '/images/Artboard 4.png'%}" alt="">
-													 <span><h6>Phurba </h6>  </span>
-												  </div>
-											  </div>
-										  </div>
-									  </div>
-								  </div>
-							  </div>
-						  </div>
-
-			 <div class="carousel-item">
-							  <div class="row">
-								  <div class="col-md-4">
-									  <div class="single-box">
-										  <div class="box">
-										    <p>Gharelu sent an experienced handyman named Sahil who built my dresser in the the time estimated with ease. He was also friendly and helpful and also perfesional. I would recommend Gharelu to anyone. </p>
-											  <div class="content">
-											     <div class="image" >  <img src="{% static '/images/Artboard 6.png'%}" alt="">
-													 <span><h6>Manisha</h6>  </span>
-												  </div>
-											  </div>
-										  </div>
-									  </div>
-								  </div>
-								  <div class="col-md-4">
-									  <div class="single-box">
-										  <div class="box">
-										    <p>I've used Gharelu twice before with very good results and yesterday was no different. My pro was on time, professional, skilled, & thorough. He finished the job quickly. I'd highly recommend Gharulu.</p>
-											  <div class="content">
-											     <div class="image" >  <img src="{% static '/images/Artboard 3.png'%}" alt="">
-													 <span><h6>Krishmeen</h6>  </span>
-												  </div>
-											  </div>
-										  </div>
-									  </div>
-								  </div>
-
-								   <div class="col-md-4">
-									  <div class="single-box">
-										  <div class="box">
-										    <p>I had a great Gharelu experience. My professional, Suraj, arrived promptly and assembled my trundle bed in roughly half the estimated time of my appointment. I would definitely work with him and Gharelu again.</p>
-											  <div class="content">
-											     <div class="image" >  <img src="{% static '/images/Artboard 7.png'%}" alt="">
-													 <span><h6>Sayush</h6>  </span>
-												  </div>
-											  </div>
-										  </div>
-									  </div>
-								  </div>
-					  </div>
-				  </div>
-
-			</div>
-
-					   <button class="carousel-control-prev" type="button" data-target="#carouselExampleIndicators" data-slide="prev">
-					   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-					   <span class="visually-hidden"></span>
-				  </button>
-				  <button class="carousel-control-next" type="button" data-target="#carouselExampleIndicators" data-slide="next">
-					  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-					  <span class="visually-hidden"></span>
-
-				  </button>
-
-				  </div>
-	  </div>
-   </div>
- </div>
-
-            <div class="carousel-item">
-              <div class="row">
-                <div class="col-md-4">
-                  <div class="single-box">
-                    <div class="box">
-                      <p>
-                        Gharelu sent an experienced handyman named Sahil who built my dresser in the the time estimated
-                        with ease. He was also friendly and helpful and also perfesional. I would recommend Gharelu to
-                        anyone.
-                      </p>
-                      <div class="content">
-                        <div class="image">
-                          <img src="{% static '/images/Artboard 6.png'%}" alt="" />
-                          <span><h6>Manisha</h6> </span>
+                            <div class="col-md-4">
+                                <div class="single-box">
+                                    <div class="box">
+                                        <p>I have used Gharelu twice now. Once to install my air conditioner and the second to fully assemble my new grill. Manish did the grill assembly quickly. He did an excellent job and the grill works perfectly.</p>
+                                        <div class="content">
+                                            <div class="image" >  <img src="{% static '/images/Artboard 4.png'%}" alt="">
+                                                <span><h6>Phurba </h6>  </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                      </div>
                     </div>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="single-box">
-                    <div class="box">
-                      <p>
-                        I've used Gharelu twice before with very good results and yesterday was no different. My pro was
-                        on time, professional, skilled, & thorough. He finished the job quickly. I'd highly recommend
-                        Gharulu.
-                      </p>
-                      <div class="content">
-                        <div class="image">
-                          <img src="{% static '/images/Artboard 3.png'%}" alt="" />
-                          <span><h6>Krishmeen</h6> </span>
+
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="single-box">
+                                    <div class="box">
+                                        <p>Gharelu sent an experienced handyman named Sahil who built my dresser in the the time estimated with ease. He was also friendly and helpful and also perfesional. I would recommend Gharelu to anyone. </p>
+                                        <div class="content">
+                                            <div class="image" >  <img src="{% static '/images/Artboard 6.png'%}" alt="">
+                                                <span><h6>Manisha</h6>  </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="single-box">
+                                    <div class="box">
+                                        <p>I've used Gharelu twice before with very good results and yesterday was no different. My pro was on time, professional, skilled, & thorough. He finished the job quickly. I'd highly recommend Gharulu.</p>
+                                        <div class="content">
+                                            <div class="image" >  <img src="{% static '/images/Artboard 3.png'%}" alt="">
+                                                <span><h6>Krishmeen</h6>  </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="single-box">
+                                    <div class="box">
+                                        <p>I had a great Gharelu experience. My professional, Suraj, arrived promptly and assembled my trundle bed in roughly half the estimated time of my appointment. I would definitely work with him and Gharelu again.</p>
+                                        <div class="content">
+                                            <div class="image" >  <img src="{% static '/images/Artboard 7.png'%}" alt="">
+                                                <span><h6>Sayush</h6>  </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                      </div>
                     </div>
-                  </div>
+
                 </div>
 
-                <div class="col-md-4">
-                  <div class="single-box">
-                    <div class="box">
-                      <p>
-                        I had a great Gharelu experience. My professional, Suraj, arrived promptly and assembled my
-                        trundle bed in roughly half the estimated time of my appointment. I would definitely work with
-                        him and Gharelu again.
-                      </p>
-                      <div class="content">
-                        <div class="image">
-                          <img src="{% static '/images/Artboard 7.png'%}" alt="" />
-                          <span><h6>Sayush</h6> </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                <button class="carousel-control-prev" type="button" data-target="#carouselExampleIndicators" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-target="#carouselExampleIndicators" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden"></span>
+
+                </button>
+
             </div>
-          </div>
-
-          <button
-            class="carousel-control-prev"
-            type="button"
-            data-target="#carouselExampleIndicators1"
-            data-slide="prev"
-          >
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden"></span>
-          </button>
-          <button
-            class="carousel-control-next"
-            type="button"
-            data-target="#carouselExampleIndicators1"
-            data-slide="next"
-          >
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden"></span>
-          </button>
         </div>
-      </div>
     </div>
-  </div>
 </div>
+
 
 {%endblock content%}
