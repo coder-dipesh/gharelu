@@ -25,16 +25,21 @@ font-family: "poppins", sans-serif;
 }
 
 
-.container{
-width: 400px;
+.ratings{
+/* width: 400px; */
+margin-top: 10%;
 display: flex;
 align-items: center;
 justify-content: center;
 flex-direction: column;
-}
+} 
 
-.container .star-widget input{
-display: none;
+.ratings .star-widget input{
+display:none;
+/* justify-content: left; 
+align-items: left;  */
+
+
 }
 
 .star-widget label{
@@ -65,12 +70,10 @@ text-shadow:0 0 20px rgb(231, 10, 39);
 
 {% include 'navbar/customer-navbar.html' %}
 
- <div class="container">
+ <div class="ratings">
 
     <h3>Rate Us</h3>
-    <div class=star-widget>
-
-        
+    <div class="star-widget">      
         <input type="radio" name="rate" id="rate-5">
         <label for="rate-5" class="fas fa-star star"></label>
 
@@ -87,12 +90,11 @@ text-shadow:0 0 20px rgb(231, 10, 39);
         <label for="rate-1" class="fas fa-star"></label>
 
         
-
     </div>
 </div>
 
-<div class="card">
-  <!-- <div class="row"> -->
+<!-- <div class="card"> -->
+  <div class="row">
       <div class="col-md-6 offset-md-4">
           <h3>Give Feedback</h3>
           
@@ -139,7 +141,5 @@ text-shadow:0 0 20px rgb(231, 10, 39);
 
 
 </script>    
-
-{% include 'footer.html' %}
 
 {%endblock content%}
