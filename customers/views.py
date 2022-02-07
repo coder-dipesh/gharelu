@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from authentications.auth import customer_only
 from authentications.forms import ProfileForm
 from django.contrib import messages
+import os
 
 
 # Create your views here.
@@ -33,7 +34,6 @@ def customerProfile(request):
     return render(request, 'customers/customerProfile.html', context)
 
 
-import os
 
 @login_required
 @customer_only

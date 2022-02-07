@@ -125,7 +125,6 @@ def service_form(request):
             messages.add_message(request, messages.ERROR, 'Unable to add Service!')
             return render(request, 'professionals/service_form.html', {'form_service': form})
 
-
     context = {
         'form_service': ServiceForm,
         'activate_service': 'active',
