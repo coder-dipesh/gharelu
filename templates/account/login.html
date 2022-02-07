@@ -1,5 +1,5 @@
 <!-- Inheriting from parent -->
-{% extends 'layout.html' %} {% load static%} {%load bootstrap%} {% block title %}
+{% extends 'auth_layout.html' %} {% load static%} {%load bootstrap%} {% block title %}
 
 <title>Login | Gharelu</title>
 
@@ -192,26 +192,15 @@
           <div class="mb-3">
             <button type="submit" class="btn btn-block text-uppercase">Login</button>
           </div>
-          <div class="text-center mb-3">or login with</div>
-        </form>
 
-        <form method="post" action="/accounts/google/login/?process=login">
-          {% csrf_token %}
-          <div class="social-auth container d-flex justify-content-center">
-            <button type="submit">
-              <a href="">
-                <i class="fab fa-google fa-2x"></i>
-              </a>
-            </button>
-          </div>
-        </form>
 
-        <hr class="my-4" />
 
         <div class="text-center mb-2">
-          Don't have an account? Register as
+          Don't have an account? <br> Register as
           <a href="{% url 'usersignup'%}" class="register-link">
             <br />
+        <hr class="my-4" />
+
             User
           </a>
           &nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp;

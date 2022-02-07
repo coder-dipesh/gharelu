@@ -1,25 +1,141 @@
 <!-- Inheriting from parent -->
-{% extends 'layout.html' %}
-{%load bootstrap%}
-{%load static%}
+{% extends 'professional_layout.html' %} {%load bootstrap%} {%load static%}
 
 <!-- Site title goes here -->
-{% block title %}
-    <title> Professional Dashboard | Gharelu</title>
-{% endblock title%}
-
-
+{% block title %} Professional Dashboard | Gharelu {% endblock title%} {% block main %}
 <!-- Body content goes here -->
-{% block content %}
+<div class="container-fluid" style="margin-top: 2rem">
+  <div id="wrapper">
+    <div class="d-flex flex-column" id="content-wrapper">
+      <div id="content">
+        <div class="container-fluid">
+          <div class="d-sm-flex justify-content-between align-items-center mb-4">
+            <h3 class="text-dark mb-0">Professionals Dashboard</h3>
+          </div>
+          <div class="row">
+            <div class="col-md-6 col-xl-4 mb-4">
+              <a href="/professionals/bookings">
+                <div class="card shadow border-0 py-2">
+                  <div class="card-body">
+                    <div class="row align-items-center no-gutters">
+                      <div class="col me-2">
+                        <div class="text-uppercase text-primary fw-bold text-xs mb-1"><span>My Bookings</span></div>
+                        <div class="text-secondary fw-bold display-6 h5 mb-0">
+                          <span> Booked: {{ 3 }}</span>
+                        </div>
+                      </div>
+                      <div class="col-auto"><i class="fas fa-ticket-alt fa-3x text-primary"></i></div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
 
-{% include 'navbar/professional-navbar.html' %}
-<div class="container-fluid" style="margin-top: 4.6rem;">
-
-
-
-<h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. In, modi! Earum ducimus quod doloribus possimus, ut suscipit harum dicta deleniti doloremque, veniam ullam. Dolorem quaerat deserunt veniam, delectus commodi ab.</h1>
-<h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. In, modi! Earum ducimus quod doloribus possimus, ut suscipit harum dicta deleniti doloremque, veniam ullam. Dolorem quaerat deserunt veniam, delectus commodi ab.</h1><h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. In, modi! Earum ducimus quod doloribus possimus, ut suscipit harum dicta deleniti doloremque, veniam ullam. Dolorem quaerat deserunt veniam, delectus commodi ab.</h1><h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. In, modi! Earum ducimus quod doloribus possimus, ut suscipit harum dicta deleniti doloremque, veniam ullam. Dolorem quaerat deserunt veniam, delectus commodi ab.</h1><h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. In, modi! Earum ducimus quod doloribus possimus, ut suscipit harum dicta deleniti doloremque, veniam ullam. Dolorem quaerat deserunt veniam, delectus commodi ab.</h1><h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. In, modi! Earum ducimus quod doloribus possimus, ut suscipit harum dicta deleniti doloremque, veniam ullam. Dolorem quaerat deserunt veniam, delectus commodi ab.</h1><h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. In, modi! Earum ducimus quod doloribus possimus, ut suscipit harum dicta deleniti doloremque, veniam ullam. Dolorem quaerat deserunt veniam, delectus commodi ab.</h1><h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. In, modi! Earum ducimus quod doloribus possimus, ut suscipit harum dicta deleniti doloremque, veniam ullam. Dolorem quaerat deserunt veniam, delectus commodi ab.</h1><h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. In, modi! Earum ducimus quod doloribus possimus, ut suscipit harum dicta deleniti doloremque, veniam ullam. Dolorem quaerat deserunt veniam, delectus commodi ab.</h1><h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. In, modi! Earum ducimus quod doloribus possimus, ut suscipit harum dicta deleniti doloremque, veniam ullam. Dolorem quaerat deserunt veniam, delectus commodi ab.</h1><h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. In, modi! Earum ducimus quod doloribus possimus, ut suscipit harum dicta deleniti doloremque, veniam ullam. Dolorem quaerat deserunt veniam, delectus commodi ab.</h1>
-
-
+            <div class="col-md-6 col-xl-4 mb-4">
+              <a href="/professionals/services">
+                <div class="card shadow border-0 py-2">
+                  <div class="card-body">
+                    <div class="row align-items-center no-gutters">
+                      <div class="col me-2">
+                        <div class="text-uppercase text-success fw-bold text-xs mb-1"><span>Total Services</span></div>
+                        <div class="text-secondary fw-bold display-6 h5 mb-0">
+                          <span> Active: {{ totalService }}</span>
+                        </div>
+                      </div>
+                      <div class="col-auto"><i class="fas fa-cogs fa-3x text-success"></i></div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="d-sm-flex justify-content-between align-items-center mb-4">
+            <h3 class="text-dark mb-0">All Reviews</h3>
+          </div>
+          <div class="row">
+            <div class="col-lg-5 col-xl-4">
+              <div class="card mb-4 shadow border-0">
+                <div class="card-body">
+                  <div class="card py-2" style="margin-bottom: 20px">
+                    <div class="card-body">
+                      <div class="row align-items-center no-gutters">
+                        <div class="col me-2">
+                          <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae a facere ducimus
+                            officiis? Repellat non voluptatem corrupti optio mollitia quis assumenda, ullam deserunt
+                            labore maiores impedit, ad facere, quia molestiae!
+                          </p>
+                          <div style="display: flex; align-items: center; color: rgb(77, 75, 75)">
+                            <i
+                              class="fas fa-user-circle fa-2x text-primary px-2 mx-2"
+                              style="color: rgb(77, 75, 75) !important"
+                            ></i>
+                            <span>Will Smith</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-5 col-xl-4">
+              <div class="card mb-4 shadow border-0">
+                <div class="card-body">
+                  <div class="card py-2" style="margin-bottom: 20px">
+                    <div class="card-body">
+                      <div class="row align-items-center no-gutters">
+                        <div class="col me-2">
+                          <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae a facere ducimus
+                            officiis? Repellat non voluptatem corrupti optio mollitia quis assumenda, ullam deserunt
+                            labore maiores impedit, ad facere, quia molestiae!
+                          </p>
+                          <div style="display: flex; align-items: center">
+                            <i
+                              class="fas fa-user-circle fa-2x text-primary px-2 mx-2"
+                              style="color: rgb(77, 75, 75) !important"
+                            ></i>
+                            <span style="color: rgb(77, 75, 75)">James Bond</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-5 col-xl-4">
+              <div class="card mb-4 shadow border-0">
+                <div class="card-body">
+                  <div class="card py-2" style="margin-bottom: 20px">
+                    <div class="card-body">
+                      <div class="row align-items-center no-gutters">
+                        <div class="col me-2">
+                          <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae a facere ducimus
+                            officiis? Repellat non voluptatem corrupti optio mollitia quis assumenda, ullam deserunt
+                            labore maiores impedit, ad facere, quia molestiae!
+                          </p>
+                          <div style="display: flex; align-items: center">
+                            <i
+                              class="fas fa-user-circle fa-2x text-primary px-2 mx-2"
+                              style="color: rgb(77, 75, 75) !important"
+                            ></i>
+                            <span style="color: rgb(77, 75, 75)">Charli Puth</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-{%endblock content%}
+
+{% endblock %}

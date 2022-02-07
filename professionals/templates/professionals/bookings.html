@@ -1,0 +1,75 @@
+{% extends 'professional_layout.html' %} {% load bootstrap %} {% load static %} {% load crispy_forms_tags%} {% block title%}All Bookings | Professional Gharelu {%endblock title %} {% block main %}
+<div class="d-flex justify-content-between">
+  <h3 class="text-dark mb-4 display-6 mt-lg-5">Showing All Bookings</h3>
+</div>
+
+<style>
+  p.help-block {
+    color: #abc;
+  }
+
+  span.help-block {
+    color: red;
+  }
+</style>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-12">
+      <div style="min-height: 100vh">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card bg-light py-2 px-2">
+              <div class="table-responsive">
+                <table class="table mt-4">
+                  <tr>
+                    <th>User Name</th>
+                    <th>Service Name</th>
+                    <th>Service Category</th>
+                    <th>Service Photo</th>
+                    <th>Service Price</th>
+                    <th>Booking Date</th>
+                    <th>Actions</th>
+                  </tr>
+                  <hr />
+
+                  {% for i in services %}
+
+                  <tr>
+                    <td>{{ i.category_name }}</td>
+                    <td>{{ i.category_description }}</td>
+                    <td>{{ i.created_date }}</td>
+                    <td>{{ i.category_description }}</td>
+                    <td>{{ i.created_date }}</td>
+                    <td>{{ i.created_date }}</td>
+                    <td>{{ i.created_date }}</td>
+
+
+                    <td>
+                      <a class="btn btn-sm" href="/admins/update_category/{{i.id}}" style="background-color: #00eeb6">
+                        <i class="fa fa-check fa-x" aria-hidden="true"></i>
+                      </a>
+                      <a
+                        class="btn btn-danger mt-2"
+                        href="/admins/delete_category/{{i.id}}"
+                        onclick="return confirm('Are you sure to delete this category?')"
+                        style="background-color: #dd4e67"
+                      >
+                        <i class="fa fa-trash fa-x" aria-hidden="true"> </i>
+                      </a>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+{% endblock %}

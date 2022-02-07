@@ -120,7 +120,6 @@ ul ul a {
   transition: 0.3s;
 }
 #sidebarCollapse {
-  /* color: #000000; */
   color: #fff;
 }
 
@@ -133,10 +132,6 @@ ul ul a {
   background: #dd4e67 !important;
 }
 
-/* #sidebar ul li a:hover {
-  color: #244cee;
-  background: #fff;
-} */
 
 @media (max-width: 768px) {
   a[aria-expanded="false"]::before,
@@ -190,20 +185,7 @@ ul ul a {
   width: 100%;
 }
 
-#id_Name {
-  width: 100%;
-}
-#add_place {
-  width: 70%;
-}
 
-#areyousure {
-  background-image: url(../images/areyousure.jpg);
-  background-size: cover;
-  height: 98vh;
-  display: grid;
-  place-items: center;
-}
 .title {
   color: #00eeb6;
 }

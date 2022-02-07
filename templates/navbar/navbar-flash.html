@@ -57,7 +57,13 @@
         <img src="{% static 'images/site-iconG.png' %}" alt="Gharelu" width="48" height="48" style="margin-left: 10px;" >
       </a>
 
+      {% if user.is_authenticated %}
+      <a href="#">{{user.username}}</a>
+
+      {% else %}
       <a class="btn btn-outline-success l-btn" href="{% url 'signin'  %}">Sign in</a>
+
+      {% endif %}
 
     </div>
 
