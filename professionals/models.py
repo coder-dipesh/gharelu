@@ -2,7 +2,6 @@ from distutils.command.upload import upload
 from django.db import models
 from django.core.validators import *
 from django.core import validators
-
 from admins.models import Category
 # Create your models here.
 

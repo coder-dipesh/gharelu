@@ -1,6 +1,9 @@
+from multiprocessing import context
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
+from customers.forms import FeedbackForm
+from customers.models import Feedback
 from authentications.auth import customer_only
 from authentications.forms import ProfileForm
 from django.contrib import messages
@@ -81,3 +84,35 @@ def myBookings(request):
     }
     return render(request, 'customers/myBookings.html',context)
 
+@login_required
+@customer_only
+def feedbackForm(request, service_id):
+    user_id = request.user
+    service_id = Service.objects.get(id=service_id)
+    if request.method == 'POST':
+        form = FeedbackForm(request.POST)
+        if form.is_valid():
+            data=Feedback()
+
+            data.subject = form.cleaned_data['subject']
+            data.rating = form.cleaned_data['rating']
+            data.service_feedback = form.cleaned_data['message']
+            data.user = user_id
+            data.service = service_id
+            data.save()
+
+
+            messages.add_message(request, messages.SUCCESS, 'Thank You! Your Feedback submitted successfully!')
+            return redirect('/customers/feedback_form/'+str(service_id.id))
+        else:
+            messages.add_message(request, messages.ERROR, "Something went wrong!")
+            context={'feedbackForm':form}
+            return render(request, 'customers/feedbackForm.html',context)
+
+
+    context={
+        'form_feedback':FeedbackForm()
+    }
+
+
+    return render(request, 'customers/feedbackForm.html', context)

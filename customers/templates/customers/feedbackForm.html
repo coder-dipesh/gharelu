@@ -2,12 +2,13 @@
 {% extends 'layout.html' %}
 {%load bootstrap%}
 {%load static%}
+{% load crispy_forms_tags %}
 
 
 <!-- Site title goes here -->
 {% block title %}
 
-    <title> Home | Gharelu</title>
+    <title> Feedback Form | Gharelu</title>
 
 {% endblock title%}
 
@@ -20,13 +21,11 @@
     *{
 margin: 0;
 padding: 0;
-/* box-sizing: border-box; */
 font-family: "poppins", sans-serif;
 }
 
 
 .ratings{
-/* width: 400px; */
 margin-top: 10%;
 display: flex;
 align-items: center;
@@ -36,8 +35,7 @@ flex-direction: column;
 
 .ratings .star-widget input{
 display:none;
-/* justify-content: left; 
-align-items: left;  */
+align-items: left;
 
 }
 
@@ -62,45 +60,44 @@ input#rate-5:checked~label{
 color: #fe7;
 text-shadow:0 0 20px rgb(231, 10, 39);
 }
-
-
 </style>
 
-
-
 {% include 'navbar/customer-navbar.html' %}
+
+{% include 'message.html' %}
+
+<form action="" method="POST">
+            {% csrf_token %}
 
  <div class="ratings">
 
     <h3>Rate Us</h3>
     <div class="star-widget">      
-        <input type="radio" name="rate" id="rate-5">
-        <label for="rate-5" class="fas fa-star star"></label>
+        <input type="radio" name="rating" value="5" aria-label="5 star: Excellent" id="rating-5">
+        <label for="rating-5" class="fas fa-star star"></label>
 
-        <input type="radio" name="rate" id="rate-4">
-        <label for="rate-4" class="fas fa-star"></label>
+        <input type="radio" name="rating" value="4" aria-label="4 star: Great" id="rating-4">
+        <label for="rating-4" class="fas fa-star"></label>
 
-        <input type="radio" name="rate" id="rate-3">
-        <label for="rate-3" class="fas fa-star"></label>
+        <input type="radio" name="rating" value="3" aria-label="3 star: Average" id="rating-3">
+        <label for="rating-3" class="fas fa-star"></label>
 
-        <input type="radio" name="rate" id="rate-2">
-        <label for="rate-2" class="fas fa-star"></label>
+        <input type="radio" name="rating" value="2" aria-label="2 star: Poor" id="rating-2">
+        <label for="rating-2" class="fas fa-star"></label>
 
-        <input type="radio" name="rate" id="rate-1">
-        <label for="rate-1" class="fas fa-star"></label>
+        <input type="radio" name="rating" value="1" aria-label="1 star: Bad" id="rating-1">
+        <label for="rating-1" class="fas fa-star"></label>
 
         
     </div>
 </div>
 
-<!-- <div class="card"> -->
   <div class="row">
       <div class="col-md-6 offset-md-4">
           <h3>Give Feedback</h3>
-          
-          
 
-            <div class="col-lg-8">
+
+           <div class="col-lg-8">
                 <div class="form-group">
                     <input type="text" class="form-control input-field" name="subject" id="subject"
                         placeholder="Enter your name" />
@@ -115,15 +112,16 @@ text-shadow:0 0 20px rgb(231, 10, 39);
                 </div>
             </div>
 
-
-            <!-- Send message buttom -->
+            <!-- {{ form_feedback | crispy }} -->
 
             <div class="col-lg-8 mb-5">
-                <input type="submit" class="btn button" value="Send Message" />
+                <button class="btn btn-primary btn-lg mt-2" >SUBMIT</button>
             </div>
 
       </div>
   </div>
+
+</form>
 </div>
 
 <script>

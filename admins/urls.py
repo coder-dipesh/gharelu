@@ -12,6 +12,7 @@ urlpatterns = [
 
     path ('get_feedback',views.get_feedback),
 
+
     
     path('delete_category/<int:category_id>', views.delete_category, name='delete_category'),
     path('update_category/<int:category_id>', views.category_update_form, name='update_category'),

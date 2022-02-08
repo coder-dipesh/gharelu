@@ -1,11 +1,10 @@
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
 from admins.forms import CategoryForm
-from admins.models import Category, Feedback
+from admins.models import Category
 from authentications.auth import admin_only
 from django.contrib import messages
 from django.contrib.auth.models import User
-# from homepage.views import 
 from professionals.models import Service
 
 @login_required
@@ -38,20 +37,22 @@ def adminDashboard(request):
         'professional_info':professional_info,
         'category':totalCategory,
         'service':totalService,
-         'feed': feed_count,
+        #  'feed': feed_count,
         'activate_adminhome': 'active bg-primary'
     }
     return render(request, 'admins/adminDashboard.html' , context )
 
 
+@login_required
 @admin_only
 def get_feedback(request):
     feedback = Feedback.objects.all().order_by('id')
     context = {
         'feedback': feedback,
-        'activate_contact': 'active'
+        'activate_feedback': 'active'
     }
     return render(request, 'admins/get_feedback.html', context)
+
 
 @login_required
 @admin_only
