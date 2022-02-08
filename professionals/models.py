@@ -2,8 +2,9 @@ from distutils.command.upload import upload
 from django.db import models
 from django.core.validators import *
 from django.core import validators
-
 from admins.models import Category
+from django.contrib.auth.models import User
+
 # Create your models here.
 
 
@@ -14,7 +15,6 @@ class Service(models.Model):
         ('Bhaktapur','Bhaktapur'),
         ('Lalitpur','Lalitpur')
     )
-
     service_name = models.CharField(max_length=200, null=True, validators=[validators.MinLengthValidator(2)])
     service_description = models.TextField(null=True)
     service_category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True, )
