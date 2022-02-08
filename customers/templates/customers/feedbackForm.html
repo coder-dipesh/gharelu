@@ -1,5 +1,5 @@
 <!-- Inheriting from parent -->
-{% extends 'layout.html' %}
+{% extends 'auth_layout.html' %}
 {%load bootstrap%}
 {%load static%}
 {% load crispy_forms_tags %}
@@ -19,125 +19,87 @@
 
 <style>
     *{
-margin: 0;
-padding: 0;
 font-family: "poppins", sans-serif;
 }
-
-
-.ratings{
-margin-top: 10%;
-display: flex;
-align-items: center;
-justify-content: center;
-flex-direction: column;
+label{
+    display:none;
 }
-
-.ratings .star-widget input{
-display:none;
-align-items: left;
-
+.form-control{
+    margin-top: 1.5rem;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    box-shadow: none;
+    font-size: 14px;
 }
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 
-.star-widget label{
-font-size: 40px;
-color:#444;
-padding:10px;
-float: right ;
-}
+  .card {
+    position: unset !important;
+    box-shadow: 0 2px 10px rgb(0 22 84 / 10%);
+    margin: 10px auto;
+    position: relative;
+  }
+  .card .card-header {
+    display: flex;
+    justify-content: center;
+    height: 12em;
+    background-image: linear-gradient(to right, #0093e9, #80d0c7) !important;
+  }
+  .profile-image {
+    height: 10em;
+    width: 10em;
+    border-radius: 50%;
+    box-shadow: 0 0.2em 0.5em;
+    object-fit: cover;
+  }
+  .card-footer span {
+    color: #4a5682;
+    font-family: Poppins;
+    font-weight: 500;
+  }
 
-input:not(:checked)~label:hover,
-input:not(:checked)~label:hover~label{
-color: #fd4;
-
-}
-
-input:checked~label{
-color: #fd4;
-}
-
-input#rate-5:checked~label{
-color: #fe7;
-text-shadow:0 0 20px rgb(231, 10, 39);
-}
 </style>
 
 {% include 'navbar/customer-navbar.html' %}
 
 {% include 'message.html' %}
 
-<form action="" method="POST">
-            {% csrf_token %}
-
- <div class="ratings">
-
-    <h3>Rate Us</h3>
-    <div class="star-widget">      
-        <input type="radio" name="rating" value="5" aria-label="5 star: Excellent" id="rating-5">
-        <label for="rating-5" class="fas fa-star star"></label>
-
-        <input type="radio" name="rating" value="4" aria-label="4 star: Great" id="rating-4">
-        <label for="rating-4" class="fas fa-star"></label>
-
-        <input type="radio" name="rating" value="3" aria-label="3 star: Average" id="rating-3">
-        <label for="rating-3" class="fas fa-star"></label>
-
-        <input type="radio" name="rating" value="2" aria-label="2 star: Poor" id="rating-2">
-        <label for="rating-2" class="fas fa-star"></label>
-
-        <input type="radio" name="rating" value="1" aria-label="1 star: Bad" id="rating-1">
-        <label for="rating-1" class="fas fa-star"></label>
-
-        
-    </div>
-</div>
-
-  <div class="row">
-      <div class="col-md-6 offset-md-4">
-          <h3>Give Feedback</h3>
-
-
-           <div class="col-lg-8">
-                <div class="form-group">
-                    <input type="text" class="form-control input-field" name="subject" id="subject"
-                        placeholder="Enter your name" />
-                </div>
+<center style="margin-top: 4rem;">
+<div class="col-lg-10 col-xl-6 ">
+            <div class="card  shadow border-0" >
+              <div class="card-body">
+            <form action="" method="POST">
+                    <div class="col-md-10 ">
+                        <h3 class="mb-4 text-uppercase">Give Feedback</h3>
+                            <div class="col-md-10 col-lg-12 col-xl-12">
+                            {% csrf_token %}
+                            {{ form_feedback | crispy }}
+                            <button class="btn btn-primary btn-lg mt-2" >SUBMIT</button>
+                            </div>
+                    </div>
+                </form>
+              </div>
             </div>
-
-
-            <div class="col-lg-8">
-                <div class="form-group">
-                    <textarea class="form-control message-field" name="message" rows="5"
-                        placeholder="Give your feedback"></textarea>
-                </div>
-            </div>
-
-            <!-- {{ form_feedback | crispy }} -->
-
-            <div class="col-lg-8 mb-5">
-                <button class="btn btn-primary btn-lg mt-2" >SUBMIT</button>
-            </div>
-
-      </div>
-  </div>
-
-</form>
-</div>
+          </div>
+</center>
 
 <script>
-  var form_fields = document.getElementsByTagName('input')
-  form_fields[1].placeholder = "Enter name";
-  form_fields[2].placeholder = "Enter email";
-  form_fields[3].placeholder = "Enter subject";
-  form_fields[4].placeholder = "Enter message";
+
+    var form_fields = document.getElementsByTagName('input')
+
+    form_fields[1].placeholder = 'Rate out of 5';
+
+    form_fields[2].placeholder = 'Subject';
+
+    form_fields[3].placeholder = 'Give your feedback here';
 
 
-
-  for (var field in form_fields){
-  form_fields[field].className = 'form-control my-2'
-  }
+</script>
 
 
-</script>    
 
 {%endblock content%}

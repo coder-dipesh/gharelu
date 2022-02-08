@@ -93,25 +93,22 @@ def feedbackForm(request, service_id):
         form = FeedbackForm(request.POST)
         if form.is_valid():
             data=Feedback()
-
             data.subject = form.cleaned_data['subject']
             data.rating = form.cleaned_data['rating']
-            data.service_feedback = form.cleaned_data['message']
+            data.service_feedback = form.cleaned_data['service_feedback']
             data.user = user_id
             data.service = service_id
             data.save()
-
 
             messages.add_message(request, messages.SUCCESS, 'Thank You! Your Feedback submitted successfully!')
             return redirect('/customers/feedback_form/'+str(service_id.id))
         else:
             messages.add_message(request, messages.ERROR, "Something went wrong!")
-            context={'feedbackForm':form}
-            return render(request, 'customers/feedbackForm.html',context)
-
+            return redirect('/customers/feedback_form/'+str(service_id.id))
 
     context={
         'form_feedback':FeedbackForm()
+
     }
 
 
