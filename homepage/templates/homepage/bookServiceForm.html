@@ -1,0 +1,165 @@
+<!-- Inheriting from parent -->
+{% extends 'service_layout.html' %}
+{%load bootstrap%}
+{% load static %}
+
+
+
+{% block title %}
+    <title> Service | Gharelu</title>
+{% endblock title%}
+
+
+<!-- Body content goes here -->
+{% block content %}
+    <style>
+        body {
+            height: 100vh;
+            background-image: linear-gradient(to right, #0093E9, #80D0C7) !important;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Poppins', Times, serif;
+        }
+        .container{
+            margin-top: 15rem;
+            margin-bottom: 4rem;
+
+        }
+
+        .card {
+            overflow: hidden;
+            border: 0 !important;
+            border-radius: 20px !important;
+            box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+        }
+
+        .form-input {
+            position: relative;
+        }
+
+        .form-input input {
+            width: 100%;
+            height: 45px;
+            padding-left: 40px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            box-shadow: none;
+            border: 1px solid #00000020;
+            border-radius: 3px;
+            outline: none;
+            background: transparent;
+        }
+
+        .pass-input input {
+            height: 45px;
+            border: 1px solid #00000020;
+            box-sizing: border-box;
+            box-shadow: none;
+            border: 1px solid #00000020;
+            border-radius: 3px;
+            outline: none;
+            background: transparent;
+
+        }
+
+        .form-input span {
+            position: absolute;
+            top: 10px;
+            padding-left: 15px;
+            color: #4e0fe0ee;
+        }
+
+
+        .form-input input::placeholder {
+            color: rgb(19, 18, 18);
+            padding-left: 10px;
+            opacity: 0.5;
+        }
+        .form-input input:focus::placeholder {
+            color: #454b69;
+        } 
+
+        .form-box button[type="submit"] {
+            margin-top: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 3px;
+            background: #007bff;
+            color: #fff;
+            font-size: 90%;
+            font-weight: bold;
+            letter-spacing: .1rem;
+            transition: 0.5s;
+            padding: 12px;
+            margin-left: 18.5px;
+            width: 50%;
+        }
+
+        .form-box button[type="submit"]:hover {
+            background: #0069d9;
+        }
+        
+        .select{
+            
+            cursor: pointer;
+            border-radius: 5px;
+            margin-bottom: 1.5rem;
+            margin-left: 1.3rem;
+            background-color: #067bf0;
+            color: white;
+            height: 45px;
+        }
+        #start_time,#end_time{
+            padding-left: 6.5rem;
+        }
+    </style>
+
+{% include 'message.html' %}
+<div class="container">
+    <div class="row px-0">
+        <div class="col-lg-8 col-xl-6 card flex-row mx-auto px-0">
+            <div class="card-body py-2">
+
+                <form action="" method="POST" class="form form-box">
+                    {% csrf_token %}
+                    <div class="form-input mt-4">
+                        <span><i class="fa fa-phone"  aria-hidden="true"></i></span>
+                        {{order_form.contact_no}}
+                        
+                    </div>
+
+                    <div class="form-input">
+                        <span><i class="fa fa-address-book fa-sm" aria-hidden="true"></i></span>
+                        {{order_form.contact_address}}
+                    </div>
+
+                    <div class="form-input">
+                        <span><i class="fa fa-calendar fa-sm" aria-hidden="true"></i></span>
+                        {{order_form.date}} 
+                    </div>
+
+                    <div class="row">
+                        <div class="mb-1 mx-auto form-input col">
+                            <span>Start Time</span>
+                        {{order_form.start_time}}          
+                        </div>
+                        <div class="mb-1 form-input col">
+                            <span>End Time</span>
+                        {{order_form.end_time}}  
+                        </div>
+                    </div>
+
+                    <div class="mb-sm-3 text-center">
+                        <button type="submit" value="" class="btn btn-lg text-uppercase">
+                            Book Now
+                        </button>
+                    </div>
+                </form>
+         </div> 
+    </div>
+    </div>
+</div>
+
+{% endblock content %}

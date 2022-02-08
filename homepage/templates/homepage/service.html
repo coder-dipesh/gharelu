@@ -7,7 +7,7 @@
 <!-- Site title goes here -->
 {% block title %}
 
-    <title> Home | Gharelu</title>
+    <title> Service | Gharelu</title>
 
 {% endblock title%}
 
@@ -31,7 +31,6 @@
     .row{
         display: flex;
         flex-wrap: wrap;
-        margin-right: -15px;
     }
 
 .image-content{
@@ -61,7 +60,6 @@
         margin-top: 18rem;
 }
 
-
 .image .image-content .sub-info{
          background-color: rgba(255, 255, 255, 0.60);
         color: rgb(0, 0, 0);
@@ -73,110 +71,72 @@
     }
 
 .content .container{
-    color: #f3c500;
     font-size: 40px;
-    margin-bottom: 0px;
-    text-align: center;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+
 }
 
-.categories{
-    padding: 30px 0px;
+label{
+  display:none;
 }
 
-.shell{
-  padding:2rem  0;
+#id_service_contains_location{
+  height: 45px;
+  width:30%;
+
+  box-sizing: border-box;
+    box-shadow: none;
+    border: 1px solid #00000020;
+    border-radius: 3px;
+    outline: none;
+    background: transparent;
 }
 
-.product{
-  background:#fff;
-  padding:15px;
-  border-radius:6px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  position:relative;
-  margin:20px auto;
-  height :600px
+#id_service_contains_name{
+  width:30%;
+  height: 45px;
+  margin-top: 1rem;
+  box-sizing: border-box;
+    box-shadow: none;
+    border: 1px solid #00000020;
+    border-radius: 3px;
+    outline: none;
+    background: transparent;
+}
+#btn_search, #btn_clear{
+  height: 45px;
+
 }
 
-.img{
-  position:absolute;
-  top:5px;
-  left:50%;
-  transform:translate(-50%);
-  -webkit-transform:translate(-50%);
-  -ms-transform:translate(-50%);
-  -moz-transform:translate(-50%);
-  -o-transform:translate(-50%);
-  -khtml-transform:translate(-50%);
-  width: 100%;
-  padding: 15px;
-  transition: all 0.2s ease-in-out;
+#btn_clear{
+  text-decoration: none;
+  text-align: initial;
 }
 
-.img img{
-  width:100%;
-  transition: all 0.2s ease-in-out;
-  border-radius:6px;
+@media (max-width: 426px) {
+  #id_service_contains_location{
+    width:100%;
+  }
+  #id_service_contains_name{
+    width:100%;
+  }
+  #btns{
+    display:flex;
+    flex-direction: column;
+  }
+  #btn_clear{
+    margin-top: 1rem;
+  }
 }
+  
 
-.product:hover .img{
-  top:-40px;
-}
-
-.product:hover .img img{
-  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
-}
-
-.text{
-  padding-top:100%;
-  font-size: 22px;
-}
-
-.text .category{
-  text-align:center;
-  font-size:12px;
-  font-weight:bold;
-  padding:5px;
-  margin-bottom:45px;
-  position:relative;
-  transition: all 0.2s ease-in-out;
-}
-
-.text .category > *{
-  position:absolute;
-  top:200%;
-  left:50%;
-  transform: translate(-50%,-50%);
-  -webkit-transform: translate(-50%,-50%);
-  -moz-transform: translate(-50%,-50%);
-  -ms-transform: translate(-50%,-50%);
-  -o-transform: translate(-50%,-50%);
-  -khtml-transform: translate(-50%,-50%);
-}
-
-.text .category > button{
-  padding: 12px 30px;
-  border: 1px solid #313131;
-  background:#212121;
-  color:#fff;
-  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
-  border-radius:5rem;
-  transition: all 0.05s ease-in-out;
-}
-
-.product:hover .text .category > button{
-  border-color:#ddd;
-  box-shadow: none;
-  padding: 11px 28px;
-}
-
-.product:hover .text .category{
-  margin-top: 0px;
-}
 
 </style>
 
-{% include 'navbar/customer-navbar.html' %}
-<section class="" id="">
+{% include 'navbar/navbar-flash.html' %}
+
+<section>
   <div class="image"></div>
     <div class="container"><div class="row">
         <div class="image-content">
@@ -187,136 +147,64 @@
 </section>
 
 <div class="content" id="services">
-    <div class="categories">
         <div class="container">
-            <h2 style="color: rgb(0, 253, 21);    font-size: 40px;    text-align: center;">Select Your Service</h2>
-            
-            
-<div class="shell">
-    <div class="container">
-      <div class="row">
-
-        <div class="col-md-3">
-          <div class="product">
-            <div class="img">
-              <img src="/static/images/carpenter.png" alt="Product" class="img-responsive" />
-            </div>
-            <div class="text">
-              <p class="service_name">carpenter
-              </p>
-              <p class="discription">
-          FGGFDSFXGCHGGDSESDXCF
-              </p>
-              <p class="cg">
-                category
-              </p>
-              <p class="location">
-                location
-              </p>
-              <p class="price">
-                price
-              </p>
-              <div class="category">
-                <button>Book now</button> 
-              </div>
-            </div>
-          </div>
+            <h2 style="color: rgb(0, 253, 21);    font-size: 40px;    text-align: center;" class="m-4">
+              Select Your Service</h2>
         </div>
-
-        <div class="col-md-3">
-          <div class="product">
-            <div class="img">
-              <img src="/static/images/cleaner.png" alt="Product" class="img-responsive" />
-            </div>
-            <div class="text">
-              <div class="category">
-                <button>Cleaner</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-3">
-          <div class="product">
-            <div class="img">
-              <img src="/static/images/electrician.png" alt="Product" class="img-responsive" />
-            </div>
-            <div class="text">
-              <div class="category">
-                <button>Electrician</button>               </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-3">
-          <div class="product">
-            <div class="img">
-              <img src="/static/images/makeup.png" alt="Product" class="img-responsive" />
-            </div>
-            <div class="text">
-              <div class="category">
-                <button>Makeup</button>               </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-3">
-          <div class="product">
-            <div class="img">
-              <img src="/static/images/mason.png" alt="Product" class="img-responsive" />
-            </div>
-            <div class="text">
-              <div class="category">
-                <button>Mason</button>               </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-3">
-          <div class="product">
-            <div class="img">
-              <img src="/static/images/movein.png" alt="Product" class="img-responsive" />
-            </div>
-            <div class="text">
-              <div class="category">
-                <button>Movein</button>               </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-3">
-          <div class="product">
-            <div class="img">
-              <img src="/static/images/painter.png" alt="Product" class="img-responsive" />
-            </div>
-            <div class="text">
-              <div class="category">
-                <button>Painter</button>               </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-3">
-          <div class="product">
-            <div class="img">
-              <img src="/static/images/plumber.png" alt="Product" class="img-responsive" />
-            </div>
-            <div class="text">
-              <div class="category">
-                <button>Plumber</button>               </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-      
-        </div>
-    </div>
-    </div>
-  </div>
 </div>
 
-{% include 'footer.html' %}
+  <div class="card card-body text-center py-4 mb-4">
+    <form method="GET">
+
+      {{ service_filter.form }}
+      <span class="mt-2" id="btns">
+      <button type="submit" class="btn btn-primary btn-md" id="btn_search" >Search</button>
+      <a href="/service" class="btn btn-outline-danger btn-md"  id="btn_clear">Clear</a>
+</span>
+    </form>
+  </div>
+
+<div class="container py-4">
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for i in services %}
+
+  <div class="col">
+    <div class="card bg-dark h-100">
+      <img src="/{{i.service_photo}}" class="card-img-top" alt="Service Image"/>
+      <div class="card-body"> 
+        <h5 class="card-title text-white mb-4 text-uppercase">{{ i.service_name }}</h5>
+
+        <p class="card-text">
+          {{i.service_description}}
+        </p>
+        <p class="card-text">
+          {{i.service_category.category_name}}
+        </p>
+        <p class="card-text">
+          {{i.service_location}}
+        </p>
+        <p class="card-text">
+          RS.{{i.service_price}}
+        </p>
+        <div class="card-body">
+        <a href="/book-service/{{i.id}}" class="btn btn-primary">Book Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+</div>
+
+<script>
+
+    var form_fields = document.getElementsByTagName('input')
+
+    form_fields[0].placeholder = 'Enter a location';
+
+    form_fields[1].placeholder = 'Enter a service';
+
+</script>
 
 {%endblock content%}
 
