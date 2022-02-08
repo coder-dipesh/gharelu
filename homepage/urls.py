@@ -8,10 +8,9 @@ urlpatterns = [
 
     
     path('service',views.service,name='service'),
-    # path('book-service/<int:service_id>',views.bookService,name='book-service'),
-    # path('cancel-service-booking/<int:service_id>',views.cancelBookingService,name='cancel-service-booking'),
+    path('book-service/<int:service_id>',views.bookService,name='book-service'),
+    path('cancel-service-booking/<int:service_id>',views.cancelBookingService,name='cancel-service-booking'),
 
 
 
-    # path ('giveFeedback',views.give_feedback),
 ]
