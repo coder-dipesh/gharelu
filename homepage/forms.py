@@ -20,8 +20,8 @@ class OrderForm(ModelForm):
             'type':'text',
             'class':'form-input',
             'placeholder':'9843060170',
-            'maxlength':'10',
-            'minlength':'9',
+            'max':'10',
+            'min':'9',
         })
         self.fields['contact_address'].widget.attrs.update({
             'required':'',
