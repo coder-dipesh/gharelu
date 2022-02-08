@@ -5,7 +5,8 @@ from admins.models import Category
 from authentications.auth import admin_only
 from django.contrib import messages
 from django.contrib.auth.models import User
-
+from customers.models import Feedback
+from homepage.models import Order
 from professionals.models import Service
 
 @login_required
@@ -15,7 +16,11 @@ def adminDashboard(request):
     users = User.objects.all()
     category = Category.objects.all()
     service = Service.objects.all()
+    review = Feedback.objects.all()
 
+    bookings = Order.objects.all()
+    totalBookings = bookings.count()
+    totalReview = review.count()
 
     user_count = users.filter(is_staff=0).count()
     admin_count = users.filter(is_superuser=1).count()
@@ -38,20 +43,41 @@ def adminDashboard(request):
         'professional_info':professional_info,
         'category':totalCategory,
         'service':totalService,
-        #  'feed': feed_count,
+        'totalBookings': totalBookings,
+        'totalReview': totalReview,
         'activate_adminhome': 'active bg-primary'
     }
     return render(request, 'admins/adminDashboard.html' , context )
 
+
 @login_required
 @admin_only
-def allOrders(request):
+def get_feedback(request):
+    feedback = Feedback.objects.all().order_by('id')
+    context = {
+        'feedback': feedback,
+        'activate_feedback': 'active bg-primary'
+    }
+    return render(request, 'admins/get_feedback.html', context)
+
+@login_required
+@admin_only
+def get_allservices(request):
+    context = {
+        'activate_services': 'active bg-primary'
+    }
+    return render(request, 'admins/get_service.html', context)
+
+
+@login_required
+@admin_only
+def get_allorders(request):
     
     context = {
         'activate_orders': 'active bg-primary'
     }
 
-    return render(request, 'admins/orders.html' , context)
+    return render(request, 'admins/get_order.html' , context)
 
 @login_required
 @admin_only

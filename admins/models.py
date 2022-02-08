@@ -1,6 +1,8 @@
 from django.db import models
 from django.core.validators import *
 from django.core import validators
+
+
 # Create your models here.
 
 class Category(models.Model):
@@ -11,10 +13,4 @@ class Category(models.Model):
     def __str__(self):
         return self.category_name
 
-# class Feedback(models.Model):
-#     name = models.CharField(max_length=100, validators=[validators.MinLengthValidator(2)])
-#     product_feedback = models.TextField()
-
-#     def __str__(self):
-#         return self.feedback
 

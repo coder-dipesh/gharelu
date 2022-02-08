@@ -29,6 +29,6 @@ urlpatterns = [
 
 
 ]
-handler404 = 'homepage.views.error404'
+# handler404 = 'homepage.views.error404'
 
 
