@@ -1,0 +1,157 @@
+{% extends 'layout.html' %} {% block title %}
+<title>All Bookings | Gharelu</title>
+{% endblock title %} {% block content %} {% include "navbar/customer-navbar.html" %}
+
+<div class="container-fluid" id="m-container8" style="min-height: 100vh">
+  <div class="row mb-4">
+    <div class="col mt-4 mb-4">
+      <h1 class="text-center text-uppercase m-4 font-weight-bold text-dark">My Pending Bookings</h1>
+      {% include 'message.html' %}
+      <div class="card shadow-lg">
+        <div class="card-body">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Service Name</th>
+                <th>Booking Date</th>
+                <th>Start Time</th>
+                <th>End Time</th>
+                <th>Contact Address</th>
+                <th>Contact Number</th>
+                <th>Service Price</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody class="align-services-center">
+              {% for service in servicePending %}
+              <tr>
+                <td>{{service.service.service_name}}</td>
+                <td>{{service.date}}</td>
+                <td>{{service.start_time}}</td>
+                <td>{{service.end_time}}</td>
+                <td>{{service.contact_address}}</td>
+                <td>{{service.contact_no}}</td>
+                <td>Rs.{{service.total_price}}</td>
+                <td>{{service.status}}</td>
+
+                <td>
+                  <a
+                    class="btn btn-danger"
+                    href="/cancel-service-booking/{{service.id}}"
+                    onclick="return confirm('Are you sure to cancel this booking?')"
+                    >Cancel</a
+                  >
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" style="margin-top: 10rem">
+    <div class="col mt-4 mb-4">
+      <h1 class="text-center text-uppercase m-4 font-weight-bold text-dark">My Approved Bookings</h1>
+      <div class="card shadow-lg">
+        <div class="card-body">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Service Name</th>
+                <th>Booking Date</th>
+                <th>Start Time</th>
+                <th>End Time</th>
+                <th>Contact Address</th>
+                <th>Contact Number</th>
+                <th>Service Price</th>
+                <th>Status</th>
+                <th>Finish</th>
+
+                
+              </tr>
+            </thead>
+            <tbody class="align-services-center">
+              {% for i in serviceApproved %}
+              <tr>
+                <td>{{i.service.service_name}}</td>
+                <td>{{i.date}}</td>
+                <td>{{i.start_time}}</td>
+                <td>{{i.end_time}}</td>
+                <td>{{i.contact_address}}</td>
+                <td>{{i.contact_no}}</td>
+                <td>Rs.{{i.total_price}}</td>
+                <td>
+                  <a class="btn btn-sm text-white" style="background-color: #1b7661">
+                    <i class="fa fa-check fa-x" aria-hidden="true"></i>
+                    {{i.status}}
+                  </a></td>
+
+                <td>
+                  <a href="#" class="btn btn-primary btn-sm text-white">
+                    <i class="fa fa-check fa-x" aria-hidden="true"></i>
+                    Completed
+                  </a>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="row" style="margin-top: 10rem">
+    <div class="col mt-4 mb-4">
+      <h1 class="text-center text-uppercase m-4 font-weight-bold text-dark">My Declined Bookings</h1>
+      <div class="card shadow-lg">
+        <div class="card-body">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Service Name</th>
+                <th>Booking Date</th>
+                <th>Start Time</th>
+                <th>End Time</th>
+                <th>Contact Address</th>
+                <th>Contact Number</th>
+                <th>Service Price</th>
+                <th>Status</th>
+                
+              </tr>
+            </thead>
+            <tbody class="align-services-center">
+              {% for i in serviceDeclined %}
+              <tr>
+                <td>{{i.service.service_name}}</td>
+                <td>{{i.date}}</td>
+                <td>{{i.start_time}}</td>
+                <td>{{i.end_time}}</td>
+                <td>{{i.contact_address}}</td>
+                <td>{{i.contact_no}}</td>
+                <td>Rs.{{i.total_price}}</td>
+                <td>{{i.status}}</td>
+
+                <td>
+                  <a class="btn btn-sm text-white" style="background-color: #bb3810">
+                    <i class="fa fa-times fa-x" aria-hidden="true"></i>
+                    Declined
+                  </a>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+{% endblock %}

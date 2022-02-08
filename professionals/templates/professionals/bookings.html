@@ -13,63 +13,74 @@
   }
 </style>
 
-<div class="container-fluid">
+<div class="container-fluid" id="m-container8" style="min-height: 100vh">
   <div class="row">
-    <div class="col-lg-12">
-      <div style="min-height: 100vh">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="card bg-light py-2 px-2">
-              <div class="table-responsive">
-                <table class="table mt-4">
-                  <tr>
-                    <th>User Name</th>
-                    <th>Service Name</th>
-                    <th>Service Category</th>
-                    <th>Service Photo</th>
-                    <th>Service Price</th>
-                    <th>Booking Date</th>
-                    <th>Actions</th>
-                  </tr>
-                  <hr />
+    <div class="col mt-4 mb-4">
+      {% include 'message.html' %}
+      <div class="card shadow-lg">
+        <div class="card-body table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Booking By</th>
+                <th>Booking Date</th>
+                <th>Start Time</th>
+                <th>End Time</th>
+                <th>Contact Address</th>
+                <th>Contact Number</th>
+                <th>Service Price</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody class="align-services-center">
+              {% for i in order %}
+              <tr>
+                <td>{{i.user.username}}</td>
+                <td>{{i.date}}</td>
+                <td>{{i.start_time}}</td>
+                <td>{{i.end_time}}</td>
+                <td>{{i.contact_address}}</td>
+                <td>{{i.contact_no}}</td>
+                <td>Rs.{{i.total_price}}</td>
+                <td>{{i.status}}</td>
 
-                  {% for i in services %}
+                <td>
+                  {% if i.status == 'Pending' %}
+                  <a class="btn btn-sm" href="/professionals/approve-booking/{{i.id}}" style="background-color: #00eeb6">
+                    <i class="fa fa-check fa-x" aria-hidden="true"></i>
+                    Approve
+                  </a>
+                  <a
+                    class="btn btn-danger mt-2"
+                    href="/professionals/decline-booking/{{i.id}}"
+                    onclick="return confirm('Are you sure to decline this order?')"
+                    style="background-color: #dd4e67"
+                  >
+                    <i class="fa fa-times fa-x" aria-hidden="true"> </i>
+                    Decline
+                  </a>
+                  {% elif i.status == 'Approved' %}
+                  <a class="btn btn-sm" style="background-color: #1b7661">
+                    <i class="fa fa-check fa-x" aria-hidden="true"></i>
+                    APPROVED
+                  </a>
+                  {% elif i.status == 'Declined' %}
+                  <a class="btn btn-sm" style="background-color: #bb3810">
+                    <i class="fa fa-times fa-x" aria-hidden="true"></i>
+                    DECLINED
+                  </a>
 
-                  <tr>
-                    <td>{{ i.category_name }}</td>
-                    <td>{{ i.category_description }}</td>
-                    <td>{{ i.created_date }}</td>
-                    <td>{{ i.category_description }}</td>
-                    <td>{{ i.created_date }}</td>
-                    <td>{{ i.created_date }}</td>
-                    <td>{{ i.created_date }}</td>
-
-
-                    <td>
-                      <a class="btn btn-sm" href="/admins/update_category/{{i.id}}" style="background-color: #00eeb6">
-                        <i class="fa fa-check fa-x" aria-hidden="true"></i>
-                      </a>
-                      <a
-                        class="btn btn-danger mt-2"
-                        href="/admins/delete_category/{{i.id}}"
-                        onclick="return confirm('Are you sure to delete this category?')"
-                        style="background-color: #dd4e67"
-                      >
-                        <i class="fa fa-trash fa-x" aria-hidden="true"> </i>
-                      </a>
-                    </td>
-                  </tr>
-                  {% endfor %}
-                </table>
-              </div>
-            </div>
-          </div>
+                  {%endif%}
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-
 
 {% endblock %}

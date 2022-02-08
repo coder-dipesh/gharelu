@@ -1,4 +1,3 @@
-from homepage.views import review
 from .models import Category
 from django.forms import ModelForm
 

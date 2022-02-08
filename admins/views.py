@@ -5,7 +5,7 @@ from admins.models import Category
 from authentications.auth import admin_only
 from django.contrib import messages
 from django.contrib.auth.models import User
-from homepage.views import review
+
 from professionals.models import Service
 
 @login_required
@@ -27,9 +27,6 @@ def adminDashboard(request):
 
     totalCategory =category.count()
     totalService =service.count()
-
-    # feed = Feedback.objects.all()
-    # feed_count = feed.count()
 
 
     context = {
@@ -55,24 +52,6 @@ def allOrders(request):
     }
 
     return render(request, 'admins/orders.html' , context)
-
-@login_required
-def review(request):
-    if request.method == "POST":
-        form = review(request.POST)
-        if form.is_valid():
-            form.save()
-            messages.add_message(request, messages.SUCCESS, "Feedback sucessfully Sent")
-            return redirect('/homepage/review')
-        else:
-            messages.add_message(request, messages.ERROR, "Unable to Send Feedback")
-            return render(request, 'homepage/review.html', {'form_feedback': review})
-    context = {
-        'form_feedback': review,
-        'activate_contact': 'active'
-    }
-    return render(request, 'homepage/review.html', context)
-
 
 @login_required
 @admin_only

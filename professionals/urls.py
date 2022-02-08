@@ -9,12 +9,14 @@ urlpatterns = [
     path('professionalupdateprofile',views.professionalUpdateProfile, name='professionalupdateprofile'),
 
     path('bookings',views.bookings, name='bookings'),
+    path('approve-booking/<int:order_id>', views.approveBooking, name='approve-booking'),
+    path('decline-booking/<int:order_id>', views.declineBooking, name='decline-booking'),
+
     path('change_password',views.changePassword, name='change_password'),
 
     path('services',views.service, name='services'),
     path('service_form',views.service_form, name='service_form'),
     path('delete_service/<int:service_id>', views.delete_service, name='delete_service'),
     path('update_service/<int:service_id>', views.service_update_form, name='update_service'),
-
 
 ]

@@ -29,17 +29,22 @@
     </style>
   </head>
   <body>
+   {% include "navbar/customer-navbar.html" %}
+   <div class="container-fluid" style="margin-top: 0rem;">
     {% block content %}
     
     {% endblock content %}
+
+    </div>
     <!-- Footer section Begin -->
 
-        <button type="button" onclick="topFunction()" id="btn-back-to-top">
+    <button type="button" onclick="topFunction()" id="btn-back-to-top">
             <i class="fas fa-arrow-up"></i>
         <center></center>
     </button>
 
-    <footer class="footer mt-4">
+    <footer class="footer mt-4" style="
+    width: 100%;">
         <div class="container-fluid">
             <div class="row col-md-10 col-lg-10 col-xl-9 content">
 

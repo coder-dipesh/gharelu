@@ -1,5 +1,5 @@
 <!-- Inheriting from parent -->
-{% extends 'auth_layout.html' %}
+{% extends 'service_layout.html' %}
 {%load bootstrap%}
 {% load static %}
 
@@ -22,6 +22,11 @@
             justify-content: center;
             font-family: 'Poppins', Times, serif;
         }
+        .container{
+            margin-top: 15rem;
+            margin-bottom: 4rem;
+
+        }
 
         .card {
             overflow: hidden;
@@ -29,20 +34,6 @@
             border-radius: 20px !important;
             box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
         }
-
-        .img-left {
-            width: 140%;
-            height: 120%;
-            background: url('electrician.png')center no-repeat;
-        }
-
-
-        .title {
-            margin-bottom: 1rem;
-            font-weight: 600;
-            font-size: 2.5rem;
-        }
-        
 
         .form-input {
             position: relative;
@@ -120,75 +111,54 @@
             color: white;
             height: 45px;
         }
-        #time1,#time2{
+        #start_time,#end_time{
             padding-left: 6.5rem;
         }
-
-
     </style>
 
+{% include 'message.html' %}
 <div class="container">
     <div class="row px-0">
         <div class="col-lg-8 col-xl-6 card flex-row mx-auto px-0">
-            
-
             <div class="card-body py-2">
-
-                <h4 class="title text-left px-4 mt-4">
-                     Electrician
-                </h4>
-
-                <p class="text-body px-4 m-2 mb-3">Know who the Keeper Of Currents, Wizard of Wires and Lord of Lights is? Its an Electrician!!</p>
-
-                    <p class="text-body px-4 m-2 mb-3">Our Electricians use the right tools for the right job and do it in a right way. Never deal with electrical problems yourself cause it leads to life threatning situations. Call and Remember us when you need one of those professionals!</p>
 
                 <form action="" method="POST" class="form form-box">
                     {% csrf_token %}
-                    <div class="form-input">
+                    <div class="form-input mt-4">
                         <span><i class="fa fa-phone"  aria-hidden="true"></i></span>
-                        <input type="text" name="" placeholder="9843060170" required>
+                        {{order_form.contact_no}}
+                        
                     </div>
 
                     <div class="form-input">
                         <span><i class="fa fa-address-book fa-sm" aria-hidden="true"></i></span>
-                        <input type="text" name="" placeholder="Dillibazar, Kathmandu" required>
+                        {{order_form.contact_address}}
                     </div>
 
                     <div class="form-input">
                         <span><i class="fa fa-calendar fa-sm" aria-hidden="true"></i></span>
-                        <input type="date" required>
+                        {{order_form.date}} 
                     </div>
 
                     <div class="row">
                         <div class="mb-1 mx-auto form-input col">
                             <span>Start Time</span>
-                            <input type="time" id="time1" required>
+                        {{order_form.start_time}}          
                         </div>
                         <div class="mb-1 form-input col">
                             <span>End Time</span>
-                            <input type="time"  id="time2" required>
+                        {{order_form.end_time}}  
                         </div>
                     </div>
 
-                    <div class="form-input">
-                        <span><i class="fa fa-lightbulb fa-sm" aria-hidden="true"></i></span>
-                        <input type="text" name="" placeholder="Electrician" disabled  required>
-                    </div>
-
-                    <div class="form-input">
-                        <span><i class="fa fa-money fa-sm" aria-hidden="true"></i></span>
-                        <input type="text" name="" placeholder="Price: Nrs 1100 per hour" disabled  required>
-                    </div>
                     <div class="mb-sm-3 text-center">
                         <button type="submit" value="" class="btn btn-lg text-uppercase">
                             Book Now
                         </button>
                     </div>
-            </div>
-        
-        
+                </form>
+         </div> 
     </div>
-
     </div>
 </div>
 

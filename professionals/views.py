@@ -6,7 +6,11 @@ from authentications.forms import ProfileForm
 import os
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.forms import PasswordChangeForm
-
+from homepage.models import Order
+from django.template.loader import render_to_string
+from django.conf import settings
+from django.core.mail import EmailMessage
+from django.contrib import messages
 from professionals.forms import ServiceForm
 from professionals.models import Service
 
@@ -16,13 +20,13 @@ from professionals.models import Service
 @professional_only
 def professionalDashboard(request):
     service = Service.objects.all()
-
-
-
+    bookings = Order.objects.filter(user=request.user)
     totalService =service.count()
+    totalBookings = bookings.count()
 
     context = {
         'totalService': totalService,
+        'totalBookings': totalBookings,
         'activate_professionalshome': 'active bg-primary',
     }
     return render(request, 'professionals/professionalDashboard.html', context)
@@ -86,12 +90,40 @@ def service(request):
 @login_required
 @professional_only
 def bookings(request):
+    order=Order.objects.all().order_by('-id')
     context = {
-        'activate_bookings': 'active bg-primary'
+        'activate_bookings': 'active bg-primary',
+        'order':order
     }
     return render(request, 'professionals/bookings.html', context)
 
+@login_required
+@professional_only
+def approveBooking(request, order_id):
+    order = Order.objects.get(id=order_id)
+    order.status = 'Approved'
+    order.save()
+    
+    template = render_to_string('homepage/orderApprove.html',{'name': request.user.username, 'service': order.service.service_name})
+    email = EmailMessage(
+                    'Thank you for choosing Gharelu!!',
+                    template, settings.EMAIL_HOST_USER, [request.user.email],
+                )
+    email.fail_silently = False
+    email.send()
 
+    messages.add_message(request, messages.SUCCESS, 'Order has been approved successfully')
+    messages.add_message(request, messages.SUCCESS,' Email has been sent to user Successfully')
+    return redirect('/professionals/bookings')
+
+@login_required
+@professional_only
+def declineBooking(request, order_id):
+    order = Order.objects.get(id=order_id)
+    order.status = 'Declined'
+    order.save()
+    messages.add_message(request, messages.SUCCESS, 'Order has been declined !')
+    return redirect('/professionals/bookings')
 
 
 @login_required
@@ -166,7 +198,6 @@ def service_update_form(request, service_id):
 @professional_only
 def delete_service(request, service_id):
     service = Service.objects.get(id=service_id)
-    os.remove(service.service_photo.path)
     service.delete()
     messages.add_message(request, messages.SUCCESS, 'Service deleted successfully!')
     return redirect('/professionals/services')
