@@ -1,6 +1,6 @@
 from django.shortcuts import redirect, render
 from admins.models import Feedback
-from homepage.forms import FeedbackForm
+from customers.forms import FeedbackForm
 
 from professionals.models import Service
 from .filters import ServiceFilter
@@ -41,3 +41,8 @@ def give_feedback(request):
         'activate_contact': 'active'
     }
     return render(request, 'homepage/giveFeedback.html', context)
+
+
+
+def Support(request):
+    return render(request,'homepage/service.html')

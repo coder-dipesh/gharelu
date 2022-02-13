@@ -14,4 +14,6 @@ urlpatterns = [
 
 
     path ('giveFeedback',views.give_feedback),
+    path ('support',views.Support,name='support'),
+
 ]
