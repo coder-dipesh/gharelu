@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm
-from homepage.models import Order
+from homepage.models import Order, Contact
 
 class DateInput(forms.DateInput):
     input_type = 'date'
@@ -60,3 +60,12 @@ class OrderForm(ModelForm):
         widgets = {'date': DateInput(), 'start_time': TimeInput(), 'end_time': TimeInput()}
         model = Order
         fields = [ 'contact_no', 'contact_address', 'date','start_time','end_time']
+
+
+
+class ContactForm(forms.ModelForm):
+
+    class Meta:
+        model = Contact
+        fields = '__all__'
+

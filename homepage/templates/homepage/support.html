@@ -1,302 +1,287 @@
 <!--========================== Inheriting from parent===================== -->
-{% extends 'layout.html' %}
-{%load bootstrap%}
-{%load static%}
-
+{% extends 'layout.html' %} {%load bootstrap%} {%load static%}
 
 <!-- =========================Site title goes here=========================== -->
 {% block title %}
 
-    <title> Support | Gharelu</title>
+<title>Support | Gharelu</title>
 
 {% endblock title%}
 
 <!--========================= Body content goes here ========================-->
 {% block content %}
 <style>
-    body {
-        margin: 0;
-        font-family: "poppins", sans-serif;
-    }
+  body {
+    margin: 0;
+    font-family: "poppins", sans-serif;
+  }
 
-    #contact {
-        height: auto;
-        width: 100%;
-    }
+  #contact {
+    height: auto;
+    width: 100%;
+  }
 
-    #contact input,
-    #contact textarea {
-        width: 100%;
-    }
+  #contact input,
+  #contact textarea {
+    width: 100%;
+  }
 
-    .contact-details {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-    }
+  .contact-details {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
 
-    .contact-details li {
-        color: #000;
-        font-size: 16px;
-        padding-bottom: 10px;
-        font-stretch: semi-condensed;
-    }
+  .contact-details li {
+    color: #000;
+    font-size: 16px;
+    padding-bottom: 10px;
+    font-stretch: semi-condensed;
+  }
 
-    .btn {
-        border: 1px solid rgb(85, 77, 77);
-        color: rgb(255, 255, 255);
-        background:#dd4e67;
-        font-weight: bold;
-        transition: 0.3s;
-    }
+  .btn {
+    color: rgb(255, 255, 255);
+    background: #dd4e67;
+    font-weight: bold;
+    transition: 0.3s;
+  }
 
-    .btn:hover {
-        color: rgb(77, 75, 75);
-    }
+  .btn:hover {
+    color: rgb(77, 75, 75);
+  }
 
-    .input-field {
-        background-color: transparent;
-        border: 1px solid rgb(85, 77, 77);
-        border-radius: 0;
-        color: #111111;
-        font-size: 13px;
-        font-weight: 500;
-        height: 50px;
-        letter-spacing: 0.1em;
-        padding-left: 10px;
-        margin: 0 0 25px 0;
-        line-height: 20px;
-        text-transform: uppercase;
-    }
+  .input-field {
+    background-color: transparent;
+    border: 1px solid rgb(85, 77, 77);
+    border-radius: 0;
+    color: #111111;
+    font-size: 13px;
+    font-weight: 500;
+    height: 50px;
+    letter-spacing: 0.1em;
+    padding-left: 10px;
+    margin: 0 0 25px 0;
+    line-height: 20px;
+    text-transform: uppercase;
+  }
 
-    .straight {
-        width: 375px;
-        border-top: 3.5px solid rgb(0, 0, 0);
-    }
+  .straight {
+    width: 320px;
+    border-top: 3.5px solid rgb(0, 0, 0);
+  }
 
-    hr {
-        opacity: 1 !important;
-    }
+  hr {
+    opacity: 1 !important;
+  }
 
-    .heading {
-        width: 100%;
-        text-align: center;
-        margin-bottom: 10px;
-        padding-bottom: 10px;
-        text-transform: uppercase;
-        font-size: 30px;
-        font-weight: bold;
-        letter-spacing: 1px;
-    }
+  .heading {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
 
-    .red-text {
-        /* color: red; */
-        font-weight: 600;
-    }
+  .red-text {
+    font-weight: 600;
+  }
 
-    ul li a {
-        text-decoration: none;
-        color: black;
-    }
+  ul li a {
+    text-decoration: none;
+    color: black;
+  }
 
-    .message-field {
-        background-color: transparent;
-        border: 1px solid rgb(85, 77, 77);
-        border-radius: 0;
-        color: #111111;
-        font-size: 13px;
-        font-weight: 500;
-        letter-spacing: 0.1em;
-        padding-left: 10px;
-        margin: 0 0 25px 0;
-        line-height: 20px;
-        text-transform: uppercase;
-    }
+  .message-field {
+    background-color: transparent;
+    border: 1px solid rgb(85, 77, 77);
+    border-radius: 0;
+    color: #111111;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    padding-left: 10px;
+    margin: 0 0 25px 0;
+    line-height: 20px;
+    text-transform: uppercase;
+  }
 
-    .contact-contact h2 {
-        font-weight: bold;
-        letter-spacing: 1px;
+  .contact-contact h2 {
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
 
-    }
-    
-    .button{
-        background-color:#dd4e67;
-        height: 45px;
-        font-size: 75%;
-        /* width: 250px; */
-    }
-    
-
-
+  .button {
+    background-color: #dd4e67;
+    font-size: 75%;
+  }
 </style>
 
-<!-- Html body part -->
-<!-- card -->
+{% include 'navbar/navbar-flash.html' %}
 
-<body>
-    <div class="container">
-        <h1 class="heading mb-5">Get the support you need !!</h1>
-        <div class="row justify-content-around">
-
-
-            <div class="col-md-4">
-                <div class="card border-0">
-                    <div class="card-block d-flex align-items-center flex-column p-3">
-                        <span>
-                            <img src="email2.png" alt="" width="132" height=132">
-                        </span>
-                        <h4 class="card-title my-2">Send us an E-mail</h4>
-                        <p class="card-text text-center">
-                            Email-<span class="red-text">helpdesk@gharelu.com</span> with a
-                            description of your IT issue along with your name, company and
-                            callback number.
-                        </p>
-                        <button class="btn w-53 button" type="submit">Contact us by E-mail</button>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="col-md-4">
-                <div class="card border-0">
-                    <div class="card-block d-flex align-items-center flex-column p-3">
-                        <span>
-                            <img src="call.png" alt="" width="130" height=130">
-                        </span>
-                        <h4 class="card-title my-2">Call Us</h4>
-                        <p class="card-text text-center">
-                            For any assistance needed feel free to call us at<span class="red-text">+977-9840026546</span>,
-                            <span class="red-text">+977-9840026546</span>,
-                            <span class="red-text">+977-9840026546</span>,
-                            <span class="red-text">+977-9840026546</span>,
-                            <span class="red-text">122366</span>
-                           
-
-                        </p>
-                        <button class="btn w-51 button" type="submit">Call-9840026546</button>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="col-md-4">
-                <div class="card border-0">
-                    <div class="card-block d-flex align-items-center flex-column p-3">
-                        <span>
-                            <img src="createticket1.png" alt="" width="130" height=130">
-                        </span>
-                        <h4 class="card-title my-2">Create Online Ticket</h4>
-                        <p class="card-text text-center">
-                            <span class="red-text">Log in</span> to the Prototype:IT help desk system and create a
-                            support ticket for your issue or
-                            check up on the status of an existing ticket.
-                        </p>
-                        <button class="btn w-53 button" type="submit">Login in to Helpdesk</button>
-                    </div>
-
-                </div>
-            </div>
+<div class="container" style="margin-top: 150px">
+  <h1 class="heading mb-5 mt-4">Get the support you need !!</h1>
+  <div class="row justify-content-around">
+    <div class="col-md-4">
+      <div class="card border-0">
+        <div class="card-block d-flex align-items-center flex-column p-3">
+          <span>
+            <i class="fas fa-envelope fa-4x"></i>
+          </span>
+          <h4 class="card-title my-2">Send us an E-mail</h4>
+          <p class="card-text text-center">
+            Email-<span class="red-text">helpdesk.gharelu@gmail.com</span> with a description of your IT issue along
+            with your name, company and callback number.
+          </p>
+          <a class="btn w-53 button" href="mailto:helpdesk.gharelu@gmail.com">Contact us by E-mail</a>
         </div>
+      </div>
     </div>
 
-    <!-- End  of card -->
+    <div class="col-md-4">
+      <div class="card border-0">
+        <div class="card-block d-flex align-items-center flex-column p-3">
+          <span>
+            <i class="fas fa-phone fa-4x"></i>
+          </span>
+          <h4 class="card-title my-2">Call Us</h4>
+          <p class="card-text text-center">
+            For any assistance needed feel free to call us at<span class="red-text">+977-9840026546</span>,
+            <span class="red-text">+977-9840026546</span>, <span class="red-text">+977-9840026546</span>,
+            <span class="red-text">+977-9840026546</span>,
+            <span class="red-text">122366</span>
+          </p>
+          <a class="btn w-51 button" href="tel:+9779816034112">Call-9816034112</a>
+        </div>
+      </div>
+    </div>
 
-     <div id="contact" style="margin-top: 50px">
-        <div class=" justify-content-center mb-5">
-            <h1 class="heading">Contact Us</h1>
+    <div class="col-md-4">
+      <div class="card border-0">
+        <div class="card-block d-flex align-items-center flex-column p-3">
+          <span>
+            <i class="fas fa-headset fa-4x"></i>
+          </span>
+          <h4 class="card-title my-2">Create Online Ticket</h4>
+          <p class="card-text text-center">
+            <span class="red-text">Log in</span> to the Prototype:IT help desk system and create a support ticket for
+            your issue or check up on the status of an existing ticket.
+          </p>
+          <button class="btn w-53 button" type="submit">Login in to Helpdesk</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- End  of card -->
+
+<div id="contact" style="margin-top: 50px">
+  <div class="justify-content-center mb-5">
+    <h1 class="heading">Contact Us</h1>
+  </div>
+
+  <div class="container">
+    <div class="contact-block1">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="contact-contact">
+            <h2>GENERAL INQUERIES</h2>
+            <hr class="straight my-4" />
+
+            <ul class="contact-details">
+              <li><span>Dillibazar, Kathmandu, Nepal</span></li>
+              <li><span>+977-9816034112</span></li>
+              <li><span>helpdesk.gharelu@gmail.com</span></li>
+            </ul>
+          </div>
+
+          <!-- social media icon -->
+
+          <ul class="contact-details d-flex mt-5 text-dark">
+            <li class="my-2 me-2">
+              <a href="https://www.facebook.com" class="fab fa-facebook fa-lg"> </a>
+            </li>
+            <li class="m-2">
+              <a href="https://www.instagram.com" class="fab fa-instagram fa-lg"></a>
+            </li>
+            <li class="m-2">
+              <a href="https://www.linkedin.com" class="fab fa-linkedin fa-lg"></a>
+            </li>
+            <li class="m-2">
+              <a href="https://www.youtube.com" class="fab fa-youtube fa-lg"></a>
+            </li>
+          </ul>
         </div>
 
-        <div class="container">
-            <div class="contact-block1">
-                <div class="row">
-                    <div class="col-lg-6">
+        <!-- Start of form-->
 
-                        <div class="contact-contact">
-                            <h2>GENERAL INQUERIES</h2>
-                            <hr class="straight my-4">
-
-                            <ul class="contact-details">
-                                <li><span>lokanthali, Bhaktapur, Nepal</span></li>
-                                <li><span>+977-9818668236</span></li>
-                                <li><span>admingharelu@example.com</span></li>
-                            </ul>
-                        </div>
-
-                        <!-- social media icon -->
-
-                        <ul class="list-unstyled d-flex mt-5">
-                            <li class="my-2 me-2">
-                                <a href="#" class="fa fa-facebook fa-lg"></a>
-                            </li>
-                            <li class="m-2">
-                                <a href="#" class="fa fa-instagram fa-lg"></a>
-                            </li>
-                            <li class="m-2">
-                                <a href="#" class="fa fa-linkedin fa-lg"></a>
-                            </li>
-                            <li class="m-2">
-                                <a href="#" class="fa fa-youtube fa-lg"></a>
-                            </li>
-                        </ul>
-                    </div>
-
-
-                    <!-- Start of form-->
-
-                    <div class="col-lg-6">
-                        <form action="" method="post" role="form" class="contactForm">
-                            <div class="row">
-
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <input type="text" name="name" class="form-control input-field" id="name"
-                                            placeholder="Your Name " />
-                                    </div>
-                                </div>
-
-
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <input type="email" class="form-control input-field" name="email" id="email"
-                                            placeholder="Your Email" />
-                                    </div>
-                                </div>
-
-
-                                <div class="col-lg-12">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control input-field" name="subject" id="subject"
-                                            placeholder="Subject" />
-                                    </div>
-                                </div>
-
-
-                                <div class="col-lg-12">
-                                    <div class="form-group">
-                                        <textarea class="form-control message-field" name="message" rows="5"
-                                            placeholder="Message"></textarea>
-                                    </div>
-                                </div>
-
-                                <!-- End of form -->
-
-
-                                <!-- Send message buttom -->
-
-                                <div class="col-lg-12 my-2">
-                                    <input type="submit" class="btn" value="Send Message" />
-                                </div>
-
-                                
-                                
-                            </div>
-                        </form>
-                        
-                    </div>
+        <div class="col-lg-6">
+          {% include 'message.html' %}
+          <form action="" method="post" role="form" class="contactForm">
+            {%csrf_token %}
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <input type="text" name="name" class="form-control input-field" id="name" placeholder="Your Name " />
                 </div>
+              </div>
+
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <input
+                    type="email"
+                    class="form-control input-field"
+                    name="email"
+                    id="email"
+                    placeholder="Your Email"
+                  />
+                </div>
+              </div>
+
+              <div class="col-lg-12">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control input-field"
+                    name="subject"
+                    id="subject"
+                    placeholder="Subject"
+                  />
+                </div>
+              </div>
+
+              <div class="col-lg-12">
+                <div class="form-group">
+                  <textarea class="form-control message-field" name="message" rows="5" placeholder="Message"></textarea>
+                </div>
+              </div>
+
+              <!-- End of form -->
+
+              <!-- Send message buttom -->
+
+              <div class="col-lg-12 my-2">
+                <input type="submit" class="btn" value="Send Message" />
+              </div>
             </div>
-            <div class="mt-5 row"> <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.3847688569463!2d85.32448051491623!3d27.70540398279279!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19a77f1ab301%3A0xb213d09ebce4b3da!2sDillibazar!5e0!3m2!1sen!2snp!4v1643462436817!5m2!1sen!2snp" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe></div>
+          </form>
         </div>
+      </div>
+    </div>
+    <div class="mt-5 row">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.3847688569463!2d85.32448051491623!3d27.70540398279279!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19a77f1ab301%3A0xb213d09ebce4b3da!2sDillibazar!5e0!3m2!1sen!2snp!4v1643462436817!5m2!1sen!2snp"
+        width="100%"
+        height="450"
+        style="border: 0"
+        allowfullscreen=""
+        loading="lazy"
+      ></iframe>
+    </div>
+  </div>
 
-
-{% endblock %}
+  {% endblock %}
+</div>

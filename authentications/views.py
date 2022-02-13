@@ -3,10 +3,10 @@ from django.contrib import auth
 from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
 from django.contrib import messages
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import authenticate, logout
 from .forms import CreateUserForm
 from django.contrib.auth.forms import PasswordChangeForm
-from .auth import professional_only, unauthenticated_user,customer_only
+from .auth import unauthenticated_user
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import update_session_auth_hash
 
@@ -158,7 +158,7 @@ def entermailResetpassword(request):
             username = request.POST.get('username')
             
             if not User.objects.filter(username=username).first():
-                messages.add_message(request, messages.ERROR, 'No user found with this username.')
+                messages.add_message(request, messages.ERROR, f'No user found with {username} username.')
                 return redirect('/auth/reset-password-enterusername')
             
             user_obj = User.objects.get(username = username)
@@ -169,7 +169,7 @@ def entermailResetpassword(request):
             profile_obj.save()
 
             send_forget_password_mail(user_obj.email , token)
-            messages.add_message(request,messages.SUCCESS, 'An email is sent.')
+            messages.add_message(request,messages.SUCCESS, 'An email is sent to user with password changing link.')
             return redirect('/auth/reset-password-enterusername')
 
     return render(request, 'account/reset-password-enterusername.html')
@@ -185,7 +185,7 @@ def resetPassword(request,token):
 
         
         if user_id is  None:
-            messages.add_message(request, messages.ERROR ,'No user id found.')
+            messages.add_message(request, messages.ERROR ,'No user found with that username.')
             return redirect(f'/reset-password/{token}/')
             
         if  new_password != confirm_new_password:
@@ -199,7 +199,6 @@ def resetPassword(request,token):
         user_obj.set_password(new_password)
         user_obj.save()
 
-        # return redirect('/auth/signin')
         return render(request, 'account/reset-password-done.html')
 
 

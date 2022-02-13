@@ -25,3 +25,19 @@ class Order(models.Model):
     contact_no = models.CharField(validators=[MinLengthValidator(9), MaxLengthValidator(10)], null=True, max_length=10)
     contact_address = models.CharField(max_length=200, null=True)
     created_date = models.DateTimeField(auto_now_add=True, null=True)
+
+
+class Contact(models.Model):
+    name = models.CharField(max_length=200)
+    email = models.EmailField(max_length=200)
+    subject = models.CharField(max_length=200)
+    message = models.TextField(max_length=1000)
+    date = models.DateTimeField(auto_now_add=True)
+    class Meta:
+        verbose_name_plural = "Contact"
+
+    def __str__(self):
+        return self.name + "-" +  self.email
+
+
+
