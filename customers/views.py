@@ -50,6 +50,9 @@ def customerUpdateProfile(request):
     profile= request.user.profile # Getting currently logged in user data
     print(profile)
     if request.method == 'POST':
+        print('hello')
+
+
         userdata = ProfileForm(request.POST,request.FILES,instance=profile) 
         print(userdata)
         if userdata.is_valid():

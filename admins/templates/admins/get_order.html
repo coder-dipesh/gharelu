@@ -1,49 +1,69 @@
-{% extends 'admin_layout.html' %}
-{% load bootstrap %}
-{% load static %}
-{% block title %}All Orders | Admin Gharelu{% endblock title %}
+{% extends 'admin_layout.html' %} {% load bootstrap %} {% load static %} {% block title %}All Orders | Admin Gharelu
+{%endblock title %} {% block main %}
+<div class="d-flex justify-content-between">
+  <h3 class="text-dark mb-4 display-6 mt-lg-5">Showing All Orders</h3>
+</div>
 
-{% block main %}
-    <div class="d-flex justify-content-between">
-        <h3 class="text-dark mb-4 display-6 mt-lg-5">Showing All Orders</h3>
-    </div>
+<div class="container-fluid" id="m-container8" style="min-height: 100vh">
+  <div class="row">
+    <div class="col mt-4 mb-4">
+      {% include 'message.html' %}
+      <div class="card shadow-lg">
+        <div class="card-body table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Booking By</th>
+                <th>Booking Date</th>
+                <th>Start Time</th>
+                <th>End Time</th>
+                <th>Contact Address</th>
+                <th>Contact Number</th>
+                <th>Service Price</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody class="align-services-center">
+              {% for i in orders %}
+              <tr>
+                <td>{{i.user.username}}</td>
+                <td>{{i.date}}</td>
+                <td>{{i.start_time}}</td>
+                <td>{{i.end_time}}</td>
+                <td>{{i.contact_address}}</td>
+                <td>{{i.contact_no}}</td>
+                <td>Rs.{{i.total_price}}</td>
+                <td>{{i.status}}</td>
 
+                <td>
+                  {% if i.status == 'Pending' %}
+                  <a class="btn btn-sm" style="background-color: #dd4e67">
+                    <i class="fa fa-check fa-x" aria-hidden="true"></i>
+                    PENDING
+                  </a>
+                  
+                  {% elif i.status == 'Approved' %}
+                  <a class="btn btn-sm" style="background-color: #00eeb6">
+                    <i class="fa fa-check fa-x" aria-hidden="true"></i>
+                    APPROVED
+                  </a>
+                  {% elif i.status == 'Declined' %}
+                  <a class="btn btn-sm" style="background-color: #bb3810">
+                    <i class="fa fa-times fa-x" aria-hidden="true"></i>
+                    DECLINED
+                  </a>
 
-    {% for i in booking %}
-        <div class="card shadow outline-none" style="margin-top: 20px; border: none">
-            <div class="d-flex justify-content-between card-header">
-                <h5 class="text-primary">{{ i.user.first_name }} {{ i.user.last_name }} ➦ Booked a holiday in
-                    ✈ {{ i.place.dest_name }}, {{ i.place.country }}</h5>
-                <h5>#BID{{ i.id }}
-
-                    {% if i.status == "In-Review" %}
-                        <span class="badge bg-warning">{{ i.status }}</span>
-                        <i class="fa fa-exclamation-circle text-warning" aria-hidden="true">
-
-                    {% elif i.status == "Denied" %}
-                        <span class="badge bg-danger">{{ i.status }}</span>
-                        <i class="fa fa-times-circle text-danger" aria-hidden="true">
-
-                    {% else %}
-                        <span class="badge bg-success">{{ i.status }}</span>
-                        <i class="fa fa-check-circle text-success" aria-hidden="true">
-                    {% endif %}
-
-
-                </h5>
-            </div>
-            <div class="card-body">
-                <p class="card-title fs-5">Booked date: <strong>{{ i.booked_date }}</strong></p>
-                <p class="card-title fs-5">Selected Package: <strong>{{ i.offer.offer_name }}</strong></p>
-                <p class="card-title fs-5">Total Person: <strong>{{ i.total_person }}</strong></p>
-                <hr>
-                <div class="d-flex justify-content-between card-header">
-                    <p class="card-title fs-4">Total Amount: <strong>${{ i.total_price }}</strong></p>
-                    <button type="button" class="btn btn-danger"><a href="/admins/update_status/{{ i.id }}">Decide what to do</a></button>
-                </div>
-            </div>
+                  {%endif%}
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
         </div>
-    {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
 
 {% endblock %}
-
