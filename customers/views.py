@@ -44,7 +44,6 @@ def customerProfile(request):
     return render(request, 'customers/customerProfile.html', context)
 
 
-
 @login_required
 @customer_only
 def customerUpdateProfile(request):

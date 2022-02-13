@@ -63,7 +63,9 @@ def get_feedback(request):
 @login_required
 @admin_only
 def get_allservices(request):
+    services = Service.objects.all().order_by('id')
     context = {
+        'services': services,
         'activate_services': 'active bg-primary'
     }
     return render(request, 'admins/get_service.html', context)
@@ -72,8 +74,9 @@ def get_allservices(request):
 @login_required
 @admin_only
 def get_allorders(request):
-    
+    orders = Order.objects.all().order_by('id')
     context = {
+        'orders': orders,
         'activate_orders': 'active bg-primary'
     }
 

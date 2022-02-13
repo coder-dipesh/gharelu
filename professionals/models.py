@@ -19,7 +19,7 @@ class Service(models.Model):
     service_description = models.TextField(null=True)
     service_category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True, )
     service_photo = models.FileField(upload_to='static/uploads/service',default='static/images/no_image_service_watermarked.png', null=True)
-    service_price = models.IntegerField()
+    service_price = models.IntegerField(null=True)
     service_location = models.CharField(max_length=100,choices=SERVICE_LOCATION,null=True)
     service_created_date = models.DateField(auto_now_add=True, null=True)
     def __str__(self):

@@ -153,6 +153,7 @@ def changePassword(request):
 @login_required
 @professional_only
 def service_form(request):
+    
     if request.method == "POST":
         form = ServiceForm(request.POST, request.FILES)
         if form.is_valid():
