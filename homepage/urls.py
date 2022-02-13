@@ -11,6 +11,6 @@ urlpatterns = [
     path('book-service/<int:service_id>',views.bookService,name='book-service'),
     path('cancel-service-booking/<int:service_id>',views.cancelBookingService,name='cancel-service-booking'),
 
-
+    path ('support',views.Support,name='support'),
 
 ]

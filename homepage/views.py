@@ -1,9 +1,10 @@
+from django.shortcuts import redirect, render
 from django.core.mail import EmailMessage
 
 from django.conf import settings
 from django.shortcuts import redirect, render
 from authentications.auth import customer_only
-from homepage.forms import OrderForm
+from homepage.forms import ContactForm, OrderForm,ContactForm
 from homepage.models import Order
 from professionals.models import Service
 from .filters import ServiceFilter
@@ -11,6 +12,8 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.template.loader import render_to_string
 
+# To send mail to admin
+from django.core.mail import mail_admins
 
 def homepage(request):
     return render(request,'homepage/homepage.html')
@@ -81,7 +84,27 @@ def bookService(request, service_id):
         'services': services,
         'service': service,
     }
-    return render(request,'homepage/bookServiceForm.html',context)
+    return render(request, 'homepage/giveFeedback.html', context)
+
+
+
+def Support(request):
+    if request.method == 'POST':
+        f = ContactForm(request.POST)
+
+        if f.is_valid():
+            name = f.cleaned_data['name']
+            sender = f.cleaned_data['email']
+            subject = "You have a new Message from {}:{}:{}".format(f.cleaned_data['name'], f.cleaned_data['message'], f.cleaned_data['email'])
+            message = "Message: {}".format(f.cleaned_data['message'])
+            mail_admins(subject, message)
+            f.save()
+            messages.add_message(request, messages.SUCCESS, 'Your Message Submitted Successfully.')
+            return redirect('/support')
+
+    else:
+        f = ContactForm()
+    return render(request,'homepage/support.html', {'form': f})
 
 
 
@@ -90,3 +113,4 @@ def cancelBookingService(request, service_id):
     service.delete()
     messages.add_message(request, messages.SUCCESS, 'Service cancelled successfully!!')
     return redirect('/customers/my_bookings')
+

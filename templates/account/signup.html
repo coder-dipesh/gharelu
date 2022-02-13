@@ -179,7 +179,7 @@ body {
 
 <div class="container">
     <div class="row px-3">
-        <div class="col-lg-10 col-xl-9 card flex-row mx-auto px-0">
+        <div class="col-lg-8 col-xl-9 card flex-row mx-auto px-0">
 
             {% if otp %}
 
@@ -199,7 +199,7 @@ body {
                     <input
                         type="text"
                         class="form-control"
-                        placeholder="Enter your OTP"
+                        id="add_otp"
                         aria-label="OTP"
                         aria-describedby="basic-addon1"
                         name="otp"
@@ -280,6 +280,14 @@ body {
 <script>
 
     var form_fields = document.getElementsByTagName('input')
+
+    var otp_field = document.getElementById('add_otp')
+
+
+    otp_field[1].placeholder = "Enter OTP";
+    otp_field[2].placeholder = "Enter OTP";
+
+
 
     form_fields[1].placeholder = 'johndoe';
 

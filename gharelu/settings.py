@@ -175,3 +175,9 @@ EMAIL_HOST_PASSWORD = 'joqqavnhnusaifhf'
 EMAIL_USE_TLS = True
 
 
+ADMINS = [    
+    ('Gharelu', 'helpdesk.gharelu@gmail.com'),
+    ('Dipesh Siwakoti', 'dipeshsiwakoti112@gmail.com'),
+    ('Nilesh Kadel', 'nileshkadel1@gmail.com'),
+
+]
