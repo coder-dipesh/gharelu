@@ -6,6 +6,7 @@ from authentications.forms import ProfileForm
 import os
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.forms import PasswordChangeForm
+from customers.models import Feedback
 from homepage.models import Order
 from django.template.loader import render_to_string
 from django.conf import settings
@@ -19,14 +20,18 @@ from professionals.models import Service
 @login_required
 @professional_only
 def professionalDashboard(request):
+    user= request.user
     service = Service.objects.all()
-    bookings = Order.objects.filter(user=request.user)
     totalService =service.count()
+
+    bookings = Order.objects.all()
     totalBookings = bookings.count()
+    review = Feedback.objects.all()
 
     context = {
         'totalService': totalService,
         'totalBookings': totalBookings,
+        'review': review,
         'activate_professionalshome': 'active bg-primary',
     }
     return render(request, 'professionals/professionalDashboard.html', context)
@@ -148,6 +153,7 @@ def changePassword(request):
 @login_required
 @professional_only
 def service_form(request):
+    
     if request.method == "POST":
         form = ServiceForm(request.POST, request.FILES)
         if form.is_valid():

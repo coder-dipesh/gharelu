@@ -1,0 +1,58 @@
+
+{% extends 'admin_layout.html' %} {% load bootstrap %} {% load static %} {% block title %}All Services | Admin Gharelu
+{%endblock title %} {% block main %}
+<div class="d-flex justify-content-between">
+  <h3 class="text-dark mb-4 display-6 mt-lg-5">Showing All Services</h3>
+</div>
+
+
+
+
+<div class="container-fluid" id="m-container8" style="min-height: 100vh">
+  <div class="row">
+    <div class="col mt-4 mb-4">
+      {% include 'message.html' %}
+      <div class="card shadow-lg">
+        <div class="card-body table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Service Name</th>
+                <th>Service Category</th>
+                <th>Service Location</th>
+                <th>Service Description</th>
+                <th>Service Price</th>
+                <th>Created On</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody class="align-services-center">
+              {% for i in services %}
+              <tr>
+                <td>{{i.service_name}}</td>
+                <td>{{i.service_category.category_name}}</td>
+                <td>{{i.service_location}}</td>
+                <td>{{i.service_description}}</td>
+                <td>Rs. {{i.service_price}}</td>
+                <td>{{i.service_created_date}}</td>
+                <td><a class="btn btn-sm" style="background-color: #1b7661">
+                    <i class="fa fa-check fa-x" aria-hidden="true"></i>
+                    ACTIVE
+                  </a></td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+{% endblock %}

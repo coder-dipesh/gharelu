@@ -1,0 +1,105 @@
+<!-- Inheriting from parent -->
+{% extends 'auth_layout.html' %}
+{%load bootstrap%}
+{%load static%}
+{% load crispy_forms_tags %}
+
+
+<!-- Site title goes here -->
+{% block title %}
+
+    <title> Feedback Form | Gharelu</title>
+
+{% endblock title%}
+
+
+
+<!-- Body content goes here -->
+{% block content %}
+
+<style>
+    *{
+font-family: "poppins", sans-serif;
+}
+label{
+    display:none;
+}
+.form-control{
+    margin-top: 1.5rem;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    box-shadow: none;
+    font-size: 14px;
+}
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .card {
+    position: unset !important;
+    box-shadow: 0 2px 10px rgb(0 22 84 / 10%);
+    margin: 10px auto;
+    position: relative;
+  }
+  .card .card-header {
+    display: flex;
+    justify-content: center;
+    height: 12em;
+    background-image: linear-gradient(to right, #0093e9, #80d0c7) !important;
+  }
+  .profile-image {
+    height: 10em;
+    width: 10em;
+    border-radius: 50%;
+    box-shadow: 0 0.2em 0.5em;
+    object-fit: cover;
+  }
+  .card-footer span {
+    color: #4a5682;
+    font-family: Poppins;
+    font-weight: 500;
+  }
+
+</style>
+
+{% include 'navbar/customer-navbar.html' %}
+
+{% include 'message.html' %}
+
+<center style="margin-top: 4rem;">
+<div class="col-lg-10 col-xl-6 ">
+            <div class="card  shadow border-0" >
+              <div class="card-body">
+            <form action="" method="POST">
+                    <div class="col-md-10 ">
+                        <h3 class="mb-4 text-uppercase">Give Feedback</h3>
+                            <div class="col-md-10 col-lg-12 col-xl-12">
+                            {% csrf_token %}
+                            {{ form_feedback | crispy }}
+                            <button class="btn btn-primary btn-lg mt-2" >SUBMIT</button>
+                            </div>
+                    </div>
+                </form>
+              </div>
+            </div>
+          </div>
+</center>
+
+<script>
+
+    var form_fields = document.getElementsByTagName('input')
+
+    form_fields[1].placeholder = 'Rate out of 5';
+
+    form_fields[2].placeholder = 'Subject';
+
+    form_fields[3].placeholder = 'Give your feedback here';
+
+
+</script>
+
+
+
+{%endblock content%}
