@@ -9,8 +9,8 @@ from customers.models import Feedback
 from homepage.models import Order
 from professionals.models import Service
 
-@login_required
-@admin_only
+# @login_required
+# @admin_only
 def adminDashboard(request):
 
     users = User.objects.all()
@@ -50,8 +50,8 @@ def adminDashboard(request):
     return render(request, 'admins/adminDashboard.html' , context )
 
 
-@login_required
-@admin_only
+# @login_required
+# @admin_only
 def get_feedback(request):
     feedback = Feedback.objects.all().order_by('id')
     context = {
@@ -60,8 +60,8 @@ def get_feedback(request):
     }
     return render(request, 'admins/get_feedback.html', context)
 
-@login_required
-@admin_only
+# @login_required
+# @admin_only
 def get_allservices(request):
     services = Service.objects.all().order_by('id')
     context = {
@@ -71,8 +71,8 @@ def get_allservices(request):
     return render(request, 'admins/get_service.html', context)
 
 
-@login_required
-@admin_only
+# @login_required
+# @admin_only
 def get_allorders(request):
     orders = Order.objects.all().order_by('id')
     context = {
@@ -82,8 +82,8 @@ def get_allorders(request):
 
     return render(request, 'admins/get_order.html' , context)
 
-@login_required
-@admin_only
+# @login_required
+# @admin_only
 def allCategory(request):
     categories = Category.objects.all().order_by('-id')
     context = {
@@ -93,9 +93,8 @@ def allCategory(request):
     return render(request, 'admins/category.html', context)
 
     
-
-@login_required
-@admin_only
+# @login_required
+# @admin_only
 def category_form(request):
     if request.method == "POST":
         form = CategoryForm(request.POST)
@@ -114,8 +113,8 @@ def category_form(request):
     return render(request, 'admins/category_form.html' , context)
 
 
-@login_required
-@admin_only
+# @login_required
+# @admin_only
 def category_update_form(request, category_id):
     category = Category.objects.get(id=category_id)
     if request.method == "POST":
@@ -134,7 +133,6 @@ def category_update_form(request, category_id):
     return render(request, 'admins/category_update_form.html', context)
 
 
-
 @login_required
 @admin_only
 def delete_category(request, category_id):
@@ -144,8 +142,8 @@ def delete_category(request, category_id):
     return redirect('/admins/category')
 
 
-@login_required
-@admin_only
+# @login_required
+# @admin_only
 def allAdmins(request):
     admins = User.objects.filter(is_superuser=1).order_by('-id')
     

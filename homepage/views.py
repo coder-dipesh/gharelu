@@ -31,8 +31,8 @@ def service(request):
     return render(request,'homepage/service.html',context)
 
 
-@login_required
-@customer_only
+# @login_required
+# @customer_only
 def bookService(request, service_id):
     user = request.user
     services = Service.objects.get(id=service_id)
@@ -93,8 +93,6 @@ def Support(request):
         f = ContactForm(request.POST)
 
         if f.is_valid():
-            name = f.cleaned_data['name']
-            sender = f.cleaned_data['email']
             subject = "You have a new Message from {}:{}:{}".format(f.cleaned_data['name'], f.cleaned_data['message'], f.cleaned_data['email'])
             message = "Message: {}".format(f.cleaned_data['message'])
             mail_admins(subject, message)
@@ -105,7 +103,6 @@ def Support(request):
     else:
         f = ContactForm()
     return render(request,'homepage/support.html', {'form': f})
-
 
 
 def cancelBookingService(request, service_id):

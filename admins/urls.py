@@ -23,7 +23,4 @@ urlpatterns = [
     path('deactivate/<int:user_id>', views.deactivate, name='deactivate'),
     path('reactivate/<int:user_id>', views.reactivate, name='reactivate'),
 
-
-
-
 ]
