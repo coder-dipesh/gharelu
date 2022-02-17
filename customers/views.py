@@ -97,10 +97,10 @@ def feedbackForm(request, service_id):
             data.save()
 
             messages.add_message(request, messages.SUCCESS, 'Thank You! Your Feedback submitted successfully!')
-            return redirect('/customers/feedback_form/'+str(service_id.id))
+            return redirect('/customers/feedback_form/'+ str(service_id.id))
         else:
             messages.add_message(request, messages.ERROR, "Something went wrong!")
-            return redirect('/customers/feedback_form/'+str(service_id.id))
+            return redirect('/customers/feedback_form/'+ str(service_id.id))
 
     context={
         'form_feedback':FeedbackForm()
