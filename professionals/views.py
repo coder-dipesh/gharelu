@@ -17,10 +17,9 @@ from professionals.models import Service
 
 # Create your views here.
 
-@login_required
-@professional_only
+# @login_required
+# @professional_only
 def professionalDashboard(request):
-    user= request.user
     service = Service.objects.all()
     totalService =service.count()
 
@@ -38,8 +37,8 @@ def professionalDashboard(request):
 
 
 
-@login_required
-@professional_only
+# @login_required
+# @professional_only
 def professionalProfile(request):
     profile= request.user.profile # Getting currently logged in user data
     if request.method == 'POST':
@@ -57,8 +56,8 @@ def professionalProfile(request):
     return render(request, 'professionals/professionalProfile.html', context)
 
 
-@login_required
-@professional_only
+# @login_required
+# @professional_only
 def professionalUpdateProfile(request):
     profile= request.user.profile # Getting currently logged in user data
 
@@ -80,8 +79,8 @@ def professionalUpdateProfile(request):
     return render(request, 'professionals/professionalUpdateProfile.html', context)
 
 
-@login_required
-@professional_only
+# @login_required
+# @professional_only
 def service(request):
     services = Service.objects.all().order_by('-id')
     context={
@@ -92,8 +91,8 @@ def service(request):
 
 
 
-@login_required
-@professional_only
+# @login_required
+# @professional_only
 def bookings(request):
     order=Order.objects.all().order_by('-id')
     context = {
@@ -131,7 +130,7 @@ def declineBooking(request, order_id):
     return redirect('/professionals/bookings')
 
 
-@login_required
+# @login_required
 def changePassword(request):
     if request.method == 'POST':
         form = PasswordChangeForm(request.user, request.POST)
@@ -150,8 +149,8 @@ def changePassword(request):
     return render(request, 'professionals/changePassword.html', context)
 
 
-@login_required
-@professional_only
+# @login_required
+# @professional_only
 def service_form(request):
     
     if request.method == "POST":
@@ -169,8 +168,8 @@ def service_form(request):
     }
     return render(request, 'professionals/service_form.html', context)
 
-@login_required
-@professional_only
+# @login_required
+# @professional_only
 def show_service(request):
     services = Service.objects.all().order_by('-id')
     context={

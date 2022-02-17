@@ -62,7 +62,6 @@ class OrderForm(ModelForm):
         fields = [ 'contact_no', 'contact_address', 'date','start_time','end_time']
 
 
-
 class ContactForm(forms.ModelForm):
 
     class Meta:

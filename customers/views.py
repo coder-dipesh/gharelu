@@ -13,8 +13,8 @@ from homepage.filters import ServiceFilter
 
 # Create your views here.
 
-@login_required
-@customer_only
+# @login_required
+# @customer_only
 def customerDashboard(request):
     services = Service.objects.all().order_by('-id')
     service_filter = ServiceFilter(request.GET, queryset=services)
@@ -25,8 +25,8 @@ def customerDashboard(request):
     return render(request, 'customers/customerDashboard.html',context)
 
 
-@login_required
-@customer_only
+# @login_required
+# @customer_only
 def customerProfile(request):
     profile= request.user.profile # Getting currently logged in user data
     if request.method == 'POST':
@@ -44,15 +44,13 @@ def customerProfile(request):
     return render(request, 'customers/customerProfile.html', context)
 
 
-@login_required
-@customer_only
+# @login_required
+# @customer_only
 def customerUpdateProfile(request):
     profile= request.user.profile # Getting currently logged in user data
     print(profile)
     if request.method == 'POST':
         print('hello')
-
-
         userdata = ProfileForm(request.POST,request.FILES,instance=profile) 
         print(userdata)
         if userdata.is_valid():
@@ -67,8 +65,8 @@ def customerUpdateProfile(request):
     context = {'profileUpdateForm':ProfileForm(instance=profile)}
     return render(request, 'customers/customerUpdateProfile.html', context)
 
-@login_required
-@customer_only
+# @login_required
+# @customer_only
 def myBookings(request):
     user = request.user
     servicePending = Order.objects.filter(user=user, status="Pending").order_by('-id')
@@ -82,8 +80,8 @@ def myBookings(request):
     }
     return render(request, 'customers/myBookings.html',context)
 
-@login_required
-@customer_only
+# @login_required
+# @customer_only
 def feedbackForm(request, service_id):
     user_id = request.user
     service_id = Service.objects.get(id=service_id)
