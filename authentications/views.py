@@ -15,9 +15,8 @@ from django.core.mail import send_mail
 from django.conf import settings
 import uuid
 
-# Methodes goes here
 
-# @unauthenticated_user
+@unauthenticated_user
 def signin(request):
     if request.method == 'POST':
         username = request.POST['username']
@@ -41,7 +40,7 @@ def signin(request):
     return render(request, 'account/login.html',context)
 
 
-# @unauthenticated_user
+@unauthenticated_user
 def proSignup(request):
     if request.method == 'POST':
         get_otp = request.POST.get('otp')
@@ -95,7 +94,7 @@ def signout(request):
     return redirect('/')
 
 
-# @unauthenticated_user
+@unauthenticated_user
 def userSignup(request):
 
     if request.method == 'POST':
@@ -209,7 +208,7 @@ def resetpasswordDone(request):
 
     return render(request, 'account/reset-password-done.html')
 
-# @login_required
+@login_required
 def change_password(request):
     if request.method == 'POST':
         form = PasswordChangeForm(request.user, request.POST)
