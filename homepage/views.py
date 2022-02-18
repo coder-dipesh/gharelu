@@ -31,8 +31,8 @@ def service(request):
     return render(request,'homepage/service.html',context)
 
 
-# @login_required
-# @customer_only
+@login_required
+@customer_only
 def bookService(request, service_id):
     user = request.user
     services = Service.objects.get(id=service_id)
@@ -84,7 +84,7 @@ def bookService(request, service_id):
         'services': services,
         'service': service,
     }
-    return render(request, 'homepage/giveFeedback.html', context)
+    return render(request, 'homepage/bookServiceForm.html', context)
 
 
 
@@ -104,7 +104,8 @@ def Support(request):
         f = ContactForm()
     return render(request,'homepage/support.html', {'form': f})
 
-
+@login_required
+@customer_only
 def cancelBookingService(request, service_id):
     service = Order.objects.get(id=service_id)
     service.delete()
