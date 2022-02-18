@@ -15,7 +15,6 @@ from django.contrib import messages
 from professionals.forms import ServiceForm
 from professionals.models import Service
 
-# Create your views here.
 
 @login_required
 @professional_only
