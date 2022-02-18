@@ -157,13 +157,7 @@ LOGIN_URL = "/auth/signin"
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-# Manually Added by Developer
-
-# AUTHENTICATION_BACKENDS = [
-#     'django.contrib.auth.backends.ModelBackend',
-#     'allauth.account.auth_backends.AuthenticationBackend',
-
-# ]
+# Manually Added 
 
 
 # TO send mail to  users
