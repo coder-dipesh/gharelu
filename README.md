@@ -102,7 +102,7 @@ $ python manage.py test app_name
 [Color Hunt](https://colorhunt.co/palettes/black)
 
  
-## Contrubutiors
+## Contributors
 
 [coder-dipesh](https://github.com/coder-dipesh/) 
 
